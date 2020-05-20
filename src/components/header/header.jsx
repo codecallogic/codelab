@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 class Header extends Component {
     render () {
         return (
+            <div>
             <div className="header">
                 <div className="header__logo-box">
                     <img src="https://i.imgur.com/TIDi3Mb.png" alt="Logo" className="header__logo"/>
@@ -15,6 +16,8 @@ class Header extends Component {
                     </h1>
                     <Link to="/" className="btn btn--white btn--animated">Lets get start on a project together</Link>
                 </div>
+            </div>
+            
             </div>
         )
     }

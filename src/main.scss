@@ -5,25 +5,9 @@
 @import 'base/base';
 @import 'base/animations';
 @import 'base/typography';
-@import 'base/utilities.scss';
+@import 'base/utilities';
 
+@import 'layout/header.scss';
+@import 'layout/grid.scss';
 
-@import 'components/header/header.scss'
-
-/*
-COLORS:
-
-GREEN
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-RED
-Light Red: #c87a73
-Medium Red: #AC0032 vivid burgundy
-Dark Red:  #34000f
-
-COMPLIMENT COLORS FOR RED
-Baby Powder: #FDFFFC
-
-*/
+@import 'css_components/btn';
