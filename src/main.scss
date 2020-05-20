@@ -1,0 +1,29 @@
+@import 'abstracts/_functions.scss';
+@import 'abstracts/mixins';
+@import 'abstracts/variables';
+
+@import 'base/base';
+@import 'base/animations';
+@import 'base/typography';
+@import 'base/utilities.scss';
+
+
+@import 'components/header/header.scss'
+
+/*
+COLORS:
+
+GREEN
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+RED
+Light Red: #c87a73
+Medium Red: #AC0032 vivid burgundy
+Dark Red:  #34000f
+
+COMPLIMENT COLORS FOR RED
+Baby Powder: #FDFFFC
+
+*/
