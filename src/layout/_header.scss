@@ -3,7 +3,7 @@
     background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.7), rgba($color-primary-light, 0.9)), url(https://i.imgur.com/Oz7V4nb.jpg);
     background-size: cover;
     background-position: top;
-    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
     &__logo-box {
         position: absolute;

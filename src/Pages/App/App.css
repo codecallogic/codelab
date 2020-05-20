@@ -55,7 +55,7 @@ body {
     display: block;
     font-size: 3.2rem;
     font-weight: 400;
-    letter-spacing: 3rem;
+    letter-spacing: 1rem;
     animation-name: moveInLeft;
     animation-duration: 1s;
     animation-timing-function: ease-out;
@@ -69,13 +69,41 @@ body {
     animation-name: moveInRight;
     animation-duration: 1s;
     animation-timing-function: ease-out; }
+  .heading-primary--sub-2 {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 1.5rem;
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; }
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(to right, #c87a73, #34000f);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: .2rem;
+  transition: all .2s; }
+  .heading-secondary:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
+
+.u-center-text {
+  text-align: center; }
+
+.u-margin-bottom-8 {
+  margin-bottom: 8rem; }
 
 .header {
   height: 95vh;
   background-image: linear-gradient(to right bottom, rgba(200, 122, 115, 0.7), rgba(200, 122, 115, 0.9)), url(https://i.imgur.com/Oz7V4nb.jpg);
   background-size: cover;
   background-position: top;
-  clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); }
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
   .header__logo-box {
     position: absolute;
     top: 4rem;
@@ -100,7 +128,6 @@ body {
     display: table;
     clear: both; }
   .row [class^="col-"] {
-    background-color: orangered;
     float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 3rem; }
@@ -161,3 +188,8 @@ body {
 .btn--animated {
   animation: moveInBottom .5s ease-out .75s;
   animation-fill-mode: backwards; }
+
+.section-about {
+  background-color: #eee;
+  padding: 25rem 0;
+  margin-top: -20vh; }
