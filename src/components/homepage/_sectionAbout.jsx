@@ -30,7 +30,13 @@ class Homepage extends Component {
                         <a href="" className="btn-text">Learn More &rarr; </a>
 
                     </div>
-                    <div className="col-1-of-2">Images</div>
+                    <div className="col-1-of-2">
+                        <div className="composition">
+                            <img src="https://i.imgur.com/UiZLqfN.png" alt="Photo 1" className="composition__photo composition__photo--p1"/>
+                            <img src="https://i.imgur.com/zLl3xiv.png" alt="Photo 2" className="composition__photo composition__photo--p2"/>
+                            <img src="https://i.imgur.com/Nkbk1wq.png" alt="Photo 3" className="composition__photo composition__photo--p3"/>
+                        </div>
+                    </div>
                 </div>
             </section>
         )
