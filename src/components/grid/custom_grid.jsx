@@ -33,6 +33,14 @@ class CustomGrid extends Component {
                     <div className="col-1-of-4">Col 1 of 4</div>
                     <div className="col-3-of-4">Col 3 of 4</div>
                 </div>
+                <div className="row">
+                    <div className="col-1-of-4">Col 1 of 4</div>
+                    <div className="col-3-of-4">Col 3 of 4</div>
+                </div>
+                <div className="row">
+                    <div className="col-1-of-8">Col 1 of 8</div>
+                    <div className="col-7-of-8">Col 7 of 8</div>
+                </div>
             </section>
             </div>
         )

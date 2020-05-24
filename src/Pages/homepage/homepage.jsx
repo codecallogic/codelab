@@ -11,6 +11,7 @@ class Homepage extends Component {
                 <Header />
                 <SectionAbout />
                 <SectionMusic />
+                <CustomGrid />
             </main>
         )
     }

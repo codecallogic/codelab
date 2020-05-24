@@ -11,9 +11,6 @@ class App extends Component {
           <Route exact path={"/"} render={() => 
             <Homepage />
           }/>
-          <Route exact path={"/callback"} render={() => 
-           <Homepage />
-          }/>
         </Switch>
       </div>
     )

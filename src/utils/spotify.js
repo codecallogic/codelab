@@ -2,7 +2,6 @@ export default {
     search,
 }
 
-
 function search(){
     return fetch ('/login')
     .then(res => res.json())

@@ -8,7 +8,7 @@ class Music extends Component {
     constructor() {
         super()
         this.state = {
-           apiResponse: "Hi",
+           apiResponse: [],
         }
     }
 
@@ -18,24 +18,40 @@ class Music extends Component {
 
     componentDidMount() {
         let query = queryString.parse(window.location.search)
-        console.log(query.access_token)
-        fetch('https://api.spotify.com/v1/me/player?market=ES&additional_types=episode', {
+        if(Object.keys(query).length !== 0){
+            fetch('https://api.spotify.com/v1/me/player?market=ES&additional_types=episode', {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + query.access_token,
             }
-        })
-        .then(response => response.json())
-        .then(data => console.log(data))
+            })
+            .then(response => response.json())
+            .then(data => 
+                console.log(data)
+            )
+            .catch(error => {
+                console.log(error)
+            })
+        }
     }
     
     render () {
         return (
-            <div>
-                <button onClick={() => window.location="http://localhost:3001/login"}>Music</button>
-                <p>{this.state.apiResponse}</p>
-            </div>
+            <section className="section-music">
+                <div className="row">
+                    <div className="col-1-of-8">
+                        <ul className="heading-side">
+                            <li>M</li>
+                            <li>U</li>
+                            <li>S</li>
+                            <li>I</li>
+                            <li>C</li>
+                        </ul>
+                    </div>
+                    <div className="col-7-of-8">Col 7 of 8</div>
+                </div>
+            </section>
         )
     }
 }
