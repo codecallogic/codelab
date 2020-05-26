@@ -1,5 +1,5 @@
 // COLORS
-@import 'abstracts/_functions.scss';
+@import 'abstracts/_functions';
 @import 'abstracts/mixins';
 @import 'abstracts/variables';
 
@@ -10,13 +10,13 @@
 @import 'base/utilities';
 
 // LAYOUT
-@import 'layout/header.scss';
-@import 'layout/grid.scss';
+@import 'layout/header';
+@import 'layout/grid';
+@import 'layout/sectionAbout';
+@import 'layout/sectionLogin';
+@import 'layout/sectionMusic';
 
 // COMPONENTS
 @import 'cssComponents/btn';
 @import 'cssComponents/composition';
-
-// PAGES
-@import 'components/homepage/sectionAbout';
-@import 'components/homepage/sectionMusic';
+@import 'cssComponents/form';

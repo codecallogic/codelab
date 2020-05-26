@@ -84,3 +84,31 @@
         transform: translateY(0);
     }
 }
+
+.btn-submit {
+
+    font-size: $default-font-size;
+    padding: 2rem;
+    margin-top: 1.5rem;
+    border: none;
+    letter-spacing: .4rem;
+    color: $color-primary-dark;
+    text-transform: uppercase;
+    background: transparent;
+    transition: all .3s;
+
+    &:hover {
+        font-size: $default-font-size + .4rem;
+        border-radius: 1rem;
+        box-shadow: 0 .2rem .2rem rgba($color-black, .3);
+        transform: translateY(-.5rem);
+        border-bottom: .5rem solid $color-primary-light;
+        cursor: pointer;
+    }
+
+    &:active {
+        box-shadow: 0 1rem 2rem rgba($color-black, .2);
+        transform: translateY(0);
+    }
+
+}

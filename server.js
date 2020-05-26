@@ -6,6 +6,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 
 require('dotenv').config()
+require('./config/database');
 
 const app = express();
 
@@ -16,7 +17,8 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(cors())
 app.use(cookieParser());
 
-app.use('/', require('./routes/music'));
+app.use('/api/music', require('./router/music'));
+// app.use('/api/user', require('./router/user'));
 
 // "Catch all" route
 app.get('/*', function(req, res) {
