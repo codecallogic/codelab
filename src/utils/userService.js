@@ -14,5 +14,5 @@ function signup(user) {
         if (res.ok) return res.json()
         throw new Error('Username already taken')
     })
-    .then(data => data)
+    .then(({token}) => token)
 }
