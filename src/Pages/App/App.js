@@ -4,8 +4,15 @@ import HomePage from '../homepage/homepage';
 import LoginPage from '../loginpage/loginpage'
 import SignUpPage from '../signuppage/signuppage'
 import { Route, Switch} from 'react-router-dom'
+import userService from '../../utils/userService'
 
 class App extends Component {
+  constructor() {
+      super()
+      this.state = {
+         user: userService.getUser()
+      }
+  }
   render() {
     return (
       <div>

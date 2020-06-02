@@ -3,6 +3,11 @@ const BASE_URL = '/api/user/';
 
 export default {
     signup,
+    getUser
+}
+
+function getUser(){
+    return tokenService.getUserFromToken()
 }
 
 function signup(user) {
