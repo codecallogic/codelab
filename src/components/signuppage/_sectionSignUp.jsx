@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import userService from '../../utils/userService'
 
 class sectionSignUp extends Component {
-
     state = {
         username: '',
         password: '',
@@ -44,7 +43,11 @@ class sectionSignUp extends Component {
         return (
             <section className="section-signup">
                 <Link to='/' className=''>Home</Link>
-                <Link to='/login' className=''>Log In</Link>
+                {this.props.user ? 
+                    <Link to='' className='' onClick={this.props.handleLogOut}>Log Out</Link>
+                    :
+                    <Link to='/login' className=''>Log In</Link>
+                }
                 <div className="row section-signup-row">
                     <div className="col-1-of-1">
                         <div className="section-signup-container">

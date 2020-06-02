@@ -14,13 +14,13 @@ class sectionLogin extends Component {
                                 <form className="form" action="">
                                     {/* <h2 className="heading-secondary">Login</h2> */}
                                     <div className="form-group">
-                                        <input type="text" placeholder="Username" autocomplete="off" />
-                                        <label for="fullname">Username</label>
+                                        <input type="text" placeholder="Username" autoComplete="off" />
+                                        <label>Username</label>
                                     </div>
 
                                     <div className="form-group">
-                                        <input type="password" placeholder="Password" autocomplete="off" />
-                                        <label for="password">Password</label>
+                                        <input type="password" placeholder="Password" autoComplete="off" />
+                                        <label>Password</label>
                                     </div>
                                     
                                     <div className="form-group">

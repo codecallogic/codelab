@@ -13,6 +13,12 @@ class App extends Component {
          user: userService.getUser()
       }
   }
+
+  handleLogOut = () => {
+    userService.logout()
+    this.setState({ user: null})
+  }
+
   render() {
     return (
       <div>
@@ -21,10 +27,17 @@ class App extends Component {
             <HomePage />
           }/>
           <Route exact path={"/login"} render={() => 
-            <LoginPage />
+            <LoginPage 
+              user={this.state.user}
+              handleLogOut={this.handleLogOut}
+            />
           }/>
           <Route exact path={"/signup"} render={({history}) => 
-            <SignUpPage history={history}/>
+            <SignUpPage 
+              history={history}
+              user={this.state.user}
+              handleLogOut={this.handleLogOut}
+            />
           }/>
         </Switch>
       </div>
