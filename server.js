@@ -18,7 +18,7 @@ app.use(cors())
 app.use(cookieParser());
 
 app.use('/api/music', require('./router/music'));
-// app.use('/api/user', require('./router/user'));
+app.use('/api/user', require('./router/user'));
 
 // "Catch all" route
 app.get('/*', function(req, res) {

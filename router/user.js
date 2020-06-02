@@ -2,6 +2,6 @@ const express   	= require('express')
 const router    	= express.Router()
 const userCtrl		= require('../controller/user')
 
-router.signup('/signup', userCtrl.create)
+router.post('/signup', userCtrl.signup)
 
 module.exports  = router

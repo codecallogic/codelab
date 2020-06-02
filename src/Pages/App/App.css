@@ -196,10 +196,28 @@ body {
   width: 50%;
   height: 80%;
   margin: 0 auto;
-  margin-top: 5rem; }
+  margin-top: 10rem; }
 
 .section-login-row {
   margin-top: 2rem; }
+
+.section-login a {
+  margin-right: 1rem; }
+
+.section-signup-container {
+  height: 85vh; }
+
+.section-signup-box {
+  width: 50%;
+  height: 80%;
+  margin: 0 auto;
+  margin-top: 3rem; }
+
+.section-signup-row {
+  margin-top: 2rem; }
+
+.section-signup a {
+  margin-right: 1rem; }
 
 .section-music {
   background-color: #eee;
@@ -311,6 +329,8 @@ body {
   .btn-submit:active {
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
     transform: translateY(0); }
+  .btn-submit:focus {
+    outline: 0; }
 
 .composition {
   position: relative; }
@@ -339,7 +359,6 @@ body {
     transform: scale(0.9); }
 
 .form {
-  padding-top: 5rem;
   text-align: center; }
   .form-group input {
     font-size: 1.5rem;
@@ -357,6 +376,12 @@ body {
     color: #34000f;
     text-align: center;
     font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1rem; }
+  .form-group-confirm::-webkit-input-placeholder {
+    color: #34000f;
+    text-align: center;
+    font-size: 1rem !important;
     text-transform: uppercase;
     letter-spacing: 1rem; }
   .form input:focus {
@@ -381,3 +406,16 @@ body {
     opacity: 1;
     visibility: visible;
     translate: translateY(0.8rem); }
+  .form-group-alert {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #972B34;
+    visibility: hidden;
+    opacity: 0;
+    display: block;
+    transition: all 1s;
+    margin-top: 1rem; }
+  .form-group-alert:not(:empty) {
+    visibility: visible;
+    opacity: 1;
+    translate: translateY(2rem); }

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import './App.css';
-import Homepage from '../homepage/homepage';
-import Loginpage from '../loginpage/loginpage'
+import HomePage from '../homepage/homepage';
+import LoginPage from '../loginpage/loginpage'
+import SignUpPage from '../signuppage/signuppage'
 import { Route, Switch} from 'react-router-dom'
 
 class App extends Component {
@@ -10,10 +11,13 @@ class App extends Component {
       <div>
         <Switch>
           <Route exact path={"/"} render={() => 
-            <Homepage />
+            <HomePage />
           }/>
           <Route exact path={"/login"} render={() => 
-            <Loginpage />
+            <LoginPage />
+          }/>
+          <Route exact path={"/signup"} render={({history}) => 
+            <SignUpPage history={history}/>
           }/>
         </Switch>
       </div>

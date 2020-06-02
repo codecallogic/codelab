@@ -6,6 +6,7 @@ class sectionLogin extends Component {
         return (
             <section className="section-login">
                 <Link to='/' className=''>Home</Link>
+                <Link to='/signup' className=''>Sign Up</Link>
                 <div className="row section-login-row">
                     <div className="col-1-of-1">
                         <div className="section-login-container">
@@ -19,7 +20,7 @@ class sectionLogin extends Component {
 
                                     <div className="form-group">
                                         <input type="password" placeholder="Password" autocomplete="off" />
-                                        <label for="email">Password</label>
+                                        <label for="password">Password</label>
                                     </div>
                                     
                                     <div className="form-group">
