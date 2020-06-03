@@ -18,29 +18,24 @@ class sectionLogin extends Component {
 
     handleSubmit = async (e) => {
         e.preventDefault();
-        if(this.state.username && this.state.password === this.state.passwordConf){
-            try {
-                await userService.login(this.state)
-                this.props.handleSignUporLogin()
-                this.props.history.push('/')
-            } catch (err) {
-                this.setState({alert: err.message})
-            }
-        }else{
-            if(this.state.password !== this.state.passwordConf){
-                this.setState({alert: `Passwords Don't Match`})
-            }
-            if(!this.state.username){
-                this.setState({alert: `Username is empty`})
-            }
-        } 
+        try {
+            await userService.login(this.state)
+            this.props.handleSignUporLogin()
+            this.props.history.push('/')
+        } catch (err) {
+            this.setState({alert: err.message})
+        }
     }
     
     render () {
         return (
             <section className="section-login">
                 <Link to='/' className=''>Home</Link>
-                <Link to='/signup' className=''>Sign Up</Link>
+                {this.props.user ? 
+                    <Link to='' className='' onClick={this.props.handleLogOut}>Log Out</Link>
+                    :
+                    <Link to='/login' className=''>Log In</Link>
+                }
                 <div className="row section-login-row">
                     <div className="col-1-of-1">
                         <div className="section-login-container">

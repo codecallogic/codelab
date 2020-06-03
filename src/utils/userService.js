@@ -14,8 +14,8 @@ function login(creds){
         headers: new Headers({'content-type': 'application/json'}),
         body: JSON.stringify(creds)
     }).then(res => {
-        if (res.ok) return res.json()
-        throw new Error('Bad credentials')
+        if (res.ok) return res.json();
+        throw new Error('1')
     }).then(({token}) => tokenService.setToken(token))
 }
 

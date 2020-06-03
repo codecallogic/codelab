@@ -8,7 +8,6 @@ module.exports = {
 }
 
 async function login(req, res){
-    
     try {
         const user = await User.findOne({username: req.body.username})
         if(!user) return res.status(401).json({err: 'Bad Credentials'})
@@ -17,6 +16,7 @@ async function login(req, res){
                 const token = createJWT(user)
                 res.json({token})
             }else{
+                console.log('Error')
                 return res.status(401).json({err: 'Bad Credentials'})
             }
         })
@@ -24,7 +24,6 @@ async function login(req, res){
         return res.status(401).json(err)
     }
 }
-
 
 async function signup(req, res){
     try {
