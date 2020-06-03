@@ -3,11 +3,30 @@ const jwt = require('jsonwebtoken')
 const SECRET = process.env.SECRET
 
 module.exports = {
-        signup
+        signup,
+        login
 }
 
-async function signup(req, res){
+async function login(req, res){
     
+    try {
+        const user = await User.findOne({username: req.body.username})
+        if(!user) return res.status(401).json({err: 'Bad Credentials'})
+        user.comparePassword(req.body.password, (err, isMatch) => {
+            if(isMatch){
+                const token = createJWT(user)
+                res.json({token})
+            }else{
+                return res.status(401).json({err: 'Bad Credentials'})
+            }
+        })
+    }catch(err){
+        return res.status(401).json(err)
+    }
+}
+
+
+async function signup(req, res){
     try {
         const user = await User.create(req.body)
         const token = createJWT(user)

@@ -15,6 +15,7 @@ class sectionSignUp extends Component {
         if(this.state.username && this.state.password === this.state.passwordConf){
             try {
                 await userService.signup(this.state)
+                this.props.handleSignUporLogin()
                 this.props.history.push('/')
             } catch (err) {
                 this.setState({alert: err.message})
@@ -48,6 +49,7 @@ class sectionSignUp extends Component {
                     :
                     <Link to='/login' className=''>Log In</Link>
                 }
+                {this.props.user ? <span>Welcome, {this.props.user.username} </span> : <span></span>}
                 <div className="row section-signup-row">
                     <div className="col-1-of-1">
                         <div className="section-signup-container">

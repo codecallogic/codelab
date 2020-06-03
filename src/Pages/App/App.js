@@ -5,6 +5,7 @@ import LoginPage from '../loginpage/loginpage'
 import SignUpPage from '../signuppage/signuppage'
 import { Route, Switch} from 'react-router-dom'
 import userService from '../../utils/userService'
+import tokenService from '../../utils/tokenService';
 
 class App extends Component {
   constructor() {
@@ -19,6 +20,10 @@ class App extends Component {
     this.setState({ user: null})
   }
 
+  handleSignUporLogin = () => {
+    this.setState({ user: userService.getUser()})
+  }
+
   render() {
     return (
       <div>
@@ -26,10 +31,12 @@ class App extends Component {
           <Route exact path={"/"} render={() => 
             <HomePage />
           }/>
-          <Route exact path={"/login"} render={() => 
-            <LoginPage 
+          <Route exact path={"/login"} render={({history}) => 
+            <LoginPage
+              history={history}
               user={this.state.user}
               handleLogOut={this.handleLogOut}
+              handleSignUporLogin={this.handleSignUporLogin}
             />
           }/>
           <Route exact path={"/signup"} render={({history}) => 
@@ -37,6 +44,7 @@ class App extends Component {
               history={history}
               user={this.state.user}
               handleLogOut={this.handleLogOut}
+              handleSignUporLogin={this.handleSignUporLogin}
             />
           }/>
         </Switch>

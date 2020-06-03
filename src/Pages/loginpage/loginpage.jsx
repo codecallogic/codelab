@@ -5,7 +5,7 @@ class LoginPage extends Component {
     render () {
         return (
             <div>
-                <SectionLogin />
+                <SectionLogin {...this.props}/>
             </div>
         )
     }
