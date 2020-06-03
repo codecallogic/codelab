@@ -1,10 +1,9 @@
 const querystring = require('querystring');
 const request = require('request')
-const cookieParser = require('cookie-parser');
 
 module.exports = {
     login,
-    callback,
+    callback
 }
 
 const generateRandomString = function(length) {
@@ -20,20 +19,20 @@ const generateRandomString = function(length) {
 const stateKey = 'spotify_auth_state';
 
 async function login(req, res){
-  console.log('Hello')
-    // var state = generateRandomString(16);
-    // res.cookie(stateKey, state);
-    // res.redirect('https://accounts.spotify.com/authorize?' +
-    // querystring.stringify({
-    //   response_type: 'code',
-    //   client_id: process.env.SPOTIFY_CLIENT_ID,
-    //   scope: process.env.SCOPES,
-    //   redirect_uri: process.env.REDIRECT_URI,
-    //   state: state
-    // }));    
+    var state = generateRandomString(16);
+    res.cookie(stateKey, state);
+    res.redirect('https://accounts.spotify.com/authorize?'+
+    querystring.stringify({
+      response_type: 'code',
+      client_id: process.env.SPOTIFY_CLIENT_ID,
+      scope: process.env.SCOPES,
+      redirect_uri: process.env.REDIRECT_URI,
+      state: state
+  }));
 }
 
 async function callback(req, res){
+  console.log('Hello')
     let code = req.query.code || null
     var state = req.query.state || null;
     var storedState = req.cookies ? req.cookies[stateKey] : null;
@@ -62,7 +61,7 @@ async function callback(req, res){
     request.post(authOptions, function(error, response, body) {
         // console.log(body)
         var access_token = body.access_token
-        let uri = process.env.FRONTEND_URI || 'http://localhost:3000/'
+        let uri = process.env.FRONTEND_URI || 'http://localhost:3000/admin'
         res.redirect(uri + '?access_token=' + access_token)
     })
     }

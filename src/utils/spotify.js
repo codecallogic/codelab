@@ -1,17 +1,11 @@
 import tokenService from '../utils/tokenService'
 import queryString from 'query-string'
-const BASE_URL = 'api/music'
+import axios from 'axios'
+const BASE_URL = '/api/music/'
+const proxyurl = "https://cors-anywhere.herokuapp.com/"
 
 export default {
-    login,
     recentlyPlayed
-}
-
-function login(){
-    return fetch (BASE_URL + '/login')
-    .then(res => res.json())
-    .then(res => console.log(res))
-
 }
 
 function recentlyPlayed(){
