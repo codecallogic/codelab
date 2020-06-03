@@ -1,40 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
-import Spotify from '../../utils/spotify'
-import queryString from 'query-string'
 
 class Music extends Component {
-
-    constructor() {
-        super()
-        this.state = {
-           apiResponse: [],
-        }
-    }
-
-    search = () => {
-        Spotify.search()
-    }
-
-    componentDidMount() {
-        let query = queryString.parse(window.location.search)
-        if(Object.keys(query).length !== 0){
-            fetch('https://api.spotify.com/v1/me/player/recently-played?type=track&limit=10&after=1590216513000', {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + query.access_token,
-            }
-            })
-            .then(response => response.json())
-            .then(data => 
-                console.log(data)
-            )
-            .catch(error => {
-                console.log(error)
-            })
-        }
-    }
     
     render () {
         return (

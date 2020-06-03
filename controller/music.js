@@ -3,7 +3,7 @@ const request = require('request')
 const cookieParser = require('cookie-parser');
 
 module.exports = {
-    create,
+    login,
     callback,
 }
 
@@ -19,17 +19,18 @@ const generateRandomString = function(length) {
 
 const stateKey = 'spotify_auth_state';
 
-async function create(req, res){
-    var state = generateRandomString(16);
-    res.cookie(stateKey, state);
-    res.redirect('https://accounts.spotify.com/authorize?' +
-    querystring.stringify({
-      response_type: 'code',
-      client_id: process.env.SPOTIFY_CLIENT_ID,
-      scope: process.env.SCOPES,
-      redirect_uri: process.env.REDIRECT_URI,
-      state: state
-    }));    
+async function login(req, res){
+  console.log('Hello')
+    // var state = generateRandomString(16);
+    // res.cookie(stateKey, state);
+    // res.redirect('https://accounts.spotify.com/authorize?' +
+    // querystring.stringify({
+    //   response_type: 'code',
+    //   client_id: process.env.SPOTIFY_CLIENT_ID,
+    //   scope: process.env.SCOPES,
+    //   redirect_uri: process.env.REDIRECT_URI,
+    //   state: state
+    // }));    
 }
 
 async function callback(req, res){
