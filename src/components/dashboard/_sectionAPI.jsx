@@ -8,27 +8,13 @@ class SectionAPI extends Component {
         super()
         this.state = {
            apiResponse: [],
+           apiCall: '',
         }
     }
 
-    componentDidMount = () => {
+    recentlyPlayed = () => {
         let query = queryString.parse(window.location.search)
-        if(Object.keys(query).length !== 0){
-        return fetch('https://api.spotify.com/v1/me/player/recently-played?type=track&limit=10&after=1590216513000', {
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + query.access_token,
-        }
-        })
-        .then(response => response.json())
-        .then(data => 
-            console.log(data)
-        )
-        .catch(error => {
-            console.log(error)
-        })
-    }
+        Object.keys(query).length !== 0 ? spotify.recentlyPlayed(query.access_token) : console.log('No')
     }
     
     render () {
@@ -37,7 +23,10 @@ class SectionAPI extends Component {
                 <div className="section-api">
                     <h1 className="heading-section-title">API'S</h1>
                     <div className="u-width-3">
-                        <button className="btn-submit" onClick={() => window.location="http://localhost:3001/api/music/login"}>Recently Played</button>
+                        <button className="btn-submit" onClick={() => window.location="http://localhost:3001/api/music/login"}>Spotify Token</button>
+                    </div>
+                    <div className="u-width-3">
+                        <button className="btn-submit" onClick={this.recentlyPlayed}>Recently Played</button>
                     </div>
                 </div>
             </div>
