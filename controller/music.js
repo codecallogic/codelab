@@ -1,9 +1,21 @@
+const Music = require('../models/music')
 const querystring = require('querystring');
 const request = require('request')
 
 module.exports = {
     login,
-    callback
+    callback,
+    saveRP,
+}
+
+async function saveRP(req, res){
+  console.log(req.body)
+  try {
+    const data = await Music.create(req.body)
+    res.json(data)
+  } catch (error) {
+    res.status(400).json(error)
+  }
 }
 
 const generateRandomString = function(length) {
@@ -32,7 +44,6 @@ async function login(req, res){
 }
 
 async function callback(req, res){
-  console.log('Hello')
     let code = req.query.code || null
     var state = req.query.state || null;
     var storedState = req.cookies ? req.cookies[stateKey] : null;

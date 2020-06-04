@@ -1,22 +1,37 @@
 import tokenService from '../utils/tokenService'
+const BASE_URL = '/api/music/'
 
 export default {
-    recentlyPlayed
+    recentlyPlayed,
+    saveRP
 }
 
 function recentlyPlayed(query){
-        return fetch('https://api.spotify.com/v1/me/player/recently-played?type=track&limit=10&after=1590216513000', {
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + query,
-        }
-        })
-        .then(response => response.json())
-        .then(data => 
-            console.log(data)
-        )
-        .catch(error => {
-            console.log(error)
-        })
+    const pastTwoDays = Date.now() - (1000 * 60 * 60 * 24 * 1)
+    const limit = 7
+    console.log(pastTwoDays)
+    return fetch(`https://api.spotify.com/v1/me/player/recently-played?type=track&${limit}=10&after=${pastTwoDays}`, {
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + query,
+    }
+    })
+    .then(res => res.json())
+    .then(data => data.items)
+    .catch(error => {
+        console.log(error)
+    })
+}
+
+
+function saveRP(data){
+    return fetch(BASE_URL + 'saveRP', {
+        method: 'POST',
+        headers: new Headers({'content-type': 'application/json'}),
+        body: JSON.stringify({'recentlyPlayed': data})
+    }).then( res => {
+        if (res.ok) return res.json();
+        throw new Error('Bad request')
+    }).then( data => data)
 }
