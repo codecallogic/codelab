@@ -49,9 +49,10 @@ class App extends Component {
               handleSignUporLogin={this.handleSignUporLogin}
             />
           }/>
-          <Route exact path="/admin" render={() => 
+          <Route exact path="/admin" render={({history}) => 
             <DashboardPage 
-              user={this.props.state} 
+              user={this.props.state}
+              history={history}
             />
           }/>
         </Switch>

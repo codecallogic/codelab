@@ -29,8 +29,7 @@ class SectionAPI extends Component {
     saveData = async () => {
         try {
             const data = await spotify.saveRP(this.state.recentlyPlayed)
-            console.log(data)
-            // this.props.history.push('/')
+            this.props.history.push('/')
         } catch (error) {
             console.log(error)
         }
