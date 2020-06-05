@@ -40,7 +40,7 @@ class Music extends Component {
                                         this.state.recentlyPlayed !== null && 
                                         this.state.recentlyPlayed[0].recentlyPlayed.map( t => 
                                         <li key={t.track.id}>
-                                            <i className="fas fa-play-circle section-music-play"></i>
+                                            <a href={t.track.external_urls.spotify} target="_blank"><i className="fas fa-play-circle section-music-play"></i></a>
                                             <img src={t.track.album.images[0].url} alt=""/>
                                             <span><small>{t.track.artists[0].name}</small>{t.track.name}</span></li>
                                         )

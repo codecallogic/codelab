@@ -264,8 +264,8 @@ body {
   .section-music-track ul li span small {
     font-size: .5rem; }
   .section-music-track ul li a {
-    padding: 0;
-    margin: 0 auto; }
+    position: absolute;
+    padding-bottom: 3rem; }
   .section-music-play {
     position: absolute;
     font-size: 3rem;
