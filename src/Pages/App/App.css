@@ -266,6 +266,9 @@ body {
   .section-music-track ul li a {
     position: absolute;
     padding-bottom: 3rem; }
+  .section-music-updated {
+    font-size: 1rem;
+    padding: .5rem; }
   .section-music-play {
     position: absolute;
     font-size: 3rem;

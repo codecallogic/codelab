@@ -32,7 +32,7 @@ class Music extends Component {
                         <div className="col-1-of-3">
                             <div className="section-music-recently-played">
                                 <h3 className="heading-tertiary u-center-text">
-                                    Recently Played Music
+                                    Recently Played On Spotify
                                 </h3>
                                 <div className="section-music-track">
                                     <ul>
@@ -47,6 +47,7 @@ class Music extends Component {
                                         }
                                     </ul>
                                 </div>
+                                <p className="section-music-updated u-center-text">Updated on {this.state.recentlyPlayed !== null && this.state.recentlyPlayed[0].createdAt.substring(0,10)}</p>
                             </div>
                         </div>
                         <div className="col-1-of-3">
