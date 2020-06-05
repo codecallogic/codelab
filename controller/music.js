@@ -6,6 +6,16 @@ module.exports = {
     login,
     callback,
     saveRP,
+    recentlyPlayed
+}
+
+async function recentlyPlayed(req, res){
+  try {
+    const tracks = await Music.find().sort({_id:-1}).limit(1);
+    res.json(tracks)
+  } catch (error) {
+    res.status(400).json(error)
+  }
 }
 
 async function saveRP(req, res){

@@ -1,6 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, Link } from 'react';
+import spotify from '../../utils/spotify';
 
 class Music extends Component {
+    constructor() {
+        super()
+        this.state = {
+           recentlyPlayed: null,
+        }
+      }
+
+    componentWillMount = async () => {
+        const tracks = await spotify.getRecentlyPlayed()
+        this.setState({ recentlyPlayed: tracks })
+        console.log(this.state.recentlyPlayed)
+    }
     
     render () {
         return (
@@ -23,10 +36,15 @@ class Music extends Component {
                                 </h3>
                                 <div className="section-music-track">
                                     <ul>
-                                        <li>
-                                            <img src="https://i.imgur.com/JhAR0AW.jpg" alt=""/>
-                                            <span>El Sol Avenue</span>
-                                        </li>
+                                        { 
+                                        this.state.recentlyPlayed !== null && 
+                                        this.state.recentlyPlayed[0].recentlyPlayed.map( t => 
+                                        <li key={t.track.id}>
+                                            <i className="fas fa-play-circle section-music-play"></i>
+                                            <img src={t.track.album.images[0].url} alt=""/>
+                                            <span><small>{t.track.artists[0].name}</small>{t.track.name}</span></li>
+                                        )
+                                        }
                                     </ul>
                                 </div>
                             </div>

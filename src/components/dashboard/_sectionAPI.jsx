@@ -15,14 +15,13 @@ class SectionAPI extends Component {
     recentlyPlayed = async () => {
         let query = queryString.parse(window.location.search)
         let recentlyPlayed = Object.keys(query).length !== 0 ? await spotify.recentlyPlayed(query.access_token) : console.log('Empy Query')
-        console.log(recentlyPlayed)
         const tracks = recentlyPlayed.reduce((unique, o) => {
             if(!unique.some(obj => obj.track.id === o.track.id)) {
               unique.push(o);
             }
             return unique
         },[]);
-        console.log(tracks)
+        // console.log(tracks)
         this.setState({recentlyPlayed: tracks})
     }
 

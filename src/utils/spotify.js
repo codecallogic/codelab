@@ -3,14 +3,14 @@ const BASE_URL = '/api/music/'
 
 export default {
     recentlyPlayed,
-    saveRP
+    saveRP,
+    getRecentlyPlayed
 }
 
 function recentlyPlayed(query){
     const pastTwoDays = Date.now() - (1000 * 60 * 60 * 24 * 1)
-    const limit = 7
-    console.log(pastTwoDays)
-    return fetch(`https://api.spotify.com/v1/me/player/recently-played?type=track&${limit}=10&after=${pastTwoDays}`, {
+    const limit = 10
+    return fetch(`https://api.spotify.com/v1/me/player/recently-played?type=track&limit=${limit}&after=${pastTwoDays}`, {
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -34,4 +34,13 @@ function saveRP(data){
         if (res.ok) return res.json();
         throw new Error('Bad request')
     }).then( data => data)
+}
+
+function getRecentlyPlayed(){
+    return fetch(BASE_URL + 'recentlyPlayed', {
+        method: 'GET'
+    }).then(res => {
+        if (res.ok) return res.json()
+        throw new Error('Bad request')
+    }).then(tracks => tracks)
 }

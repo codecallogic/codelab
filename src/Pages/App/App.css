@@ -241,7 +241,6 @@ body {
   padding: 5rem 0;
   margin-top: -20vh; }
   .section-music-track {
-    text-align: center;
     padding: 2rem 0rem; }
   .section-music-track ul {
     list-style-type: none; }
@@ -250,15 +249,35 @@ body {
     align-items: center;
     vertical-align: center; }
   .section-music-track ul li img {
-    width: 30%;
+    width: 20%;
     border-radius: 1rem;
     margin-right: 2rem; }
   .section-music-track ul li span {
+    display: grid;
+    grid-template-columns: column;
     width: 1000%;
     border-radius: 1rem;
     margin-right: 2rem;
     font-size: 1.5rem;
-    text-align: center; }
+    text-align: left;
+    text-transform: uppercase; }
+  .section-music-track ul li span small {
+    font-size: .5rem; }
+  .section-music-track ul li a {
+    padding: 0;
+    margin: 0 auto; }
+  .section-music-play {
+    position: absolute;
+    font-size: 3rem;
+    margin-left: 1.5rem;
+    color: #AC0032;
+    opacity: 0;
+    display: block;
+    transition: all .5s; }
+  .section-music-play:hover {
+    opacity: 1;
+    background-color: white;
+    border-radius: 2rem; }
 
 .section-api {
   display: flex;

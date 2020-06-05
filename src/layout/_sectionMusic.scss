@@ -4,7 +4,6 @@
     margin-top: -20vh;
 
     &-track {
-        text-align: center;
         padding: 2rem 0rem;
     }
 
@@ -19,17 +18,45 @@
     }
     
     &-track ul li img{
-        width: 30%;
+        width: 20%;
         border-radius: 1rem;
         margin-right: 2rem;
     }
 
     &-track ul li span{
+        display: grid;
+        grid-template-columns: column;
         width: 1000%;
         border-radius: 1rem;
         margin-right: 2rem;
         font-size:1.5rem;
-        text-align: center;
+        text-align: left;
+        text-transform: uppercase;
+    }
+
+    &-track ul li span small{
+        font-size: .5rem;
+    }
+
+    &-track ul li a {
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    &-play {
+        position: absolute;
+        font-size: 3rem;
+        margin-left: 1.5rem;
+        color: $color-primary;
+        opacity: 0;
+        display: block;
+        transition: all .5s;
+    }
+
+    &-play:hover {
+        opacity: 1;
+        background-color: white;
+        border-radius: 2rem;
     }
 }
 
