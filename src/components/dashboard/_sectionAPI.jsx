@@ -35,10 +35,6 @@ class SectionAPI extends Component {
     }
     
     render () {
-        // const displayTracks = tracks.map( t =>
-        //     <li key={t.track.id}>{t.track.name}, {t.track.external_urls.spotify}</li>
-        // )
- 
         return (
             <div>
                 <div className="section-api">

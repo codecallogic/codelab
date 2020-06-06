@@ -68,6 +68,7 @@
         border-bottom: 1px solid $color-primary;
         padding: 3px;
         transition: all .3s;
+        height: 50px;
     }
 
     &:hover {
@@ -115,4 +116,23 @@
         outline: 0;
     }
 
+}
+
+.btn-search {
+    font-size: $default-font-size;
+    padding: 2.2rem 1rem;
+    margin-top: 1.5rem;
+    border: none;
+    color: $color-white-compliment;
+    text-transform: uppercase;
+    background-color: $color-primary;
+    transition: all .6s;
+
+    &:hover {
+        color: $color-primary;
+        background-color: transparent;
+        transform: translateY(-.5rem);
+        border-bottom: .5rem solid $color-primary-light;
+        cursor: pointer;
+    }
 }

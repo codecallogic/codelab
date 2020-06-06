@@ -1,23 +1,47 @@
 import React, { Component, Link } from 'react';
 import spotify from '../../utils/spotify';
+import queryString from 'query-string'
 
 class Music extends Component {
     constructor() {
         super()
         this.state = {
-           recentlyPlayed: null,
+            search: null,
+            recentlyPlayed: null,
+            searchedTracks: null,
         }
       }
+
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    searchMusic = async (e) => {
+        e.preventDefault();
+        let query = queryString.parse(window.location.search);
+        let search = this.state.search
+        let searchMusic = Object.keys(query).length !== 0 ? await spotify.searchMusic(query.access_token, search) : window.location="http://localhost:3001/api/search/login";
+        this.setState({
+            searchedTracks: searchMusic
+        })
+        console.log(searchMusic)
+    }
 
     componentWillMount = async () => {
         const tracks = await spotify.getRecentlyPlayed()
         this.setState({ recentlyPlayed: tracks })
-        console.log(this.state.recentlyPlayed)
+        let query = queryString.parse(window.location.search);
+        if(Object.keys(query).length !== 0){
+            const element = document.getElementById('music')
+            element.scrollIntoView({behavior: 'smooth'});
+        }
     }
     
     render () {
         return (
-            <section className="section-music">
+            <section id="music" className="section-music">
                 <div className="row">
                     <div className="col-1-of-8">
                         <ul className="heading-side">
@@ -42,7 +66,8 @@ class Music extends Component {
                                         <li key={t.track.id}>
                                             <a href={t.track.external_urls.spotify} target="_blank"><i className="fas fa-play-circle section-music-play"></i></a>
                                             <img src={t.track.album.images[0].url} alt=""/>
-                                            <span><small>{t.track.artists[0].name}</small>{t.track.name}</span></li>
+                                            <span><small>{t.track.artists[0].name}</small>{t.track.name}</span>
+                                        </li>
                                         )
                                         }
                                     </ul>
@@ -51,10 +76,49 @@ class Music extends Component {
                             </div>
                         </div>
                         <div className="col-1-of-3">
-                            Helloadfadsf
+                            {this.state.searchedTracks !== null ? 
+                            <div className="section-search">
+                                <h3 className="heading-tertiary u-center-text">
+                                        Recommend A Track
+                                </h3>
+                                <form onSubmit={this.searchMusic} className="form-search">
+                                    <div className="form-search-group">
+                                        <input type="text" name="search" placeholder="Track or Artists" value={this.state.username} onChange={this.handleChange} autoComplete="off"/>
+                                        <button className="btn-search">Search</button>
+                                    </div>
+                                </form>
+                                <div className="section-music-track">
+                                    <ul>
+                                        { 
+                                        this.state.searchedTracks !== null && 
+                                        this.state.searchedTracks.map( t => 
+                                            <li key={t.id}>
+                                                <a href={t.external_urls.spotify} target="_blank"><i className="fas fa-play-circle section-music-play"></i></a>
+                                                <img src={t.album.images[0].url} alt=""/>
+                                                <span><small>{t.artists[0].name}</small>{t.name}</span>
+                                            </li>
+                                        )
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                            : 
+                            <div className="section-search">
+                                <h3 className="heading-tertiary u-center-text">
+                                        Recommend A Track
+                                </h3>
+                                <div className="section-search-login">
+                                    <button onClick={this.searchMusic}><i class="fab fa-spotify"></i></button>
+                                    <small>Login</small>
+                                </div>
+                            </div>      
+
+                            }
                         </div>
                         <div className="col-1-of-3">
-                            Helloadfadsf
+                            <h3 className="heading-tertiary u-center-text">
+                                    Tracks Produced
+                            </h3>
                         </div>
                     </div>
                 </div>

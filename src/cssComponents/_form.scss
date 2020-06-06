@@ -77,4 +77,47 @@
         opacity: 1;
         translate: translateY(2rem);
     }
+
+    &-search {
+        text-align: center;
+        
+    }
+
+    &-search-group {
+        display: inline;
+        background-color: $color-grey-light;
+    }
+
+    &-search-group input {
+        font-size: 2rem;
+        font-family: inherit;
+        background: transparent;
+        text-align: center;
+        color: $color-primary-dark;
+        padding: 2rem 1.5rem;
+        margin: 2rem 0rem;
+        border: none;
+        border-bottom: .3rem solid $color-primary-light;
+        width: 60%;
+        transition: all .5s;
+    }
+
+    &-search-group input::-webkit-input-placeholder{
+        color: $color-primary-dark;
+        text-align: center;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: .2rem;
+    }
+
+    &-search-group input:focus {
+        font-size: 2rem;
+        outline: none;
+        text-align: center;
+    }
+
+    &-search-group input:focus::-webkit-input-placeholder {
+        color: transparent;
+    }
+    
 }

@@ -4,7 +4,28 @@ const BASE_URL = '/api/music/'
 export default {
     recentlyPlayed,
     saveRP,
-    getRecentlyPlayed
+    getRecentlyPlayed,
+    searchMusic
+}
+
+function searchMusic(query, search){
+    console.log(query)
+    console.log(search)
+    const limit = 8
+    return fetch(`https://api.spotify.com/v1/search?q=${search}&type=track&limit=${limit}`, {
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + query,
+    }
+    })
+    .then(res => res.json())
+    .then(data => 
+        data.tracks.items
+    )
+    .catch(error => {
+        window.location="http://localhost:3001/api/search/login"
+    })
 }
 
 function recentlyPlayed(query){
