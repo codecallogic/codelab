@@ -9,6 +9,7 @@ class Music extends Component {
             search: null,
             recentlyPlayed: null,
             searchedTracks: null,
+            accessToken: false,
         }
       }
 
@@ -18,11 +19,15 @@ class Music extends Component {
         })
     }
 
+    spotifyLogin = () => {
+        window.location="http://localhost:3001/api/search/login";
+    }
+
     searchMusic = async (e) => {
         e.preventDefault();
         let query = queryString.parse(window.location.search);
         let search = this.state.search
-        let searchMusic = Object.keys(query).length !== 0 ? await spotify.searchMusic(query.access_token, search) : window.location="http://localhost:3001/api/search/login";
+        let searchMusic = Object.keys(query).length !== 0 ? await spotify.searchMusic(query.access_token, search) : console.log('Error');
         this.setState({
             searchedTracks: searchMusic
         })
@@ -36,6 +41,19 @@ class Music extends Component {
         if(Object.keys(query).length !== 0){
             const element = document.getElementById('music')
             element.scrollIntoView({behavior: 'smooth'});
+            this.setState({
+                accessToken: true
+            })
+        }
+    }
+
+    componentWillReceiveProps(nextProps){
+        const access = this.state.accessToken
+        const next = false
+        if(access !== false){
+            this.setState({
+                accessToken: false
+            })
         }
     }
     
@@ -76,8 +94,19 @@ class Music extends Component {
                             </div>
                         </div>
                         <div className="col-1-of-3">
-                            {this.state.searchedTracks !== null ? 
+                            {this.state.accessToken === false && 
                             <div className="section-search">
+                                <h3 className="heading-tertiary u-center-text">
+                                        Recommend A Track
+                                </h3>
+                                <div className="section-search-login">
+                                    <button onClick={this.spotifyLogin}><i className="fab fa-spotify"></i></button>
+                                    <small>Search Tracks</small>
+                                </div>
+                            </div>      
+                            }
+
+                            {this.state.accessToken === true && <div className="section-search">
                                 <h3 className="heading-tertiary u-center-text">
                                         Recommend A Track
                                 </h3>
@@ -89,9 +118,7 @@ class Music extends Component {
                                 </form>
                                 <div className="section-music-track">
                                     <ul>
-                                        { 
-                                        this.state.searchedTracks !== null && 
-                                        this.state.searchedTracks.map( t => 
+                                        { this.state.searchedTracks !== null && this.state.searchedTracks.map( t => 
                                             <li key={t.id}>
                                                 <a href={t.external_urls.spotify} target="_blank"><i className="fas fa-play-circle section-music-play"></i></a>
                                                 <img src={t.album.images[0].url} alt=""/>
@@ -102,17 +129,6 @@ class Music extends Component {
                                     </ul>
                                 </div>
                             </div>
-                            : 
-                            <div className="section-search">
-                                <h3 className="heading-tertiary u-center-text">
-                                        Recommend A Track
-                                </h3>
-                                <div className="section-search-login">
-                                    <button onClick={this.searchMusic}><i class="fab fa-spotify"></i></button>
-                                    <small>Login</small>
-                                </div>
-                            </div>      
-
                             }
                         </div>
                         <div className="col-1-of-3">
