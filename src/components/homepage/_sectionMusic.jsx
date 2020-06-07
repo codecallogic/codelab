@@ -50,7 +50,7 @@ class Music extends Component {
     componentWillReceiveProps(nextProps){
         const accessTrue = this.state.accessToken
         const accessChange = false
-        if(access !== accessChange){
+        if(accessTrue !== accessChange){
             this.setState({
                 accessToken: false
             })
