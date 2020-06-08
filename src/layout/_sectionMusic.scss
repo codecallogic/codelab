@@ -93,11 +93,11 @@
     &-login button > .svg-inline--fa {
         background: transparent;
         border-radius: 15rem;
-        transition: all 1s;
+        transition: all .8s;
     }
 
     &-login button > .svg-inline--fa:hover {
-        box-shadow: 1rem 2rem 3rem .5rem rgba($color-black, .2);
+        box-shadow: 1rem 3rem 5rem .5rem rgba($color-black, .2);
         cursor: pointer;
     }
 }

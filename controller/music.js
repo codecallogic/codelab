@@ -1,12 +1,34 @@
 const Music = require('../models/music')
 const querystring = require('querystring');
 const request = require('request')
+const uuidv4 = require('uuid/4')
+const AWS = require('aws-sdk')
+const formidable = require('formidable')
 
 module.exports = {
     login,
     callback,
     saveRP,
-    recentlyPlayed
+    recentlyPlayed,
+    upload
+}
+
+const s3 = new AWS.S3({
+  accessKeyId: process.env.AWSAWS_ACCESS_KEY,
+  secretAccessKey: process.env.AWS_SECRET_KEY,
+  region: process.env.AWS_REGION
+})
+
+function upload(req, res){
+  let form = new formidable.IncomingForm()
+  form.parse(req, (err, fields, files) => {
+    if(err){
+      return res.status(400).json({
+        error: "Image could not upload"
+      })
+    }
+    console.table({err, fields, files})
+  })
 }
 
 async function recentlyPlayed(req, res){

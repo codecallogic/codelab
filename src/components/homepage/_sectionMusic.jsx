@@ -122,7 +122,7 @@ class Music extends Component {
                                             <li key={t.id}>
                                                 <a href={t.external_urls.spotify} target="_blank"><i className="fas fa-play-circle section-music-play"></i></a>
                                                 <img src={t.album.images[0].url} alt=""/>
-                                                <span><small>{t.artists[0].name}</small>{t.name}</span>
+                                                <span><small>{t.artists[0].name}</small>{t.name.substring(0,25)}</span>
                                             </li>
                                         )
                                         }

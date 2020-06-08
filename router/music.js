@@ -7,5 +7,6 @@ router.get('/callback', musicCtrl.callback)
 router.post('/saveRP', musicCtrl.saveRP)
 router.get('/recentlyPlayed', musicCtrl.recentlyPlayed)
 router.get('/search', musicCtrl.login)
+router.post('/upload', musicCtrl.upload)
 
 module.exports  = router

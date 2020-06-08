@@ -135,4 +135,8 @@
         border-bottom: .5rem solid $color-primary-light;
         cursor: pointer;
     }
+
+    &:focus {
+        outline: none;
+    }
 }

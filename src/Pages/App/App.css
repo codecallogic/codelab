@@ -301,9 +301,9 @@ body {
   .section-search-login button > .svg-inline--fa {
     background: transparent;
     border-radius: 15rem;
-    transition: all 1s; }
+    transition: all .8s; }
   .section-search-login button > .svg-inline--fa:hover {
-    box-shadow: 1rem 2rem 3rem 0.5rem rgba(0, 0, 0, 0.2);
+    box-shadow: 1rem 3rem 5rem 0.5rem rgba(0, 0, 0, 0.2);
     cursor: pointer; }
 
 .section-api {
@@ -417,6 +417,8 @@ body {
     transform: translateY(-0.5rem);
     border-bottom: 0.5rem solid #c87a73;
     cursor: pointer; }
+  .btn-search:focus {
+    outline: none; }
 
 .composition {
   position: relative; }
