@@ -16,12 +16,6 @@
         align-items: center;
         vertical-align: center;
     }
-    
-    &-track ul li img{
-        width: 20%;
-        border-radius: 1rem;
-        margin-right: 2rem;
-    }
 
     &-track ul li span{
         display: grid;
@@ -41,6 +35,13 @@
     &-track ul li a {
         position: absolute;  
         padding-bottom: 3rem;  
+       
+    }
+
+    &-track ul li img{
+        width: 20%;
+        border-radius: 1rem;
+        margin-right: 2rem;
     }
 
     &-updated {
@@ -50,11 +51,10 @@
 
     &-play {
         position: absolute;
-        font-size: 3rem;
         margin-left: 1.5rem;
+        font-size: 3rem;
         color: $color-primary;
         opacity: 0;
-        display: block;
         transition: all .5s;
     }
 
@@ -63,6 +63,15 @@
         background-color: white;
         border-radius: 2rem;
     }
+
+    &-track ul li > .fa-plus{
+        font-size: 1.5rem;
+    }
+
+    &-track ul li > .fa-plus:hover {
+        cursor:pointer;
+    }
+
 }
 
 .section-search {
