@@ -1,5 +1,5 @@
 const Music = require('../models/music')
-const Song = require('../models/song')
+const Production = require('../models/production')
 const querystring = require('querystring');
 const request = require('request')
 const { v4: uuidv4 } = require('uuid')
@@ -31,26 +31,34 @@ function upload(req, res){
       })
     }
 
-    // console.table({err, fields, files})
-    // console.log(files)
+    console.table({err, fields, files})
+    console.log(files)
     const {name, content} = fields 
     const {song} = files
     const slug = slugify(name)
-    let category = new Song({name, content, slug})
+    let production = new Production({name, content, slug, song})
     const params = {
       Bucket: 'codecallogiclab',
-      Key: `productions/${uuidv4()}`,
+      Key: `production/${uuidv4()}`,
       Body: fs.readFileSync(song.path),
       ACL: 'public-read',
       ContentType: 'audio/wav'
     }
 
     s3.upload(params, (err, data) => {
-      if(err)console.log(err)
-      // {res.status(400).json({error: 'Upload to s3 failed'})}
+      if(err){res.status(400).json({error: 'Upload to s3 failed'})}
       console.log('AWS UPLOAD Res Data', data)
-      // category.song.url = data.location
-      // category.key = data.key
+      console.log(production)
+      production.song.url = data.Location;
+      production.song.key = data.Key;
+      
+      production.save((err, success) => {
+        if(err) {
+          console.log(err)
+          res.status(400).json({error: 'Error saving song to db' })
+        }
+        return res.json(success)
+      })
     })
     
   })

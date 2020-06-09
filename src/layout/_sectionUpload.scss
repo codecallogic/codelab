@@ -1,0 +1,13 @@
+.section-upload {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 50px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
+    &-form {
+        width: 50%;
+        margin: 0 auto;
+    }
+}

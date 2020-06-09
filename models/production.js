@@ -9,6 +9,9 @@ const songSchema = new Schema(
         trim: true,
         max: 32
     },
+    content: {
+        type: {},
+    },
     slug: {
         type: String,
         lowercase: true,
@@ -18,9 +21,6 @@ const songSchema = new Schema(
     song: {
         url: String,
         key: String
-    },
-    content: {
-        type: {},
     }
 },
 {
