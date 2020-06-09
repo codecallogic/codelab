@@ -1,9 +1,12 @@
 const Music = require('../models/music')
+const Song = require('../models/song')
 const querystring = require('querystring');
 const request = require('request')
-const uuidv4 = require('uuid/4')
+const { v4: uuidv4 } = require('uuid')
 const AWS = require('aws-sdk')
 const formidable = require('formidable')
+const slugify = require('slugify')
+const fs = require('fs')
 
 module.exports = {
     login,
@@ -13,10 +16,10 @@ module.exports = {
     upload
 }
 
-const s3 = new AWS.S3({
-  accessKeyId: process.env.AWSAWS_ACCESS_KEY,
+const s3 = new AWS.S3({ 
+  accessKeyId: process.env.AWS_ACCESS_KEY,
   secretAccessKey: process.env.AWS_SECRET_KEY,
-  region: process.env.AWS_REGION
+  region: 'us-west-1'
 })
 
 function upload(req, res){
@@ -27,7 +30,29 @@ function upload(req, res){
         error: "Image could not upload"
       })
     }
-    console.table({err, fields, files})
+
+    // console.table({err, fields, files})
+    // console.log(files)
+    const {name, content} = fields 
+    const {song} = files
+    const slug = slugify(name)
+    let category = new Song({name, content, slug})
+    const params = {
+      Bucket: 'codecallogiclab',
+      Key: `productions/${uuidv4()}`,
+      Body: fs.readFileSync(song.path),
+      ACL: 'public-read',
+      ContentType: 'audio/wav'
+    }
+
+    s3.upload(params, (err, data) => {
+      if(err)console.log(err)
+      // {res.status(400).json({error: 'Upload to s3 failed'})}
+      console.log('AWS UPLOAD Res Data', data)
+      // category.song.url = data.location
+      // category.key = data.key
+    })
+    
   })
 }
 
