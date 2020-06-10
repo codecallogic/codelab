@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from "axios"
 
 class Productions extends Component {
 
@@ -8,29 +9,40 @@ class Productions extends Component {
            name: '',
            content: '',
            file: '',
-           song: 'Choose File',
            error: '',
-           sucess: '',
-           formData: '',
+           success: '',
            buttonText: 'Upload File',
-           songUploadText: '',
+           songUploadText: 'Choose File',
            songForm: false,
         }
       }
 
     handleSubmit = async (e) => {
         e.preventDefault()
-        const data = new FormData()
-        data.append('file', this.state.file)
         this.setState({
             buttonText: 'Uploading',
         })
-        console.log(data)
+        let formData = new FormData()
+        console.log(this.state.file)
+        formData.append('file', this.state.file)
+        formData.append('name', this.state.name)
+        formData.append('content', this.state.content)
+
+        axios({
+            url: '/some/api',
+            method: 'POST',
+            headers: {
+                athorization: 'Token'
+            },
+            data: formData
+        }).then(res => {
+
+        })
     }
 
     handleFile = (e) => {
         this.setState({
-            song: e.target.value,
+            songUploadText: e.target.value,
             file: e.target.files[0]
         })
     }
@@ -70,7 +82,7 @@ class Productions extends Component {
                         </div>
                         <div className="form-group">
                             <input type="file" id="song-upload" name="file" onChange={this.handleFile} autoComplete="off"/>
-                            <label htmlFor="song-upload" className="form-group-file"><i className="fas fa-upload"></i> {this.state.song.split('\\').slice(-1)[0].substring(0,15)}</label>
+                            <label htmlFor="song-upload" className="form-group-file"><i className="fas fa-upload"></i> {this.state.songUploadText.split('\\').slice(-1)[0].substring(0,15)}</label>
                         </div>
                     <button className="btn-submit">{this.state.buttonText}</button>
                     </form>
