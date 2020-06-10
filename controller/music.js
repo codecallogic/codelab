@@ -27,20 +27,20 @@ function upload(req, res){
   form.parse(req, (err, fields, files) => {
     if(err){
       return res.status(400).json({
-        error: "Image could not upload"
+        error: "Song could not upload"
       })
     }
 
     console.table({err, fields, files})
     console.log(files)
     const {name, content} = fields 
-    const {song} = files
+    const {file} = files
     const slug = slugify(name)
-    let production = new Production({name, content, slug, song})
+    let production = new Production({name, content, slug, file})
     const params = {
       Bucket: 'codecallogiclab',
       Key: `production/${uuidv4()}`,
-      Body: fs.readFileSync(song.path),
+      Body: fs.readFileSync(file.path),
       ACL: 'public-read',
       ContentType: 'audio/wav'
     }

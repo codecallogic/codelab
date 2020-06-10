@@ -19,25 +19,37 @@ class Productions extends Component {
 
     handleSubmit = async (e) => {
         e.preventDefault()
-        this.setState({
-            buttonText: 'Uploading',
-        })
+        let token = localStorage.getItem('token')
         let formData = new FormData()
-        console.log(this.state.file)
         formData.append('file', this.state.file)
         formData.append('name', this.state.name)
         formData.append('content', this.state.content)
-
-        axios({
-            url: '/some/api',
-            method: 'POST',
-            headers: {
-                athorization: 'Token'
-            },
-            data: formData
-        }).then(res => {
-
+        this.setState({
+            buttonText: 'Uploading'
         })
+        console.log(formData)
+        try {
+            const response = await axios.post(`/api/music/upload`, formData, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            console.log('SONG CREATE RESPONSE', response);
+            this.setState({
+                name: '',
+                content: '',
+                file: '',
+                error: '',
+                success: `${response.data.name} created`,
+                buttonText: 'Created',
+                songUploadText: 'Choose File',
+            })
+        } catch (error) {
+            console.log('SONG CREATE ERROR', error);
+            this.setState({
+                error: error.response.data.error,
+            })
+        }
     }
 
     handleFile = (e) => {
