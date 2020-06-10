@@ -500,6 +500,7 @@ body {
     display: none;
     visibility: hidden; }
   .form-group-file {
+    font-size: 1rem !important;
     background: #c87a73;
     opacity: 1 !important;
     visibility: visible !important;
@@ -508,7 +509,8 @@ body {
     border: none;
     border-bottom: 0.3rem solid #c87a73;
     width: 50%;
-    display: block; }
+    display: block;
+    margin-bottom: 2rem; }
   .form-group-file:hover {
     cursor: pointer;
     box-shadow: 1rem 2rem 3rem 2rem rgba(0, 0, 0, 0.2); }

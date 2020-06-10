@@ -53,6 +53,7 @@
     }
 
     &-group-file{
+        font-size: 1rem!important;
         background: $color-primary-light;
         opacity: 1!important;
         visibility: visible!important;
@@ -62,6 +63,7 @@
         border-bottom: .3rem solid $color-primary-light;
         width: 50%;
         display: block;
+        margin-bottom: 2rem;
     }
 
     &-group-file:hover{

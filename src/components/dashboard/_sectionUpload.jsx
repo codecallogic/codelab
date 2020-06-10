@@ -7,10 +7,12 @@ class Productions extends Component {
         this.state = {
            name: '',
            content: '',
+           file: '',
+           song: 'Choose File',
            error: '',
            sucess: '',
            formData: '',
-           buttonText: 'Upload',
+           buttonText: 'Upload File',
            songUploadText: '',
            songForm: false,
         }
@@ -18,10 +20,19 @@ class Productions extends Component {
 
     handleSubmit = async (e) => {
         e.preventDefault()
+        const data = new FormData()
+        data.append('file', this.state.file)
         this.setState({
-            buttonText: 'Uploading'
+            buttonText: 'Uploading',
         })
-        console.log()
+        console.log(data)
+    }
+
+    handleFile = (e) => {
+        this.setState({
+            song: e.target.value,
+            file: e.target.files[0]
+        })
     }
 
     handleChange = (e) => {
@@ -37,6 +48,7 @@ class Productions extends Component {
     }
     
     render () {
+       
         return (
             <div>
                 <div className="section-upload">
@@ -57,9 +69,10 @@ class Productions extends Component {
                             <label htmlFor="name">File Content</label>
                         </div>
                         <div className="form-group">
-                            <input type="file" id="song-upload" name="song" autoComplete="off"/>
-                            <label htmlFor="song-upload" className="form-group-file"><i class="fas fa-upload"></i> Upload File</label>
+                            <input type="file" id="song-upload" name="file" onChange={this.handleFile} autoComplete="off"/>
+                            <label htmlFor="song-upload" className="form-group-file"><i className="fas fa-upload"></i> {this.state.song.split('\\').slice(-1)[0].substring(0,15)}</label>
                         </div>
+                    <button className="btn-submit">{this.state.buttonText}</button>
                     </form>
                     }
                 </div>
