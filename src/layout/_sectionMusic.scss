@@ -79,11 +79,11 @@
         box-shadow: .2rem .5rem 1rem 1rem rgba($color-black, .2);
     }
 
-    &-track ul li > .fa-plus{
+    &-track ul li div > .fa-plus{
         font-size: 1.5rem;
     }
 
-    &-track ul li > .fa-plus:hover {
+    &-track ul li div > .fa-plus:hover {
         cursor:pointer;
     }
 

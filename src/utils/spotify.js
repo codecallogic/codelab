@@ -5,12 +5,45 @@ export default {
     recentlyPlayed,
     saveRP,
     getRecentlyPlayed,
-    searchMusic
+    searchMusic,
+    getPlaylist,
+    addToPlaylist,
+}
+
+function addToPlaylist(query, id, uri){
+    return fetch(`https://api.spotify.com/v1/playlists/${id}/tracks?uris=${uri}`, {
+        method: 'POST',
+        headers: new Headers({
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + query,
+        })
+    })
+    .then(res => res.json())
+    .then(data => data)
+    .catch(error => {
+        console.log(error)
+    })
+}
+
+function getPlaylist(query){
+    return fetch(`https://api.spotify.com/v1/me/playlists`, {
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + query,
+    }
+    })
+    .then(res => res.json())
+    .then(data => data.items)
+    .catch(error => {
+        console.log(error)
+    })
 }
 
 function searchMusic(query, search){
-    console.log(query)
-    console.log(search)
+    // console.log(query)
+    // console.log(search)
     const limit = 8
     return fetch(`https://api.spotify.com/v1/search?q=${search}&type=track&limit=${limit}`, {
     headers: {

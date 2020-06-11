@@ -35,7 +35,24 @@ class Music extends Component {
         this.setState({
             searchedTracks: searchMusic
         })
-        console.log(searchMusic)
+    }
+
+    addToPlaylist = async (uri) => {
+        let query = queryString.parse(window.location.search);
+        let playlist = await spotify.getPlaylist(query.access_token)
+        let recommended = [];
+        console.log(playlist)
+        for(let i = 0; i < playlist.length; i++){
+            if(playlist[i].name === 'Recommended'){
+                recommended.push(playlist[i])
+            }
+        }
+        console.log(recommended)
+        let response = recommended[0] !== undefined ? 
+            await spotify.addToPlaylist(query.access_token, recommended[0].id, uri)
+            : 
+            console.log('error')
+        console.log(response)
     }
 
     playSong = (url, id) => {
@@ -166,7 +183,7 @@ class Music extends Component {
                                                 <a href={t.external_urls.spotify} target="_blank"><i className="fas fa-play-circle section-music-play"></i></a>
                                                 <img src={t.album.images[0].url} alt=""/>
                                                 <span><small>{t.artists[0].name}</small>{t.name.substring(0,25)}</span>
-                                                <i class="fas fa-plus"></i>
+                                                <div onClick={() => this.addToPlaylist(t.uri)}><i className="fas fa-plus"></i></div>
                                             </li>
                                         )
                                         }
@@ -181,7 +198,6 @@ class Music extends Component {
                             </h3>
                             <div className="section-music-track">
                                 <ul>
-                                    {console.log(this.state.productions)}
                                     {this.state.productions !== null && this.state.productions.length > 0 && this.state.productions.map( e => 
                                         <li key={e._id}>
                                         {this.state.pause === false && <a onClick={() => this.playSong(e.song.url, e._id)}><i className="fas fa-play-circle section-music-play"></i></a>}

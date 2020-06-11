@@ -291,9 +291,9 @@ body {
     transition: all .5s; }
   .section-music-pause:hover {
     box-shadow: 0.2rem 0.5rem 1rem 1rem rgba(0, 0, 0, 0.2); }
-  .section-music-track ul li > .fa-plus {
+  .section-music-track ul li div > .fa-plus {
     font-size: 1.5rem; }
-  .section-music-track ul li > .fa-plus:hover {
+  .section-music-track ul li div > .fa-plus:hover {
     cursor: pointer; }
 
 .section-search {
