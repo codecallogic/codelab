@@ -8,6 +8,7 @@ class Productions extends Component {
         this.state = {
            name: '',
            content: '',
+           url: '',
            file: '',
            error: '',
            success: '',
@@ -24,16 +25,17 @@ class Productions extends Component {
         formData.append('file', this.state.file)
         formData.append('name', this.state.name)
         formData.append('content', this.state.content)
+        formData.append('url', this.state.url)
         this.setState({
             buttonText: 'Uploading'
         })
-        console.log(formData)
+    
         try {
             const response = await axios.post(`/api/music/upload`, formData, {
                 headers: {
                     Authorization: `Bearer ${token}`
-                }
-            });
+                },
+            })
             console.log('SONG CREATE RESPONSE', response);
             this.setState({
                 name: '',
@@ -67,7 +69,7 @@ class Productions extends Component {
 
     songForm = () => {
         this.setState(prevState => ({
-            songForm: !prevState.songForm
+            songForm: !prevState.songForm,
         }))
     }
     
@@ -89,6 +91,10 @@ class Productions extends Component {
                             <label htmlFor="name">File name</label>
                         </div>
                         <div className="form-group">
+                            <input type="text" type="text" name="url" placeholder="Image Url" value={this.state.url} onChange={this.handleChange} autoComplete="off"/>
+                            <label htmlFor="name">Image URL</label>
+                        </div>
+                        <div className="form-group">
                             <textarea type="text" name="content" placeholder="File Content" value={this.state.content} onChange={this.handleChange} autoComplete="off"/>
                             <label htmlFor="name">File Content</label>
                         </div>
@@ -96,7 +102,7 @@ class Productions extends Component {
                             <input type="file" id="song-upload" name="file" onChange={this.handleFile} autoComplete="off"/>
                             <label htmlFor="song-upload" className="form-group-file"><i className="fas fa-upload"></i> {this.state.songUploadText.split('\\').slice(-1)[0].substring(0,15)}</label>
                         </div>
-                    <button className="btn-submit">{this.state.buttonText}</button>
+                        <button className="btn-submit">{this.state.buttonText}</button>
                     </form>
                     }
                 </div>

@@ -13,7 +13,8 @@ module.exports = {
     callback,
     saveRP,
     recentlyPlayed,
-    upload
+    upload,
+    songList
 }
 
 const s3 = new AWS.S3({ 
@@ -21,6 +22,17 @@ const s3 = new AWS.S3({
   secretAccessKey: process.env.AWS_SECRET_KEY,
   region: 'us-west-1'
 })
+
+function songList(req, res){
+  Production.find({}, function(err, songs){
+    if(err){
+      return res.status(400).json({
+        error: "Songs could not load"
+      })
+    }
+    res.json(songs)
+  })
+}
 
 function upload(req, res){
   let form = new formidable.IncomingForm()
@@ -33,10 +45,10 @@ function upload(req, res){
 
     console.table({err, fields, files})
     console.log(files)
-    const {name, content} = fields 
+    const {name, content, url} = fields 
     const {file} = files
     const slug = slugify(name)
-    let production = new Production({name, content, slug, file})
+    let production = new Production({name, content, url, slug, file})
     const params = {
       Bucket: 'codecallogiclab',
       Key: `production/${uuidv4()}`,

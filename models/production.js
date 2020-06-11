@@ -12,6 +12,10 @@ const songSchema = new Schema(
     content: {
         type: {},
     },
+    url: {
+        type: String,
+        required: true,
+    },
     slug: {
         type: String,
         lowercase: true,

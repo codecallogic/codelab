@@ -1,5 +1,9 @@
-// ACCESS KEY ID
-// AKIA4HFUYSGRBQKXSVNB
+export default {
+    getSongs        
+}
 
-// SECRET ACCESS KEY
-// onjoIF56WoD+3+Dsd6WQZTHSXeEptbZuqwMfvI6c
+function getSongs(){
+    return fetch('/api/music/songs')
+    .then(resp => resp.json())
+    .then(data => data)
+}

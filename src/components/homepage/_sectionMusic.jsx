@@ -1,5 +1,6 @@
 import React, { Component, Link } from 'react';
 import spotify from '../../utils/spotify';
+import aws from '../../utils/aws';
 import queryString from 'query-string'
 
 class Music extends Component {
@@ -10,6 +11,9 @@ class Music extends Component {
             recentlyPlayed: null,
             searchedTracks: null,
             accessToken: false,
+            productions: null,
+            current: null,
+            pause: false,
         }
       }
 
@@ -34,6 +38,36 @@ class Music extends Component {
         console.log(searchMusic)
     }
 
+    playSong = (url, id) => {
+        if(this.state.pause === false){
+            try {
+                this.audio.pause();
+                this.audio.currentTime = 0;
+              } catch (e) {
+                console.log(e);
+              }
+
+              this.setState({
+                  current: id,
+                  pause: true, 
+              })
+          
+              this.audio = new Audio(url);
+              this.audio.play()
+        }else{
+            let song = new Audio(url)
+            song.pause()
+        }
+        
+    }
+
+    stopSong = () => {
+        this.audio.pause()
+        this.setState({
+            pause: false, 
+        })
+    }
+
     componentWillMount = async () => {
         const tracks = await spotify.getRecentlyPlayed()
         this.setState({ recentlyPlayed: tracks })
@@ -45,6 +79,7 @@ class Music extends Component {
                 accessToken: true
             })
         }
+        
     }
 
     componentWillReceiveProps(nextProps){
@@ -56,8 +91,16 @@ class Music extends Component {
             })
         }
     }
+
+    componentDidMount = async () =>{
+        const songs = await aws.getSongs()
+        this.setState({
+            productions: songs 
+        })
+    }
     
     render () {
+        
         return (
             <section id="music" className="section-music">
                 <div className="row">
@@ -134,8 +177,22 @@ class Music extends Component {
                         </div>
                         <div className="col-1-of-3">
                             <h3 className="heading-tertiary u-center-text">
-                                    Tracks Produced
+                                    Recent Productions
                             </h3>
+                            <div className="section-music-track">
+                                <ul>
+                                    {console.log(this.state.productions)}
+                                    {this.state.productions !== null && this.state.productions.length > 0 && this.state.productions.map( e => 
+                                        <li key={e._id}>
+                                        {this.state.pause === false && <a onClick={() => this.playSong(e.song.url, e._id)}><i className="fas fa-play-circle section-music-play"></i></a>}
+                                        {this.state.pause === true && this.state.current === e._id && <a onClick={() => this.stopSong(e.song.url, e._id)}><i className="far fa-pause-circle section-music-pause"></i></a>}                                        
+                                        <img src={e.url} alt=""/>
+                                        <span><small>{e.content}</small>{e.name.substring(0,25)}</span>
+                                    </li>
+                                    )}
+                                    {this.state.productions !== null && this.state.productions.length === 0 && <div className="u-center-text">Hello</div>}
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

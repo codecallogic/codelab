@@ -279,7 +279,18 @@ body {
   .section-music-play:hover {
     opacity: 1;
     background-color: white;
-    border-radius: 2rem; }
+    border-radius: 2rem;
+    box-shadow: 0.2rem 0.5rem 1rem 1rem rgba(0, 0, 0, 0.2); }
+  .section-music-pause {
+    position: absolute;
+    margin-left: 1.5rem;
+    font-size: 3rem;
+    background-color: white;
+    border-radius: 2rem;
+    color: #AC0032;
+    transition: all .5s; }
+  .section-music-pause:hover {
+    box-shadow: 0.2rem 0.5rem 1rem 1rem rgba(0, 0, 0, 0.2); }
   .section-music-track ul li > .fa-plus {
     font-size: 1.5rem; }
   .section-music-track ul li > .fa-plus:hover {
