@@ -1,0 +1,37 @@
+.section-features {
+    background-color: $color-grey-light;
+    padding: 20rem 0;
+    background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.7), rgba($color-primary-light, 0.9)), url(https://images.unsplash.com/photo-1583161056973-c0375771efb3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1806&q=80);
+    background-size: cover;
+
+    &-row {
+        background-color: transparent;
+    }
+    
+}
+
+.feature-box {
+    background-color: rgba($color-white, .6);
+    font-size: 1.5rem;
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: .3rem;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+    transition: all .3s;
+    
+    &-icon {
+        font-size: 6rem;
+        margin-bottom: .5rem;
+        background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+        color: transparent;
+        -webkit-background-clip: text;
+    }
+
+    &:hover {
+        transform: translateY(-1.5rem) scale(1.03);
+    }
+    
+    &-text {
+        
+    }
+}

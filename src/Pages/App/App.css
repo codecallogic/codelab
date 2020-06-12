@@ -247,7 +247,10 @@ body {
   .section-music-track ul li {
     display: flex;
     align-items: center;
-    vertical-align: center; }
+    vertical-align: center;
+    transition: all .5s; }
+  .section-music-track ul li:hover {
+    transform: translateX(-1.5rem) scale(1); }
   .section-music-track ul li span {
     display: grid;
     grid-template-columns: column;
@@ -324,9 +327,11 @@ body {
   .section-search-login button > .svg-inline--fa {
     background: transparent;
     border-radius: 15rem;
-    transition: all .8s; }
+    transition: all .8s;
+    transition: all .5s; }
   .section-search-login button > .svg-inline--fa:hover {
     box-shadow: 1rem 3rem 5rem 0.5rem rgba(0, 0, 0, 0.2);
+    transform: translateY(-1rem) scale(1.05);
     cursor: pointer; }
 
 .section-api {
@@ -345,6 +350,31 @@ body {
   .section-upload-form {
     width: 50%;
     margin: 0 auto; }
+
+.section-features {
+  background-color: #EEEEEE;
+  padding: 20rem 0;
+  background-image: linear-gradient(to right bottom, rgba(200, 122, 115, 0.7), rgba(200, 122, 115, 0.9)), url(https://images.unsplash.com/photo-1583161056973-c0375771efb3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1806&q=80);
+  background-size: cover; }
+  .section-features-row {
+    background-color: transparent; }
+
+.feature-box {
+  background-color: rgba(255, 255, 255, 0.6);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: .3rem;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
+  transition: all .3s; }
+  .feature-box-icon {
+    font-size: 6rem;
+    margin-bottom: .5rem;
+    background-image: linear-gradient(to right, #c87a73, #34000f);
+    color: transparent;
+    -webkit-background-clip: text; }
+  .feature-box:hover {
+    transform: translateY(-1.5rem) scale(1.03); }
 
 .btn:link, .btn:visited {
   text-transform: uppercase;
