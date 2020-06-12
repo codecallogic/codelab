@@ -69,6 +69,13 @@ class Music extends Component {
             await spotify.addToPlaylist(query.access_token, recommended[0].id, uri)
             : 
             console.log('error')
+        let tracks = await spotify.recommendedTracks(query.access_token, recommended[0].id)
+        let trackID = tracks.map( t => 
+            t.track.id
+        )
+        this.setState({
+            recommendedTracks: trackID
+        })   
     }
 
     playSong = (url, id) => {
@@ -226,8 +233,11 @@ class Music extends Component {
                                 <ul>
                                     {this.state.productions !== null && this.state.productions.length > 0 && this.state.productions.map( e => 
                                         <li key={e._id}>
+
                                         {this.state.pause === false && <a onClick={() => this.playSong(e.song.url, e._id)}><i className="fas fa-play-circle section-music-play"></i></a>}
-                                        {this.state.pause === true && this.state.current === e._id && <a onClick={() => this.stopSong(e.song.url, e._id)}><i className="far fa-pause-circle section-music-pause"></i></a>}                                        
+
+                                        {this.state.pause === true && this.state.current === e._id && <a onClick={() => this.stopSong(e.song.url, e._id)}><i className="far fa-pause-circle section-music-pause"></i></a>}   
+
                                         <img src={e.url} alt=""/>
                                         <span><small>{e.content}</small>{e.name.substring(0,25)}</span>
                                     </li>

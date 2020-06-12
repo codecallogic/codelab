@@ -280,7 +280,8 @@ body {
     opacity: 1;
     background-color: white;
     border-radius: 2rem;
-    box-shadow: 0.2rem 0.5rem 1rem 1rem rgba(0, 0, 0, 0.2); }
+    box-shadow: 0.2rem 0.5rem 1rem 1rem rgba(0, 0, 0, 0.2);
+    cursor: pointer; }
   .section-music-pause {
     position: absolute;
     margin-left: 1.5rem;
@@ -290,11 +291,17 @@ body {
     color: #AC0032;
     transition: all .5s; }
   .section-music-pause:hover {
-    box-shadow: 0.2rem 0.5rem 1rem 1rem rgba(0, 0, 0, 0.2); }
+    box-shadow: 0.2rem 0.5rem 1rem 1rem rgba(0, 0, 0, 0.2);
+    cursor: pointer; }
   .section-music-track ul li div > .fa-plus {
     font-size: 1.5rem; }
   .section-music-track ul li div > .fa-plus:hover {
     cursor: pointer; }
+  .section-music-track ul li div > .fa-check {
+    color: #c87a73;
+    font-size: 1.5rem; }
+  .section-music-track ul li div > .fa-check:hover {
+    color: #c87a73; }
 
 .section-search {
   text-align: center; }
