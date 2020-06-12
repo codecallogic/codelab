@@ -8,6 +8,23 @@ export default {
     searchMusic,
     getPlaylist,
     addToPlaylist,
+    recommendedTracks,
+}
+
+function recommendedTracks(query, id){
+    return fetch(`https://api.spotify.com/v1/playlists/${id}/tracks`, {
+        method: 'GET',
+        headers: new Headers({
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + query,
+        })
+    })
+    .then(res => res.json())
+    .then(data => data.items)
+    .catch(error => {
+        console.log(error)
+    })
 }
 
 function addToPlaylist(query, id, uri){

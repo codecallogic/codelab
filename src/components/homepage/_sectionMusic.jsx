@@ -14,6 +14,7 @@ class Music extends Component {
             productions: null,
             current: null,
             pause: false,
+            recommendedTracks: null,
         }
       }
 
@@ -35,6 +36,23 @@ class Music extends Component {
         this.setState({
             searchedTracks: searchMusic
         })
+        let playlist = await spotify.getPlaylist(query.access_token)
+        let recommended = [];
+        for(let i = 0; i < playlist.length; i++){
+            if(playlist[i].name === 'Recommended'){
+                recommended.push(playlist[i])
+            }
+        }
+        // console.log(recommended[0].id)
+        let tracks = await spotify.recommendedTracks(query.access_token, recommended[0].id)
+        let trackID = tracks.map( t => 
+            t.track.id
+        )
+        // console.log(trackID)
+        this.setState({
+            recommendedTracks: trackID
+        })
+        // console.log(this.state.recommendedTracks)
     }
 
     addToPlaylist = async (uri) => {
@@ -47,12 +65,10 @@ class Music extends Component {
                 recommended.push(playlist[i])
             }
         }
-        console.log(recommended)
         let response = recommended[0] !== undefined ? 
             await spotify.addToPlaylist(query.access_token, recommended[0].id, uri)
             : 
             console.log('error')
-        console.log(response)
     }
 
     playSong = (url, id) => {
@@ -114,6 +130,7 @@ class Music extends Component {
         this.setState({
             productions: songs 
         })
+        
     }
     
     render () {
@@ -183,7 +200,16 @@ class Music extends Component {
                                                 <a href={t.external_urls.spotify} target="_blank"><i className="fas fa-play-circle section-music-play"></i></a>
                                                 <img src={t.album.images[0].url} alt=""/>
                                                 <span><small>{t.artists[0].name}</small>{t.name.substring(0,25)}</span>
-                                                <div onClick={() => this.addToPlaylist(t.uri)}><i className="fas fa-plus"></i></div>
+                                                {this.state.recommendedTracks !== null && this.state.recommendedTracks.indexOf(t.id) === -1 && 
+                                                    <div onClick={() => this.addToPlaylist(t.uri)}>
+                                                    <i className="fas fa-plus"></i></div>
+                                                }
+                                            
+                                                {this.state.recommendedTracks !== null && this.state.recommendedTracks.indexOf(t.id) !== -1 && 
+                                                    <div>
+                                                    <i className="fas fa-check"></i>
+                                                    </div>
+                                                }
                                             </li>
                                         )
                                         }
