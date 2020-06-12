@@ -15,6 +15,7 @@ class Music extends Component {
             current: null,
             pause: false,
             recommendedTracks: null,
+            audio: null,
         }
       }
 
@@ -80,25 +81,23 @@ class Music extends Component {
 
     playSong = (url, id) => {
         if(this.state.pause === false){
-            try {
-                this.audio.pause();
-                this.audio.currentTime = 0;
-              } catch (e) {
-                console.log(e);
-              }
-
               this.setState({
                   current: id,
                   pause: true, 
               })
           
-              this.audio = new Audio(url);
+              this.audio = new Audio(url)
               this.audio.play()
         }else{
             let song = new Audio(url)
             song.pause()
         }
-        
+        const self = this
+        this.audio.addEventListener('ended', function () {
+            self.setState({
+                pause: false, 
+            })
+          }, false);
     }
 
     stopSong = () => {
@@ -119,7 +118,6 @@ class Music extends Component {
                 accessToken: true
             })
         }
-        
     }
 
     componentWillReceiveProps(nextProps){
@@ -137,7 +135,6 @@ class Music extends Component {
         this.setState({
             productions: songs 
         })
-        
     }
     
     render () {
@@ -242,7 +239,7 @@ class Music extends Component {
                                         <span><small>{e.content}</small>{e.name.substring(0,25)}</span>
                                     </li>
                                     )}
-                                    {this.state.productions !== null && this.state.productions.length === 0 && <div className="u-center-text">Hello</div>}
+                                    {this.state.productions !== null && this.state.productions.length === 0 && <div className="u-center-text">Sorry no songs have been added</div>}
                                 </ul>
                             </div>
                         </div>

@@ -264,8 +264,10 @@ body {
     padding-bottom: 3rem; }
   .section-music-track ul li img {
     width: 20%;
+    height: 100%;
     border-radius: 1rem;
-    margin-right: 2rem; }
+    margin-right: 2rem;
+    margin-bottom: .2rem; }
   .section-music-updated {
     font-size: 1rem;
     padding: .5rem; }
