@@ -3,22 +3,29 @@
     padding: 20rem 0;
     background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.7), rgba($color-primary-light, 0.9)), url(https://images.unsplash.com/photo-1583161056973-c0375771efb3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1806&q=80);
     background-size: cover;
-
+    transform: skewY(-7deg);
+    margin-top: -8rem;
+    
     &-row {
         background-color: transparent;
+    }
+
+    // > means direct child
+    & > * {
+        transform: skewY(7deg);
     }
     
 }
 
 .feature-box {
-    background-color: rgba($color-white, .6);
+    background-color: rgba($color-white, .8);
     font-size: 1.5rem;
     padding: 2.5rem;
     text-align: center;
     border-radius: .3rem;
     box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
     transition: all .3s;
-    
+
     &-icon {
         font-size: 6rem;
         margin-bottom: .5rem;

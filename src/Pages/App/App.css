@@ -238,7 +238,7 @@ body {
 
 .section-music {
   background-color: #EEEEEE;
-  padding: 5rem 0;
+  padding: 5rem 0 12rem 0;
   margin-top: -20vh; }
   .section-music-track {
     padding: 2rem 0rem; }
@@ -355,12 +355,16 @@ body {
   background-color: #EEEEEE;
   padding: 20rem 0;
   background-image: linear-gradient(to right bottom, rgba(200, 122, 115, 0.7), rgba(200, 122, 115, 0.9)), url(https://images.unsplash.com/photo-1583161056973-c0375771efb3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1806&q=80);
-  background-size: cover; }
+  background-size: cover;
+  transform: skewY(-7deg);
+  margin-top: -8rem; }
   .section-features-row {
     background-color: transparent; }
+  .section-features > * {
+    transform: skewY(7deg); }
 
 .feature-box {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.8);
   font-size: 1.5rem;
   padding: 2.5rem;
   text-align: center;
