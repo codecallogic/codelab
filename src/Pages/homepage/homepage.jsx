@@ -4,6 +4,7 @@ import CustomGrid from '../../components/grid/custom_grid'
 import SectionAbout from '../../components/homepage/_sectionAbout'
 import SectionMusic from '../../components/homepage/_sectionMusic'
 import SectionFeatures from '../../components/homepage/_sectionFeatures'
+import SectionProjects from '../../components/homepage/_sectionProjects'
 
 class Homepage extends Component {
     render () {
@@ -13,7 +14,7 @@ class Homepage extends Component {
                 <SectionAbout />
                 <SectionMusic />
                 <SectionFeatures />
-                <CustomGrid />
+                <SectionProjects />
             </main>
         )
     }

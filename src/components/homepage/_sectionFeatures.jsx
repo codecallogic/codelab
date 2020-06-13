@@ -26,7 +26,7 @@ class Features extends Component {
                     <div className="col-1-of-4">
                         <div className="feature-box">
                             <i className="feature-box-icon icon-basic-tablet"></i>
-                            <h3 className="heading-tertiary u-margin-bottom-small">Keep it Responsive</h3>
+                            <h3 className="heading-tertiary u-margin-bottom-small">Responsive Designs</h3>
                             <p className="feature-box-text">
                                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel sequi iste fugiat perspiciatis quae rem dignissimos unde. Quam fugit eveniet ullam autem nemo ratione repudiandae, voluptatibus quisquam at, totam atque.
                             </p>

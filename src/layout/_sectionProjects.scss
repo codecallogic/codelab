@@ -1,0 +1,50 @@
+.section-projects {
+    background-color: $color-grey-light;
+    padding: 20rem 0 50rem 0;
+    margin-top: -8rem;
+}
+
+.card {
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 50rem;
+    
+    &-side {
+        background-color: orangered;
+        text-align: center;
+        color: white;
+        font-size: 2rem;
+        height: 50rem;
+        transition: all .6s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);    
+
+        &-front {
+            background-color: orangered;
+        }
+
+        &-back {
+            background-color: green;
+            transform: rotateY(180deg);
+
+            &-1 {
+                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+            }
+            
+        }   
+        
+    }
+
+    &:hover &-side-front{
+        transform: rotateY(180deg);
+    }
+
+    &:hover &-side-back{
+        transform: rotateY(0);
+    }
+}
