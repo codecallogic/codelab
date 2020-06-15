@@ -137,6 +137,9 @@ body {
 .u-center-text {
   text-align: center; }
 
+.u-margin-top-big {
+  margin-top: 8rem; }
+
 .u-margin-bottom-big {
   margin-bottom: 8rem; }
 
@@ -382,7 +385,7 @@ body {
 
 .section-projects {
   background-color: #EEEEEE;
-  padding: 20rem 0 50rem 0;
+  padding: 20rem 0 5rem 0;
   margin-top: -8rem; }
 
 .card {
@@ -480,6 +483,33 @@ body {
     font-size: 2rem;
     font-weight: 300; }
 
+.section-experience {
+  padding: 15rem 0;
+  background-color: #EEEEEE; }
+
+.experience {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  background-color: white;
+  padding: 5rem;
+  border-radius: .5rem;
+  transform: skewX(-12deg); }
+  .experience-shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg); }
+  .experience-image {
+    width: 100%; }
+  .experience-text {
+    font-size: 1.6rem;
+    transform: skewX(12deg); }
+
 .btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
@@ -536,12 +566,7 @@ body {
   height: 50px; }
 
 .btn-text:hover {
-  color: #fff;
-  background-color: #AC0032;
-  padding: .8rem;
-  border-radius: 1rem;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-  transform: translateY(-1.5rem); }
+  border-radius: 1rem; }
 
 .btn-text:active {
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);

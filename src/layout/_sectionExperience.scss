@@ -1,0 +1,35 @@
+.section-experience {
+    padding: 15rem 0;
+    background-color: $color-grey-light;
+}
+
+.experience {
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($color-black, .1);
+    background-color: white;
+    padding: 5rem;
+    border-radius: .5rem;
+    transform: skewX(-12deg);
+    
+    &-shape {
+        width: 15rem;
+        height: 15rem;
+        float: left;
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        transform: translateX(-3rem) skewX(12deg);
+    }
+
+    &-image {
+        width: 100%;
+    }
+
+    &-text {
+        font-size: $default-font-size;
+        transform: skewX(12deg);
+    }
+    
+}

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Projects extends Component {
     render () {
         return (
-            <div className="section-projects">
+            <section className="section-projects">
                 <div className="u-center-text u-margin-bottom-big">
                     <h2 className="heading-secondary">
                         Recent Projects
@@ -101,7 +101,10 @@ class Projects extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
+                <div className="u-center-text u-margin-top-big">
+                    <a href="" className="btn-text">See More</a>
+                </div>
+            </section>
         )
     }
 }
