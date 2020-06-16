@@ -11,12 +11,12 @@ class Experience extends Component {
                         Your browser is not supported!
                     </video>
                 </div>
-                <div className="u-center-text u-margin-bottom-big">
+                <div className="u-center-text">
                     <h2 className="heading-secondary u-margin-bottom-big">
                         Experience
                     </h2>
                     <div className="row">
-                        <div className="experience u-margin-bottom-big">
+                        <div className="experience">
                             <figure className="experience-shape">
                                 <img src="https://i.imgur.com/O4zgxRB.jpg" alt="General Assembly" className="experience-image-2"/>
                                 <figcaption className="experience-caption">
@@ -32,7 +32,7 @@ class Experience extends Component {
                         </div>                    
                     </div>
                     <div className="row">
-                        <div className="experience u-margin-bottom-big">
+                        <div className="experience">
                             <figure className="experience-shape">
                                 <img src="https://i.imgur.com/lMOgqYo.png" alt="General Assembly" className="experience-image"/>
                                 <figcaption className="experience-caption">

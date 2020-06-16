@@ -6,6 +6,7 @@ import SectionMusic from '../../components/homepage/_sectionMusic'
 import SectionFeatures from '../../components/homepage/_sectionFeatures'
 import SectionProjects from '../../components/homepage/_sectionProjects'
 import SectionExperience from '../../components/homepage/_sectionExperience'
+import SectionBook from'../../components/homepage/_sectionBook'
 
 class Homepage extends Component {
     render () {
@@ -17,6 +18,7 @@ class Homepage extends Component {
                 <SectionFeatures />
                 <SectionProjects />
                 <SectionExperience />
+                <SectionBook />
             </main>
         )
     }

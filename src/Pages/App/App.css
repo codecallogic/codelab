@@ -388,7 +388,7 @@ body {
   margin-top: -8rem; }
 
 .section-experience {
-  padding: 15rem 0;
+  padding: 15rem 0 8rem 0;
   position: relative; }
 
 .experience {
@@ -445,6 +445,18 @@ body {
     border: none;
     transform: scale(1);
     filter: blur(1rem) brightness(90%); }
+
+.section-book {
+  background-color: #EEEEEE;
+  padding: 15rem 0;
+  background-image: linear-gradient(to right bottom, rgba(200, 122, 115, 0.8), rgba(200, 122, 115, 0.9)), url(https://images.unsplash.com/photo-1583161056973-c0375771efb3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1806&q=80); }
+
+.book {
+  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url(https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80);
+  background-size: cover;
+  height: 50rem;
+  border-radius: .3rem;
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2); }
 
 .btn:link, .btn:visited {
   text-transform: uppercase;
@@ -685,6 +697,43 @@ body {
     text-align: center; }
   .form-search-group input:focus::-webkit-input-placeholder {
     color: transparent; }
+
+.book-form {
+  width: 50%;
+  padding: 6rem; }
+  .book-form-group:not(:last-child) {
+    margin-bottom: 2rem; }
+  .book-form-input {
+    font-size: 1.5rem;
+    font-family: inherit;
+    color: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: .2rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-bottom: .3rem solid transparent;
+    width: 90%;
+    display: block;
+    transition: all .4s; }
+    .book-form-input::-webkit-input-placeholder {
+      color: #999; }
+    .book-form-input:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+      border-bottom: 0.3rem solid #c87a73; }
+    .book-form-input:focus:invalid {
+      border-bottom: .3rem solid red; }
+  .book-form-label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 2rem;
+    margin-top: .7rem;
+    display: block;
+    transition: all .4s; }
+  .book-form-input:placeholder-shown + .book-form-label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem); }
 
 .card {
   perspective: 150rem;
