@@ -21,6 +21,22 @@ class Book extends Component {
                                     <input type="email" id="email" placeholder="Email" className="book-form-input" autoComplete="off" required/>
                                     <label htmlFor="email" className="book-form-label">Email</label>
                                 </div>
+                                <div className="book-form-group">
+                                    <div className="book-form-radio-group">
+                                        <input type="radio" id="small" className="book-form-radio-input" name="size"/>
+                                        <label htmlFor="small" className="book-form-radio-label">
+                                            <span className="book-form-radio-button"></span>
+                                            Small Project
+                                        </label>
+                                    </div>
+                                    <div className="book-form-radio-group">
+                                        <input type="radio" id="large" className="book-form-radio-input" name="size"/>
+                                        <label htmlFor="large" className="book-form-radio-label">
+                                            <span className="book-form-radio-button"></span>
+                                            Big Project
+                                        </label>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>

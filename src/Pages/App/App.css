@@ -278,7 +278,10 @@ body {
     padding: .5rem; }
   .section-music-play {
     position: absolute;
-    margin-left: 1.5rem;
+    display: inline-block;
+    top: 0;
+    left: 50%;
+    transform: translate(50%, 0);
     font-size: 3rem;
     color: #AC0032;
     opacity: 0;
@@ -734,6 +737,40 @@ body {
     opacity: 0;
     visibility: hidden;
     transform: translateY(-4rem); }
+  .book-form-radio-group {
+    width: 49%;
+    display: inline-block; }
+  .book-form-radio-input {
+    display: none; }
+  .book-form-radio-label {
+    font-size: 1.6rem;
+    cursor: pointer;
+    position: relative;
+    padding-left: 4rem; }
+  .book-form-radio-button {
+    height: 3rem;
+    width: 3rem;
+    border: 0.5rem solid #AC0032;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: -.5rem; }
+    .book-form-radio-button::after {
+      content: "";
+      display: block;
+      height: 1.5rem;
+      width: 1.5rem;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #AC0032;
+      opacity: 0;
+      transition: all .5s; }
+  .book-form-radio-input:checked ~ .book-form-radio-label .book-form-radio-button::after {
+    opacity: 1; }
 
 .card {
   perspective: 150rem;
