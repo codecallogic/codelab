@@ -37,6 +37,7 @@ class Book extends Component {
                                         </label>
                                     </div>
                                 </div>
+                                <button className="btn btn--primary btn--animated">Next Step</button>
                             </form>
                         </div>
                     </div>

@@ -461,7 +461,7 @@ body {
   border-radius: .3rem;
   box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2); }
 
-.btn:link, .btn:visited {
+.btn, .btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 3rem;
@@ -470,7 +470,9 @@ body {
   border-radius: 10rem;
   transition: all .2s;
   position: relative;
-  font-size: 1.6rem; }
+  font-size: 1.6rem;
+  border: none;
+  cursor: pointer; }
 
 .btn:hover {
   transform: translateY(-0.4rem);
@@ -489,6 +491,13 @@ body {
   text-align: center; }
   .btn--white::after {
     background-color: #fff; }
+
+.btn--primary {
+  background-color: #AC0032;
+  color: #FDFFFC;
+  text-align: center; }
+  .btn--primary::after {
+    background-color: #AC0032; }
 
 .btn::after {
   content: "";

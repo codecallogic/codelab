@@ -1,4 +1,5 @@
 .btn {
+    &,
     &:link,
     &:visited {
         text-transform: uppercase;
@@ -10,6 +11,8 @@
         transition: all .2s;
         position: relative;
         font-size: 1.6rem;
+        border: none;
+        cursor: pointer;
     }
     &:hover {
         transform: translateY(-.4rem);
@@ -35,6 +38,16 @@
 
         &::after {
             background-color: $color-white;
+        }
+    }
+
+    &--primary {
+        background-color: $color-primary;
+        color: $color-white-compliment;
+        text-align: center;
+
+        &::after {
+            background-color: $color-primary;
         }
     }
     
