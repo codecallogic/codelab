@@ -7,6 +7,7 @@ import SectionFeatures from '../../components/homepage/_sectionFeatures'
 import SectionProjects from '../../components/homepage/_sectionProjects'
 import SectionExperience from '../../components/homepage/_sectionExperience'
 import SectionBook from'../../components/homepage/_sectionBook'
+import Footer from'../../components/homepage/_footer'
 
 class Homepage extends Component {
     render () {
@@ -19,6 +20,7 @@ class Homepage extends Component {
                 <SectionProjects />
                 <SectionExperience />
                 <SectionBook />
+                <Footer />
             </main>
         )
     }
