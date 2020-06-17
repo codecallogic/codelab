@@ -8,11 +8,13 @@ import SectionProjects from '../../components/homepage/_sectionProjects'
 import SectionExperience from '../../components/homepage/_sectionExperience'
 import SectionBook from'../../components/homepage/_sectionBook'
 import Footer from'../../components/homepage/_footer'
+import Navigation from'../../components/homepage/_navigation'
 
 class Homepage extends Component {
     render () {
         return (
             <main>
+                <Navigation />
                 <Header />
                 <SectionAbout />
                 <SectionMusic />

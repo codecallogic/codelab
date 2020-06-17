@@ -11,10 +11,10 @@ class Header extends Component {
                 </div>
                 <div className="header__text-box">
                     <h1 className="heading-primary">
-                        <span className="heading-primary--main">Hi, I'm a Developer</span>
-                        <span className="heading-primary--sub">I make modern websites</span>
+                        <span className="heading-primary--main">Hi, I'm a Full Stack Developer</span>
+                        <span className="heading-primary--sub">I Like Making Slick and Fast Websites</span>
                     </h1>
-                    <Link to="/" className="btn btn--white btn--animated">Lets get started on a project together</Link>
+                    <Link to="/" className="btn btn--white btn--animated">Lets get started</Link>
                 </div>
             </div>
             

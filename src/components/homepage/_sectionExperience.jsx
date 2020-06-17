@@ -13,7 +13,7 @@ class Experience extends Component {
                 </div>
                 <div className="u-center-text">
                     <h2 className="heading-secondary u-margin-bottom-big">
-                        Experience
+                        Resume
                     </h2>
                     <div className="row">
                         <div className="experience">
