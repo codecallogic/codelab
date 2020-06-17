@@ -541,12 +541,22 @@ body {
 .navigation-item {
   margin: 1rem; }
 
-.navigation-link {
+.navigation-link:link, .navigation-link:visited {
+  display: inline-block;
   font-size: 3rem;
   font-weight: 300;
   color: #fff;
   text-decoration: none;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
+  background-size: 230%;
+  transition: all .5s; }
+
+.navigation-link:hover, .navigation-link:active {
+  background-position: 100%;
+  color: #AC0032;
+  transform: translateX(1rem); }
 
 .btn, .btn:link, .btn:visited {
   text-transform: uppercase;
