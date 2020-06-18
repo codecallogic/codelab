@@ -9,6 +9,7 @@ import SectionExperience from '../../components/homepage/_sectionExperience'
 import SectionBook from'../../components/homepage/_sectionBook'
 import Footer from'../../components/homepage/_footer'
 import Navigation from'../../components/homepage/_navigation'
+import PopUp from'../../components/homepage/_popup'
 
 class Homepage extends Component {
     render () {
@@ -23,6 +24,7 @@ class Homepage extends Component {
                 <SectionExperience />
                 <SectionBook />
                 <Footer />
+                <PopUp />
             </main>
         )
     }
