@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Projects extends Component {
     render () {
         return (
-            <section className="section-projects">
+            <section className="section-projects" id="section-projects">
                 <div className="u-center-text u-margin-bottom-big">
                     <h2 className="heading-secondary">
                         Recent Projects
@@ -34,7 +34,7 @@ class Projects extends Component {
                                     <div className="card-details-box">
                                         <p className="card-details-title">Search</p>
                                         <p className="card-details-sub-title">The Best Music on Spotify</p>
-                                        <a href="#" className="btn btn--white">Details</a>
+                                        <a href="#popup-mloops" className="btn btn--white">Details</a>
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +64,7 @@ class Projects extends Component {
                                     <div className="card-details-box">
                                         <p className="card-details-title">Diagnosis</p>
                                         <p className="card-details-sub-title">Based on Your Symptoms</p>
-                                        <a href="#" className="btn btn--white">Details</a>
+                                        <a href="#popup-recovery" className="btn btn--white">Details</a>
                                     </div>
                                 </div>
                             </div>
@@ -94,7 +94,7 @@ class Projects extends Component {
                                     <div className="card-details-box">
                                         <p className="card-details-title">Play</p>
                                         <p className="card-details-sub-title">Music In Real Time With Others</p>
-                                        <a href="#" className="btn btn--white">Details</a>
+                                        <a href="#popup-instatone" className="btn btn--white">Details</a>
                                     </div>
                                 </div>
                             </div>

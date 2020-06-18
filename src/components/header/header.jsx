@@ -14,7 +14,7 @@ class Header extends Component {
                         <span className="heading-primary--main">Hi, I'm a Full Stack Developer</span>
                         <span className="heading-primary--sub">I Like Making Slick and Fast Websites</span>
                     </h1>
-                    <Link to="/" className="btn btn--white btn--animated">Lets get started</Link>
+                    <a href="#section-resume" className="btn btn--white btn--animated">Lets get started</a>
                 </div>
             </div>
             

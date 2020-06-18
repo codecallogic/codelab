@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Experience extends Component {
     render () {
         return (
-            <section className="section-experience">
+            <section className="section-experience" id="section-resume">
                 <div className="bg-video">
                     <video className="bg-video-content" autoPlay muted loop>
                         <source src="../../../video/video.mp4" type="video/mp4"/>

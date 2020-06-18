@@ -112,7 +112,7 @@ class Music extends Component {
         this.setState({ recentlyPlayed: tracks })
         let query = queryString.parse(window.location.search);
         if(Object.keys(query).length !== 0){
-            const element = document.getElementById('music')
+            const element = document.getElementById('section-music')
             element.scrollIntoView({behavior: 'smooth'});
             this.setState({
                 accessToken: true
@@ -140,7 +140,7 @@ class Music extends Component {
     render () {
         
         return (
-            <section id="music" className="section-music">
+            <section id="section-music" className="section-music">
                 <div className="row">
                     <div className="col-1-of-8">
                         <ul className="heading-side">
