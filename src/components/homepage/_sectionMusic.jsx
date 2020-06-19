@@ -27,7 +27,9 @@ class Music extends Component {
     }
 
     spotifyLogin = () => {
-        window.location="https://codecallogic.herokuapp.com/api/search/login";
+        const locahostSearch = 'http://localhost:3001/api/search/login'
+        const herokuSearch = 'https://codecallogic.herokuapp.com/api/search/login'
+        window.location=locahostSearch
     }
     
     searchMusic = async (e) => {
@@ -121,10 +123,9 @@ class Music extends Component {
         }
     }
 
-    componentWillReceiveProps(nextProps){
-        const accessTrue = this.state.accessToken
-        const accessChange = false
-        if(accessTrue !== accessChange){
+    componentWillReceiveProps(){
+        let query = queryString.parse(window.location.search);
+        if(query.access_token.length === 0){
             this.setState({
                 accessToken: false
             })
