@@ -27,7 +27,7 @@ class Music extends Component {
     }
 
     spotifyLogin = () => {
-        window.location="http://codecallogic.herokuapp.com:3001/api/search/login";
+        window.location="https://codecallogic.herokuapp.com/api/search/login";
     }
     
     searchMusic = async (e) => {

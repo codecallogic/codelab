@@ -8,7 +8,7 @@ module.exports = {
 }
 
 const localSpotifyCallback = 'http://localhost:3001/api/search/callback';
-const deployedSpotifyCallback = 'https://codecallogic.herokuapp.com:3001/api/search/callback';
+const deployedSpotifyCallback = 'https://codecallogic.herokuapp.com/api/search/callback';
 const localhostHome = 'http://localhost:3000/';
 const herokuHome = 'https://codecallogic.herokuapp.com/';
 
@@ -68,7 +68,7 @@ async function callback(req, res){
     request.post(authOptions, function(error, response, body) {
         console.log(body)
         var access_token = body.access_token
-        let uri = localhostHome
+        let uri = herokuHome
         res.redirect(uri + '?access_token=' + access_token)
     })
     }
