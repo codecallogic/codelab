@@ -25,12 +25,6 @@ class App extends Component {
     this.setState({ user: userService.getUser()})
   }
 
-  run = (value) => {
-    if(value = 'spotifyLogin'){
-      spotify.callback()
-    }
-  }
-
   render() {
     return (
       <div>

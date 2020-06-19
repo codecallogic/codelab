@@ -2,7 +2,6 @@ import tokenService from '../utils/tokenService'
 const BASE_URL = '/api/music/'
 
 export default {
-    login,
     callback,
     recentlyPlayed,
     saveRP,
@@ -11,25 +10,6 @@ export default {
     getPlaylist,
     addToPlaylist,
     recommendedTracks,
-}
-function login(){
-    return fetch(`http://localhost:3001/api/search/login`, {
-        method: 'GET',
-        headers: new Headers({
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-        })
-    })
-}
-
-function callback(){
-    return fetch(`/api/search/callback`, {
-        method: 'GET',
-        headers: new Headers({
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-        })
-    })
 }
 
 function recommendedTracks(query, id){
