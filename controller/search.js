@@ -7,10 +7,12 @@ module.exports = {
     callback,
 }
 
-const localSpotifyCallback = 'http://localhost:3001/api/search/callback';
-const deployedSpotifyCallback = 'https://codecallogic.herokuapp.com/api/search/callback';
-const localhostHome = 'http://localhost:3000/';
-const herokuHome = 'https://codecallogic.herokuapp.com/';
+const localSpotifyCallback = 'http://localhost:3001/api/search/callback'
+const deployedSpotifyCallback = 'https://codecallogic.herokuapp.com/api/search/callback'
+const domainSpotifyCallback = 'https://www.codecallogic.com/api/search/callback'
+const localhostHome = 'http://localhost:3000/'
+const herokuHome = 'https://codecallogic.herokuapp.com/'
+const domainHome = 'https://www.codecallogic.com/'
 
 const generateRandomString = function(length) {
     var text = '';
@@ -32,7 +34,7 @@ async function login(req, res){
       response_type: 'code',
       client_id: process.env.SPOTIFY_CLIENT_ID,
       scope: process.env.SCOPES,
-      redirect_uri: deployedSpotifyCallback,
+      redirect_uri: domainSpotifyCallback,
       state: state
     }));
 }
@@ -55,7 +57,7 @@ async function callback(req, res){
         url: 'https://accounts.spotify.com/api/token',
         form: {
         code: code,
-        redirect_uri: deployedSpotifyCallback,
+        redirect_uri: domainSpotifyCallback,
         grant_type: 'authorization_code'
         },
         headers: {
@@ -68,7 +70,7 @@ async function callback(req, res){
     request.post(authOptions, function(error, response, body) {
         console.log(body)
         var access_token = body.access_token
-        let uri = herokuHome
+        let uri = domainHome
         res.redirect(uri + '?access_token=' + access_token)
     })
     }

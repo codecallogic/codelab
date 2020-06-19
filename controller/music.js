@@ -95,8 +95,9 @@ async function saveRP(req, res){
   }
 }
 
-const localhostHome = 'http://localhost:3000/admin';
-const herokuHome = 'https://codecallogic.herokuapp.com/admin';
+const localhostHome = 'http://localhost:3000/admin'
+const herokuHome = 'https://codecallogic.herokuapp.com/admin'
+const domainHome = 'https://www.codecallogic.com/'
 
 const generateRandomString = function(length) {
     var text = '';
@@ -152,7 +153,7 @@ async function callback(req, res){
     request.post(authOptions, function(error, response, body) {
         // console.log(body)
         var access_token = body.access_token
-        let uri = process.env.FRONTEND_URI || localhostHome
+        let uri = process.env.FRONTEND_URI || domainHome
         res.redirect(uri + '?access_token=' + access_token)
     })
     }
