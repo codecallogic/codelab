@@ -95,6 +95,9 @@ async function saveRP(req, res){
   }
 }
 
+const localhostHome = 'http://localhost:3000/admin';
+const herokuHome = 'https://codecallogic.herokuapp.com/admin';
+
 const generateRandomString = function(length) {
     var text = '';
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -125,12 +128,12 @@ async function callback(req, res){
     var state = req.query.state || null;
     var storedState = req.cookies ? req.cookies[stateKey] : null;
 
-  if (state === null || state !== storedState) {
+    if (state === null || state !== storedState) {
     res.redirect('/#' +
       querystring.stringify({
         error: 'state_mismatch'
       }));
-  } else {
+    } else {
     res.clearCookie(stateKey);
     let authOptions = {
         url: 'https://accounts.spotify.com/api/token',
@@ -149,7 +152,7 @@ async function callback(req, res){
     request.post(authOptions, function(error, response, body) {
         // console.log(body)
         var access_token = body.access_token
-        let uri = process.env.FRONTEND_URI || 'https://codecallogic.herokuapp.com/admin'
+        let uri = process.env.FRONTEND_URI || localhostHome
         res.redirect(uri + '?access_token=' + access_token)
     })
     }

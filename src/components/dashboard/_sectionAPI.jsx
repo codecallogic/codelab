@@ -12,6 +12,12 @@ class SectionAPI extends Component {
         }
     }
 
+    spotifyLogin = () => {
+        const localLogin = 'http://localhost:3001/api/music/login'
+        const herokuLogin = 'https://codecallogic.herokuapp.com/api/music/login'
+        window.location=herokuLogin
+    }
+
     recentlyPlayed = async () => {
         let query = queryString.parse(window.location.search)
         let recentlyPlayed = Object.keys(query).length !== 0 ? await spotify.recentlyPlayed(query.access_token) : console.log('Empy Query')
@@ -36,11 +42,12 @@ class SectionAPI extends Component {
     
     render () {
         return (
+           
             <div>
                 <div className="section-api">
                     <h1 className="heading-section-title">API'S</h1>
                     <div className="u-width-3">
-                        <button className="btn-submit" onClick={() => window.location="http://localhost:3001/api/music/login"}>Spotify Token</button>
+                        <button className="btn-submit" onClick={this.spotifyLogin}>Spotify Token</button>
                     </div>
                     <div className="u-width-3">
                         <button className="btn-submit" onClick={this.recentlyPlayed}>Recently Played</button>
