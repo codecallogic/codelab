@@ -2,7 +2,6 @@ import tokenService from '../utils/tokenService'
 const BASE_URL = '/api/music/'
 
 export default {
-    callback,
     recentlyPlayed,
     saveRP,
     getRecentlyPlayed,
