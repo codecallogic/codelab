@@ -29,7 +29,7 @@ class Music extends Component {
     spotifyLogin = () => {
         const locahostSearch = 'http://localhost:3001/api/search/login'
         const herokuSearch = 'https://codecallogic.herokuapp.com/api/search/login'
-        window.location=locahostSearch
+        window.location=herokuSearch
     }
     
     searchMusic = async (e) => {
