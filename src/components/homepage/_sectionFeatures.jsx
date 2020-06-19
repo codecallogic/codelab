@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Features extends Component {
     render () {
         return (
-            <section className="section-features">                
+            <section id="section-features" className="section-features">                
                 <div className="row section-features-row">
                     <div className="col-1-of-4">
                         <div className="feature-box">

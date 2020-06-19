@@ -125,10 +125,12 @@ class Music extends Component {
 
     componentWillReceiveProps(){
         let query = queryString.parse(window.location.search);
-        if(query.access_token.length === 0){
-            this.setState({
-                accessToken: false
-            })
+        if(query.access_token){
+            if(query.access_token.length !== 0){
+                this.setState({
+                    accessToken: false
+                })
+            }
         }
     }
 
