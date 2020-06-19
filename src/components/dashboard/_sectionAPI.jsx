@@ -15,7 +15,7 @@ class SectionAPI extends Component {
     spotifyLogin = () => {
         const localLogin = 'http://localhost:3001/api/music/login'
         const herokuLogin = 'https://codecallogic.herokuapp.com/api/music/login'
-        const domainLogin = 'https://www.codecallogic.com/'
+        const domainLogin = 'https://www.codecallogic.com/api/music/login'
         window.location=domainLogin
     }
 
