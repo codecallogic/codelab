@@ -1,4 +1,5 @@
 import React, { Component, Link } from 'react';
+import { Route, Switch} from 'react-router-dom'
 import spotify from '../../utils/spotify';
 import aws from '../../utils/aws';
 import queryString from 'query-string'
@@ -26,9 +27,9 @@ class Music extends Component {
     }
 
     spotifyLogin = () => {
-        window.location="http://localhost:3001/api/search/login";
+        window.location="http://codecallogic.herokuapp.com:3001/api/search/login";
     }
-
+    
     searchMusic = async (e) => {
         e.preventDefault();
         let query = queryString.parse(window.location.search);
@@ -140,7 +141,7 @@ class Music extends Component {
     render () {
         
         return (
-            <section id="section-music" className="section-music">
+            <section id="section-music" className="section-music">                
                 <div className="row">
                     <div className="col-1-of-8">
                         <ul className="heading-side">
