@@ -56,7 +56,6 @@ class App extends Component {
               history={history}
             />
           }/>
-          <Route exact path="/callback" render={() => this.run('spotifyLogin')}/>
 
         </Switch>
       </div>
