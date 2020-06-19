@@ -97,7 +97,7 @@ async function saveRP(req, res){
 
 const localhostHome = 'http://localhost:3000/admin'
 const herokuHome = 'https://codecallogic.herokuapp.com/admin'
-const domainHome = 'https://www.codecallogic.com/'
+const domainHome = 'https://www.codecallogic.com/admin'
 
 const generateRandomString = function(length) {
     var text = '';
