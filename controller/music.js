@@ -149,7 +149,7 @@ async function callback(req, res){
     request.post(authOptions, function(error, response, body) {
         // console.log(body)
         var access_token = body.access_token
-        let uri = process.env.FRONTEND_URI || 'http://localhost:3000/admin'
+        let uri = process.env.FRONTEND_URI || 'https://codecallogic.herokuapp.com/admin'
         res.redirect(uri + '?access_token=' + access_token)
     })
     }
