@@ -14,6 +14,10 @@
     & > * {
         transform: skewY(7deg);
     }
+
+    @include respond(tab-port){
+        padding: 15rem 0;
+    }
     
 }
 

@@ -3,7 +3,6 @@ body {
     font-weight: 400;
     line-height: 1.7;
     color: $color-grey-dark;
-    padding: 3rem;
 }
 
 .heading-primary {
@@ -11,6 +10,7 @@ body {
     text-transform: Uppercase;
     backface-visibility: hidden;
     margin-bottom: 2rem;
+
     &--main {
         display: block;
         font-size: 3.2rem;
@@ -19,6 +19,12 @@ body {
         animation-name: moveInLeft;
         animation-duration: 1s;
         animation-timing-function: ease-out;
+
+        @include respond(phone){ 
+            letter-spacing: .5rem;
+            font-size: 2.5rem;
+        }
+        
         /* animation-delay: 2s; */
         /* animation-iteration-count: 3; */
     }
@@ -31,6 +37,11 @@ body {
         animation-name: moveInRight;
         animation-duration: 1s;
         animation-timing-function: ease-out;
+
+        @include respond(phone){ 
+            letter-spacing: .5rem;
+            font-size: 1rem;
+        }
     }
     
     &--sub-2 {
@@ -56,6 +67,14 @@ body {
         color: transparent;
         letter-spacing: .2rem;
         transition: all .2s;
+
+        @include respond(tab-port){ 
+            font-size: 3rem;
+        }
+
+        @include respond(phone){ 
+            font-size: 2.0rem;
+        }
     }
 
     &-secondary:hover {
@@ -67,6 +86,14 @@ body {
         font-size: $default-font-size;
         text-transform: uppercase;
         font-weight: 700;
+
+        @include respond(tab-port){ 
+            font-size: 1.4rem;
+        }
+
+        @include respond(phone){ 
+            font-size: 1rem;
+        }
     }
 
     &-side {
@@ -81,6 +108,16 @@ body {
         letter-spacing: .2rem;
         transition: all .2s;
         text-align: left;
+
+        @include respond(tab-port){ 
+            font-size: 3rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        @include respond(phone){ 
+            font-size: 2rem;
+        }
     }
 
     &-side:hover {

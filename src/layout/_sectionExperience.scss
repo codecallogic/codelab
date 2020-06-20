@@ -1,6 +1,10 @@
 .section-experience {
     padding: 15rem 0 8rem 0;
     position: relative;
+
+    @include respond(tab-port){
+        padding: 10rem 0 5rem 0;
+    }
 }
 
 .experience {

@@ -3,12 +3,19 @@
     background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.7), rgba($color-primary-light, 0.9)), url(https://i.imgur.com/Oz7V4nb.jpg);
     background-size: cover;
     background-position: top;
+    position: relative;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    @include respond(phone){
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
 
     &__logo-box {
         position: absolute;
-        top: 4rem;
-        left: 4rem;
+        top: 2rem;
+        left: 2rem;
     }
 
     &__logo {

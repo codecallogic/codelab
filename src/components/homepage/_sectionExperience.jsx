@@ -11,10 +11,11 @@ class Experience extends Component {
                         Your browser is not supported!
                     </video>
                 </div>
-                <div className="u-center-text">
-                    <h2 className="heading-secondary u-margin-bottom-big">
+                    <div className="u-center-text">
+                    <h2 className="heading-secondary u-margin-bottom-big u-center-text">
                         Resume
                     </h2>
+                    </div>
                     <div className="row">
                         <div className="experience">
                             <figure className="experience-shape">
@@ -47,7 +48,7 @@ class Experience extends Component {
                             </div>
                         </div>                    
                     </div>
-                </div>
+                    <div class="u-margin-top-huge"></div>
             </section>
         )
     }

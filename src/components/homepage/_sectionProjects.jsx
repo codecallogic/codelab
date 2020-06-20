@@ -102,7 +102,7 @@ class Projects extends Component {
                     </div>
                 </div>
                 <div className="u-center-text u-margin-top-big">
-                    <a href="" className="btn-text">See More</a>
+                    <a href="" className="btn-text u-margin-bottom-medium">See More</a>
                 </div>
             </section>
         )
