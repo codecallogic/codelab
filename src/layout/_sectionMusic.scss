@@ -71,15 +71,20 @@
             opacity: 1;
             background-color: white;
             border-radius: 2rem;
-            font-size: 2rem;
         }
 
         @include respond(tab-port){ 
             opacity: 1;
             background-color: white;
             border-radius: 2rem;
-            font-size: 2rem;
-            margin-left: 4.3rem;
+            margin-left: 4.2rem;
+        }
+
+        @include respond(small-phone){ 
+            opacity: 1;
+            background-color: white;
+            border-radius: 2rem;
+            margin-left: 3.3rem;
         }
     }
 
@@ -92,13 +97,26 @@
     }
 
     &-pause {
-        position: absolute;
-        margin-left: 1.5rem;
+        display: inline-block;
+        @include center-hoz-ver;
+        margin-left: 3rem;
         font-size: 3rem;
         background-color: white;
         border-radius: 2rem;
         color: $color-primary;
         transition: all .5s;
+
+        @include respond(tab-port){ 
+            margin-left: 4rem;
+            font-size: 4rem;
+        }
+
+        @include respond(small-phone){ 
+            opacity: 1;
+            background-color: white;
+            border-radius: 2rem;
+            margin-left: 3.2rem;
+        }
     }
 
     &-pause:hover {

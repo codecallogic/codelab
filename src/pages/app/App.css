@@ -9,6 +9,7 @@
 1em = 16px
 
 $breakpoint argument choices:
+- small phone
 - phone
 - tab-port
 - tab-land
@@ -378,15 +379,19 @@ body {
       .section-music-play {
         opacity: 1;
         background-color: white;
-        border-radius: 2rem;
-        font-size: 2rem; } }
+        border-radius: 2rem; } }
     @media (max-width: 56.25em) {
       .section-music-play {
         opacity: 1;
         background-color: white;
         border-radius: 2rem;
-        font-size: 2rem;
-        margin-left: 4.3rem; } }
+        margin-left: 4.2rem; } }
+    @media (max-width: 20.625em) {
+      .section-music-play {
+        opacity: 1;
+        background-color: white;
+        border-radius: 2rem;
+        margin-left: 3.3rem; } }
   .section-music-play:hover {
     opacity: 1;
     background-color: white;
@@ -394,13 +399,27 @@ body {
     box-shadow: 0.2rem 0.5rem 1rem 1rem rgba(0, 0, 0, 0.2);
     cursor: pointer; }
   .section-music-pause {
+    display: inline-block;
     position: absolute;
-    margin-left: 1.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: 3rem;
     font-size: 3rem;
     background-color: white;
     border-radius: 2rem;
     color: #AC0032;
     transition: all .5s; }
+    @media (max-width: 56.25em) {
+      .section-music-pause {
+        margin-left: 4rem;
+        font-size: 4rem; } }
+    @media (max-width: 20.625em) {
+      .section-music-pause {
+        opacity: 1;
+        background-color: white;
+        border-radius: 2rem;
+        margin-left: 3.2rem; } }
   .section-music-pause:hover {
     box-shadow: 0.2rem 0.5rem 1rem 1rem rgba(0, 0, 0, 0.2);
     cursor: pointer; }
@@ -800,15 +819,32 @@ body {
   .popup-left {
     width: 33.33333%;
     display: table-cell; }
+    @media (max-width: 37.5em) {
+      .popup-left {
+        display: grid;
+        grid-template-columns: columns;
+        width: 65%;
+        margin: 0 auto; } }
   .popup-right {
     width: 66.66667%;
     display: table-cell;
     vertical-align: middle;
     padding: 3rem 5rem; }
+    @media (max-width: 37.5em) {
+      .popup-right {
+        display: grid;
+        grid-template-columns: columns;
+        width: 100%; } }
   .popup-img {
     width: 100%;
     height: 18rem;
     display: block; }
+    @media (max-width: 56.25em) {
+      .popup-img {
+        height: 15rem; } }
+    @media (max-width: 37.5em) {
+      .popup-img {
+        height: auto; } }
   .popup-text {
     font-size: 1.4rem;
     margin-bottom: 4rem;
@@ -822,6 +858,16 @@ body {
     -ms-hyphens: auto;
     -webkit-hyphens: auto;
     hyphens: auto; }
+    @media (max-width: 37.5em) {
+      .popup-text {
+        font-size: 1.2rem;
+        -moz-column-gap: 2rem;
+        column-gap: 2rem; } }
+    @media (max-width: 20.625em) {
+      .popup-text {
+        font-size: 1rem;
+        -moz-column-count: 1;
+        column-count: 1; } }
 
 #popup-mloops:target {
   opacity: 1;
