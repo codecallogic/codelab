@@ -37,27 +37,34 @@ class Music extends Component {
         e.preventDefault();
         let query = queryString.parse(window.location.search);
         let search = this.state.search
+        let playlist = await spotify.getPlaylist(query.access_token)
+
+        if(playlist !== undefined){
         let searchMusic = Object.keys(query).length !== 0 ? await spotify.searchMusic(query.access_token, search) : console.log('Error');
         this.setState({
             searchedTracks: searchMusic
         })
-        let playlist = await spotify.getPlaylist(query.access_token)
-        let recommended = [];
-        for(let i = 0; i < playlist.length; i++){
-            if(playlist[i].name === 'Recommended'){
-                recommended.push(playlist[i])
-            }
         }
-        // console.log(recommended[0].id)
-        let tracks = await spotify.recommendedTracks(query.access_token, recommended[0].id)
-        let trackID = tracks.map( t => 
-            t.track.id
-        )
-        // console.log(trackID)
-        this.setState({
-            recommendedTracks: trackID
-        })
-        // console.log(this.state.recommendedTracks)
+
+        let recommended = [];
+        if(playlist !== undefined){
+            for(let i = 0; i < playlist.length; i++){
+                if(playlist[i].name === 'Recommended'){
+                    recommended.push(playlist[i])
+                }
+            }
+            // console.log(recommended[0].id)
+            let tracks = await spotify.recommendedTracks(query.access_token, recommended[0].id)
+            let trackID = tracks.map( t => 
+                t.track.id
+            )
+            console.log(tracks)
+            // console.log(trackID)
+            this.setState({
+                recommendedTracks: trackID
+            })
+            // console.log(this.state.recommendedTracks)
+        }
     }
 
     addToPlaylist = async (uri) => {

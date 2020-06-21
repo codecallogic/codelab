@@ -48,7 +48,7 @@ class Experience extends Component {
                             </div>
                         </div>                    
                     </div>
-                    <div class="u-margin-top-huge"></div>
+                    <div className="u-margin-top-huge"></div>
             </section>
         )
     }

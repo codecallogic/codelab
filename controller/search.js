@@ -43,10 +43,9 @@ async function callback(req, res){
     let code = req.query.code || null
     var state = req.query.state || null;
     var storedState = req.cookies ? req.cookies[stateKey] : null;
-    console.log(code)
+    // console.log(req.query)
 
     if (state === null || state !== storedState) {
-    console.log('Hello')
     res.redirect('/#' +
       querystring.stringify({
         error: 'state_mismatch'

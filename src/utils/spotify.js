@@ -11,6 +11,10 @@ export default {
     recommendedTracks,
 }
 
+const locahostSearch = 'http://localhost:3001/api/search/login'
+const herokuSearch = 'https://codecallogic.herokuapp.com/api/search/login'
+const domainSearch = 'https://www.codecallogic.com/api/search/login'
+
 function recommendedTracks(query, id){
     return fetch(`https://api.spotify.com/v1/playlists/${id}/tracks`, {
         method: 'GET',
@@ -51,7 +55,10 @@ function getPlaylist(query){
         'Authorization': 'Bearer ' + query,
     }
     })
-    .then(res => res.json())
+    .then(res => {
+        if (res.ok) return res.json()
+        window.location=domainSearch
+    })
     .then(data => data.items)
     .catch(error => {
         console.log(error)
@@ -69,12 +76,15 @@ function searchMusic(query, search){
         'Authorization': 'Bearer ' + query,
     }
     })
-    .then(res => res.json())
+    .then(res => {
+        if (res.ok) return res.json()
+        window.location=domainSearch
+    })
     .then(data => 
         data.tracks.items
     )
     .catch(error => {
-        window.location="http://localhost:3001/api/search/login"
+       console.log(error)
     })
 }
 
