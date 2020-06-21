@@ -338,6 +338,9 @@ body {
     transition: all .5s; }
   .section-music-track ul li:hover {
     transform: translateX(-1.5rem) scale(1); }
+    @media (max-width: 75em) {
+      .section-music-track ul li:hover {
+        transform: none; } }
   .section-music-track ul li span {
     display: grid;
     grid-template-columns: column;
@@ -350,8 +353,7 @@ body {
   .section-music-track ul li span small {
     font-size: .5rem; }
   .section-music-track ul li a {
-    position: absolute;
-    padding-bottom: 3rem; }
+    position: relative; }
   .section-music-track ul li img {
     width: 20%;
     height: 100%;
@@ -362,15 +364,29 @@ body {
     font-size: 1rem;
     padding: .5rem; }
   .section-music-play {
-    position: absolute;
     display: inline-block;
-    top: 0;
+    position: absolute;
+    top: 50%;
     left: 50%;
-    transform: translate(50%, 0);
+    transform: translate(-50%, -50%);
+    margin-left: 3rem;
     font-size: 3rem;
     color: #AC0032;
     opacity: 0;
     transition: all .5s; }
+    @media (max-width: 75em) {
+      .section-music-play {
+        opacity: 1;
+        background-color: white;
+        border-radius: 2rem;
+        font-size: 2rem; } }
+    @media (max-width: 56.25em) {
+      .section-music-play {
+        opacity: 1;
+        background-color: white;
+        border-radius: 2rem;
+        font-size: 2rem;
+        margin-left: 4.3rem; } }
   .section-music-play:hover {
     opacity: 1;
     background-color: white;

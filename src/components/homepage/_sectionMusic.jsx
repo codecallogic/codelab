@@ -116,7 +116,7 @@ class Music extends Component {
         this.setState({ recentlyPlayed: tracks })
         let query = queryString.parse(window.location.search);
         if(Object.keys(query).length !== 0){
-            const element = document.getElementById('section-music')
+            const element = document.getElementById('section-search')
             element.scrollIntoView({behavior: 'smooth'});
             this.setState({
                 accessToken: true
@@ -179,7 +179,7 @@ class Music extends Component {
                                 <p className="section-music-updated u-center-text">Updated on {this.state.recentlyPlayed !== null && this.state.recentlyPlayed[0].createdAt.substring(0,10)}</p>
                             </div>
                         </div>
-                        <div className="col-1-of-3">
+                        <div className="col-1-of-3" id="section-search">
                             {this.state.accessToken === false && 
                             <div className="section-search">
                                 <h3 className="heading-tertiary u-center-text">

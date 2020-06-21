@@ -20,6 +20,10 @@
 
     &-track ul li:hover {
         transform: translateX(-1.5rem) scale(1);
+
+        @include respond(tab-land){ 
+            transform: none;
+        }
     }
 
     &-track ul li span{
@@ -38,9 +42,7 @@
     }
 
     &-track ul li a {
-        position: absolute;  
-        padding-bottom: 3rem;  
-       
+        position: relative;  
     }
 
     &-track ul li img{
@@ -57,16 +59,28 @@
     }
 
     &-play {
-        position: absolute;
         display: inline-block;
-        top: 0;
-        left: 50%;
-        transform: translate(50%, 0);
-        // margin-left: 1.5rem;
+        @include center-hoz-ver;
+        margin-left: 3rem;
         font-size: 3rem;
         color: $color-primary;
         opacity: 0;
         transition: all .5s;
+
+        @include respond(tab-land){ 
+            opacity: 1;
+            background-color: white;
+            border-radius: 2rem;
+            font-size: 2rem;
+        }
+
+        @include respond(tab-port){ 
+            opacity: 1;
+            background-color: white;
+            border-radius: 2rem;
+            font-size: 2rem;
+            margin-left: 4.3rem;
+        }
     }
 
     &-play:hover {
