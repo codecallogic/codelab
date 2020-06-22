@@ -97,14 +97,14 @@ body {
     }
 
     &-side {
-        list-style-type: none;
         font-size: 3.5rem;
         text-transform: uppercase;
         font-weight: 700;
         display: inline-block;
         background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
         -webkit-background-clip: text;
-        color: transparent;
+        background-clip: text;
+        color:transparent;
         letter-spacing: .2rem;
         transition: all .2s;
         text-align: left;

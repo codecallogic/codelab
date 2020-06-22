@@ -92,7 +92,7 @@ class Productions extends Component {
                         </div>
                         <div className="form-group">
                             <input type="text" type="text" name="url" placeholder="Image Url" value={this.state.url} onChange={this.handleChange} autoComplete="off"/>
-                            <label htmlFor="name">Image URL</label>
+                            <label htmlFor="url">Image URL</label>
                         </div>
                         <div className="form-group">
                             <textarea type="text" name="content" placeholder="File Content" value={this.state.content} onChange={this.handleChange} autoComplete="off"/>

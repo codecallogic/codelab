@@ -1,5 +1,4 @@
-import React, { Component, Link } from 'react';
-import { Route, Switch} from 'react-router-dom'
+import React, { Component } from 'react';
 import spotify from '../../utils/spotify';
 import aws from '../../utils/aws';
 import queryString from 'query-string'
@@ -77,7 +76,7 @@ class Music extends Component {
                 recommended.push(playlist[i])
             }
         }
-        let response = recommended[0] !== undefined ? 
+        recommended[0] !== undefined ? 
             await spotify.addToPlaylist(query.access_token, recommended[0].id, uri)
             : 
             console.log('error')
@@ -90,7 +89,8 @@ class Music extends Component {
         })   
     }
 
-    playSong = (url, id) => {
+    playSong = (event, url, id) => {
+        event.preventDefault()
         if(this.state.pause === false){
               this.setState({
                   current: id,
@@ -111,7 +111,8 @@ class Music extends Component {
           }, false);
     }
 
-    stopSong = () => {
+    stopSong = (event) => {
+        event.preventDefault()
         this.audio.pause()
         this.setState({
             pause: false, 
@@ -175,7 +176,7 @@ class Music extends Component {
                                         this.state.recentlyPlayed !== null && 
                                         this.state.recentlyPlayed[0].recentlyPlayed.map( t => 
                                         <li key={t.track.id}>
-                                            <a href={t.track.external_urls.spotify} target="_blank"><i className="fas fa-play-circle section-music-play"></i></a>
+                                            <a href={t.track.external_urls.spotify} target="_blank" rel="noopener noreferrer"><i className="fas fa-play-circle section-music-play"></i></a>
                                             <img src={t.track.album.images[0].url} alt=""/>
                                             <span><small>{t.track.artists[0].name}</small>{t.track.name}</span>
                                         </li>
@@ -213,7 +214,7 @@ class Music extends Component {
                                     <ul>
                                         { this.state.searchedTracks !== null && this.state.searchedTracks.map( t => 
                                             <li key={t.id}>
-                                                <a href={t.external_urls.spotify} target="_blank"><i className="fas fa-play-circle section-music-play"></i></a>
+                                                <a href={t.external_urls.spotify} target="_blank" rel="noopener noreferrer"><i className="fas fa-play-circle section-music-play"></i></a>
                                                 <img src={t.album.images[0].url} alt=""/>
                                                 <span><small>{t.artists[0].name}</small>{t.name.substring(0,25)}</span>
                                                 {this.state.recommendedTracks !== null && this.state.recommendedTracks.indexOf(t.id) === -1 && 
@@ -242,10 +243,11 @@ class Music extends Component {
                                 <ul>
                                     {this.state.productions !== null && this.state.productions.length > 0 && this.state.productions.map( e => 
                                         <li key={e._id}>
+                                        {this.state.pause === false && <a href="/#" onClick={(event) =>
+                                                this.playSong(event, e.song.url, e._id)
+                                            }><i className="fas fa-play-circle section-music-play"></i></a>}
 
-                                        {this.state.pause === false && <a onClick={() => this.playSong(e.song.url, e._id)}><i className="fas fa-play-circle section-music-play"></i></a>}
-
-                                        {this.state.pause === true && this.state.current === e._id && <a onClick={() => this.stopSong(e.song.url, e._id)}><i className="far fa-pause-circle section-music-pause"></i></a>}   
+                                        {this.state.pause === true && this.state.current === e._id && <a href="/#"  onClick={(event) => this.stopSong(event, e.song.url, e._id)}><i className="far fa-pause-circle section-music-pause"></i></a>}   
 
                                         <img src={e.url} alt=""/>
                                         <span><small>{e.content}</small>{e.name.substring(0,25)}</span>

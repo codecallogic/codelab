@@ -6,7 +6,6 @@ import SignUpPage from '../signuppage/signuppage'
 import DashboardPage from '../dashboard/dashboardpage'
 import { Route, Switch} from 'react-router-dom'
 import userService from '../../utils/userService'
-import spotify from '../../utils/spotify'
 
 class App extends Component {
   constructor() {

@@ -11,18 +11,18 @@ class Footer extends Component {
                     <div className="col-1-of-2">
                         <div className="footer-navigation">
                         <ul className="footer-list">
-                            <li className="footer-item"><a href="#" className="footer-link">Projects</a></li>
-                            <li className="footer-item"><a href="#" className="footer-link">Projects</a></li>
-                            <li className="footer-item"><a href="#" className="footer-link">Projects</a></li>
-                            <li className="footer-item"><a href="#" className="footer-link">Projects</a></li>
-                            <li className="footer-item"><a href="#" className="footer-link">Projects</a></li>
-                            <li className="footer-item"><a href="#" className="footer-link">Projects</a></li>
+                            <li className="footer-item"><a href="/#" className="footer-link">Projects</a></li>
+                            <li className="footer-item"><a href="/#" className="footer-link">Projects</a></li>
+                            <li className="footer-item"><a href="/#" className="footer-link">Projects</a></li>
+                            <li className="footer-item"><a href="/#" className="footer-link">Projects</a></li>
+                            <li className="footer-item"><a href="/#" className="footer-link">Projects</a></li>
+                            <li className="footer-item"><a href="/#" className="footer-link">Projects</a></li>
                         </ul>
                         </div>
                     </div>
                     <div className="col-1-of-2">
                         <p className="footer-copyright">
-                            Built by <a href="" className="footer-link">Fabricio Guardia </a> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, consequuntur vel? Obcaecati soluta excepturi id aspernatur, perspiciatis consectetur alias eum quas asperiores accusamus amet error iure, pariatur, ratione nulla cupiditate?
+                            Built by <a href="/#" className="footer-link">Fabricio Guardia </a> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, consequuntur vel? Obcaecati soluta excepturi id aspernatur, perspiciatis consectetur alias eum quas asperiores accusamus amet error iure, pariatur, ratione nulla cupiditate?
                         </p>
                     </div>
                 </div>
