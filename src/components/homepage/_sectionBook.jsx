@@ -9,11 +9,13 @@ class Book extends Component {
            name: '',
            email: '',
            content: '',
-           step: 1,
+           step: 0,
+           project: null,
         }
     }
 
     handleChange = (e) => {
+        console.log(e.target.value)
         this.setState({
             [e.target.name]: e.target.value
         })
@@ -57,14 +59,14 @@ class Book extends Component {
                                 </div>
                                 <div className="book-form-group">
                                     <div className="book-form-radio-group">
-                                        <input type="radio" id="small" className="book-form-radio-input" name="size"/>
+                                        <input type="radio" id="small" name="project" className="book-form-radio-input" value="small" onClick={this.handleChange}/>
                                         <label htmlFor="small" className="book-form-radio-label">
                                             <span className="book-form-radio-button"></span>
                                             Small Project
                                         </label>
                                     </div>
                                     <div className="book-form-radio-group">
-                                        <input type="radio" id="large" className="book-form-radio-input" name="size"/>
+                                        <input type="radio" id="large" value="large" name="project" className="book-form-radio-input" onChange={this.handleChange}/>
                                         <label htmlFor="large" className="book-form-radio-label">
                                             <span className="book-form-radio-button"></span>
                                             Big Project

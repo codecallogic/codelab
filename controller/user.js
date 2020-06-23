@@ -1,5 +1,7 @@
 const User = require('../models/user')
 const jwt = require('jsonwebtoken')
+const nodemailer = require('nodemailer')
+const mailgun = require('nodemailer-mailgun-transport')
 const SECRET = process.env.SECRET
 
 module.exports = {
@@ -46,4 +48,27 @@ function createJWT(user){
 
 async function email(req, res){
     console.log(req.body)
+    const auth = {
+        auth: {
+            api_key: process.env.MAILGUN_API_KEY,
+            domain: 'www.codecallogic.com'
+        }
+    }
+
+    const transporter = nodemailer.createTransport(mailgun(auth))
+    
+    const mailOptions = {
+        from: req.body.email,
+        to: 'contact@codecallogic.com',
+        subject: req.body.name + 'has a project for you',
+        text: req.body.content
+    }
+
+    transporter.sendMail(mailOptions, function(err, data){
+        if(err){
+            console.log('Internal error')
+        }else{
+            console.log('Message sent')
+        }
+    })
 }
