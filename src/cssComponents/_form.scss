@@ -264,4 +264,53 @@
     &-radio-input:checked ~ &-radio-label &-radio-button::after {
         opacity: 1;
     }
+
+    &-content {
+        width: 100%;
+        height: 20rem;
+        font-size: 1.5rem;
+        font-family: inherit;
+        color: inherit;
+        padding: 1.5rem 2rem;
+        border-radius: .2rem;
+        background-color: rgba($color-white, .5);
+        border:none;
+        border-bottom: .3rem solid transparent;
+        display: block;
+        transition: all .4s;
+
+    }
+
+    &-content:placeholder-shown + &-label{
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+
+    &-content:focus {
+        outline: none;
+        box-shadow: 0 1rem 2rem rgba($color-black, .1);
+        border-bottom: .3rem solid $color-primary-light;
+    }
+
+    &-index {
+        font-size: 1.5rem;
+        position: relative;
+        margin: 4rem 2rem 0 0;
+        float: right;
+
+        @include respond(tab-land){ 
+            margin: 4rem 5rem 0 0;
+        }
+
+        @include respond(tab-port){
+            margin: 4rem 0 0 0;
+            clear:both;
+        }
+
+        @include respond(small-phone){ 
+            margin: 2rem 0 0 0;
+            clear:both;
+        }
+    }
 }

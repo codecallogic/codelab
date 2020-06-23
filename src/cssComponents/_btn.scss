@@ -13,6 +13,15 @@
         font-size: 1.6rem;
         border: none;
         cursor: pointer;
+
+        @include respond(tab-port){ 
+            padding: 1.5rem 2rem;
+        }
+
+        @include respond(phone){ 
+            padding: 1.5rem 1rem;
+            font-size: 1.3rem;
+        }
     }
     &:hover {
         transform: translateY(-.4rem);
@@ -50,6 +59,17 @@
 
         &::after {
             background-color: $color-primary;
+        }
+    }
+
+    &--previous {
+        background-color: $color-white-compliment;
+        color: $color-grey-dark;
+        text-align: center;
+        margin-right: 2rem;
+
+        &::after {
+            background-color: $color-white;
         }
     }
     

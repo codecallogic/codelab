@@ -37,7 +37,7 @@
     "eject": "react-scripts eject",
     "watch:css": "node-sass src/main.scss src/pages/app/App.css -w",
     "server": "nodemon server",
-    "launch": "npm-run-all --parallel start server watch:css",
+    "launch": "npm-run-all --parallel start server",
     "compile:sass": "node-sass src/main.scss src/pages/app/App.comp.css",
     "concat:css": "concat -o src/pages/app/App.concat.css src/pages/app/icons/basic.css src/pages/app/App.comp.css",
     "prefix:sass": "postcss --use autoprefixer -b 'last 10 versions' src/pages/app/App.concat.css -o src/pages/app/App.prefix.css",
