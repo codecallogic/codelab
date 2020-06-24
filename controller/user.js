@@ -61,14 +61,17 @@ async function email(req, res){
         from: req.body.email,
         to: 'contact@codecallogic.com',
         subject: req.body.name + 'has a project for you',
-        text: req.body.content
+        template: 'testing',
+        'v:name': req.body.name,
+        'v:content': req.body.content,
+        'v:project': req.body.project
     }
 
     transporter.sendMail(mailOptions, function(err, data){
-        if(err){
-            console.log('Internal error')
-        }else{
-            console.log('Message sent')
+        try {
+            res.json({"message": "Message was sent"})
+        }catch(err){
+            res.status(400).json(err)
         }
     })
 }
