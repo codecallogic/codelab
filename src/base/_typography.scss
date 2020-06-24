@@ -82,6 +82,16 @@ body {
         text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
     }
 
+    &-secondary-styled {
+        display: inline-block;
+        @include center-hoz-ver;
+        font-size: 3.5rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: .5rem;
+        color: white;
+    }
+
     &-tertiary {
         font-size: $default-font-size;
         text-transform: uppercase;

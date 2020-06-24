@@ -143,6 +143,18 @@ body {
   transform: skewY(2deg) scale(1.1);
   text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
 
+.heading-secondary-styled {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: .5rem;
+  color: white; }
+
 .heading-tertiary {
   font-size: 1.6rem;
   text-transform: uppercase;
@@ -615,6 +627,17 @@ body {
     .book {
       background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%), url(https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80);
       background-size: cover; } }
+
+.section-testimonial {
+  padding: 2rem 5rem;
+  height: 50rem; }
+  .section-testimonial-left {
+    position: relative;
+    height: 50rem;
+    background-image: linear-gradient(to right bottom, #c87a73, #34000f);
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.4); }
+  .section-testimonial-right {
+    padding: 2rem 3rem; }
 
 .footer {
   background-color: #343434;
@@ -1093,15 +1116,16 @@ body {
     margin: 2rem 0rem;
     border: none;
     border-bottom: 0.3rem solid #c87a73;
-    width: 50%;
+    width: 80%;
+    height: 4.5rem;
     text-align: center;
     transition: all .5s; }
   .form input::-webkit-input-placeholder, .form textarea::-webkit-input-placeholder {
     color: #34000f;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     text-transform: uppercase;
-    letter-spacing: 1rem; }
+    letter-spacing: .5rem; }
   .form-group-confirm::-webkit-input-placeholder {
     color: #34000f;
     text-align: center;
@@ -1137,9 +1161,9 @@ body {
     cursor: pointer;
     box-shadow: 1rem 2rem 3rem 2rem rgba(0, 0, 0, 0.2); }
   .form-group label {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-top: 1rem;
-    letter-spacing: 1rem;
+    letter-spacing: .5rem;
     display: block;
     transition: all .5s;
     color: #34000f;

@@ -1,0 +1,16 @@
+.section-testimonial {
+    padding: 2rem 5rem;
+    height: 50rem;
+
+    &-left {
+        position: relative;
+        height: 50rem;
+        background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+        box-shadow: 0 2rem 4rem rgba($color-black, .4);
+    }
+
+    &-right {
+        padding: 2rem 3rem;
+        
+    }
+}

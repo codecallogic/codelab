@@ -19,6 +19,7 @@ app.use(cookieParser());
 
 app.use('/api/music', require('./router/music'));
 app.use('/api/user', require('./router/user'));
+app.use('/api/testimonial', require('./router/testimonial'));
 app.use('/api/search', require('./router/search'));
 
 // "Catch all" route

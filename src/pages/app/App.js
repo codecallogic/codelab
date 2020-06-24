@@ -4,6 +4,7 @@ import HomePage from '../homepage/homepage';
 import LoginPage from '../loginpage/loginpage'
 import SignUpPage from '../signuppage/signuppage'
 import DashboardPage from '../dashboard/dashboardpage'
+import Testimonials from '../testimonials/testimonials'
 import { Route, Switch} from 'react-router-dom'
 import userService from '../../utils/userService'
 
@@ -31,6 +32,11 @@ class App extends Component {
           <Route exact path={"/"} render={() => 
             <HomePage 
               user={this.state.user}
+            />
+          }/>
+          <Route exact path={"/testimonials"} render={({history}) => 
+            <Testimonials
+              history={history}
             />
           }/>
           <Route exact path={"/login"} render={({history}) => 

@@ -109,7 +109,7 @@ class Book extends Component {
                                 <button className="btn btn--primary btn--animated">Next Step</button>
                                 </div>
                                 }
-                                {this.state.step === 1 && this.state.message.length == 0 &&
+                                {this.state.step === 1 && this.state.message.length === 0 &&
                                 <div>
                                 <div className="book-form-group">
                                     <textarea id="content" name="content" placeholder="Write your message here..." className="book-form-content" autoComplete="off" onChange={this.handleChange} value={this.state.content} required/>

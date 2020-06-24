@@ -23,6 +23,22 @@ const s3 = new AWS.S3({
   region: 'us-west-1'
 })
 
+const localhostHome = 'http://localhost:3000/admin'
+const herokuHome = 'https://codecallogic.herokuapp.com/admin'
+const domainHome = 'https://www.codecallogic.com/admin'
+
+const generateRandomString = function(length) {
+    var text = '';
+    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  
+    for (var i = 0; i < length; i++) {
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return text;
+};
+
+const stateKey = 'spotify_auth_state';
+
 function songList(req, res){
   Production.find({}, function(err, songs){
     if(err){
@@ -94,22 +110,6 @@ async function saveRP(req, res){
     res.status(400).json(error)
   }
 }
-
-const localhostHome = 'http://localhost:3000/admin'
-const herokuHome = 'https://codecallogic.herokuapp.com/admin'
-const domainHome = 'https://www.codecallogic.com/admin'
-
-const generateRandomString = function(length) {
-    var text = '';
-    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  
-    for (var i = 0; i < length; i++) {
-      text += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-    return text;
-};
-
-const stateKey = 'spotify_auth_state';
 
 async function login(req, res){
     var state = generateRandomString(16);

@@ -10,7 +10,8 @@
         margin: 2rem 0rem;
         border: none;
         border-bottom: .3rem solid $color-primary-light;
-        width: 50%;
+        width: 80%;
+        height: 4.5rem;
         text-align: center;
         transition: all .5s;
     }
@@ -18,9 +19,9 @@
     input::-webkit-input-placeholder, textarea::-webkit-input-placeholder{
         color: $color-primary-dark;
         text-align: center;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         text-transform: uppercase;
-        letter-spacing: 1rem;
+        letter-spacing: .5rem;
     }
 
     &-group-confirm::-webkit-input-placeholder{
@@ -72,9 +73,9 @@
     }
 
     &-group label {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         margin-top: 1rem;
-        letter-spacing: 1rem;
+        letter-spacing: .5rem;
         display: block;
         transition: all .5s;
         color: $color-primary-dark;
