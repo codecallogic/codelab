@@ -47,7 +47,6 @@ function createJWT(user){
 }
 
 async function email(req, res){
-    console.log(req.body)
     const auth = {
         auth: {
             api_key: process.env.MAILGUN_API_KEY,
