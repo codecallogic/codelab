@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import { Link } from 'react-scroll'
 
 class Header extends Component {
+
+    preventDefault = (e) => {
+        e.preventDefault()
+    }
+    
     render () {
         return (
             <div>
@@ -13,7 +19,7 @@ class Header extends Component {
                         <span className="heading-primary--main">Hi, I'm a Full Stack Developer</span>
                         <span className="heading-primary--sub">I Like Making Slick and Fast Websites</span>
                     </h1>
-                    <a href="#section-resume" className="btn btn--white btn--animated">Lets get started</a>
+                    <Link to="section-book" activeClass="active" spy={true} smooth={true} offset={100} duraton={500}  href="/#" className="btn btn--white btn--animated" onClick={this.preventDefault}>Lets get started</Link>
                 </div>
             </div>
             
