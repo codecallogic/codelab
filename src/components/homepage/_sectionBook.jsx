@@ -11,11 +11,12 @@ class Book extends Component {
            content: '',
            step: 0,
            project: null,
+           message: '',
+           date: null,
         }
     }
 
     handleChange = (e) => {
-        console.log(e.target.value)
         this.setState({
             [e.target.name]: e.target.value
         })
@@ -23,16 +24,48 @@ class Book extends Component {
 
     handleSubmit = async (e) => {
         e.preventDefault()
-        if(this.state.step === 0){this.setState({ step: 1 })}
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0');
+        let yyyy = today.getFullYear();
+
+        today = mm + '/' + dd + '/' + yyyy;
+        if(this.state.step === 0){
+            this.setState({ 
+                step: 1,
+                date: today
+            }
+        )}
         if(this.state.step === 1){
             const email = await emailService.client(this.state)
-            console.log(email)
+            if(email.success){
+                this.setState({
+                    name: '',
+                    email: '',
+                    content: '',
+                    step: 3,
+                    project: null,
+                    message: 'Message was sent!',
+                })
+            }
         }
     }
 
     stepBack = (e) => {
         e.preventDefault()
         this.setState( prevState => { return {step: prevState.step - 1 } })
+    }
+
+    reset = (e) => {
+        e.preventDefault()
+        this.setState({
+            name: '',
+            email: '',
+            content: '',
+            project: null,
+            step: 0,
+            message: '',
+        })
     }
 
     render () {
@@ -76,7 +109,7 @@ class Book extends Component {
                                 <button className="btn btn--primary btn--animated">Next Step</button>
                                 </div>
                                 }
-                                {this.state.step === 1 && 
+                                {this.state.step === 1 && this.state.message.length == 0 &&
                                 <div>
                                 <div className="book-form-group">
                                     <textarea id="content" name="content" placeholder="Write your message here..." className="book-form-content" autoComplete="off" onChange={this.handleChange} value={this.state.content} required/>
@@ -86,6 +119,15 @@ class Book extends Component {
                                 <button className="btn btn--primary btn--animated">Send</button>
                                 {/* <span className="book-form-index">{this.state.step + 1} / 2</span> */}
                                 </div>
+                                }
+                                {this.state.step === 3 && this.state.message.length !== 0 &&
+                                    <div className="u-center-text u-padding-big-vert">
+
+                                    <span className="book-form-message book-form-message-animated"><i className="fas fa-paper-plane"></i> {this.state.message}</span>
+
+                                    <button className="btn btn--previous btn--animated u-center-text" onClick={this.reset}>Go Back</button>
+
+                                    </div>
                                 }
                             </form>
                         </div>

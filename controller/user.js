@@ -60,16 +60,17 @@ async function email(req, res){
     const mailOptions = {
         from: req.body.email,
         to: 'contact@codecallogic.com',
-        subject: req.body.name + 'has a project for you',
+        subject: req.body.name + ' has a project for you',
         template: 'testing',
         'v:name': req.body.name,
         'v:content': req.body.content,
-        'v:project': req.body.project
+        'v:project': req.body.project,
+        'v:date': req.body.date
     }
 
     transporter.sendMail(mailOptions, function(err, data){
         try {
-            res.json({"message": "Message was sent"})
+            res.json({"success": true, "message": "Message was sent"})
         }catch(err){
             res.status(400).json(err)
         }

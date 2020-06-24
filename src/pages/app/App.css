@@ -216,6 +216,9 @@ body {
 .u-margin-bottom-small {
   margin-bottom: 2rem; }
 
+.u-padding-big-vert {
+  padding: 8rem 0; }
+
 .u-width-3 {
   width: 300px; }
 
@@ -1310,6 +1313,23 @@ body {
       .book-form-index {
         margin: 2rem 0 0 0;
         clear: both; } }
+  .book-form-message {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 1rem 3rem;
+    color: #fff;
+    background-color: #c87a73;
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
+    border-radius: .5rem;
+    transition: all .2s; }
+    .book-form-message-animated {
+      animation: moveInBottom .2s ease-out .3s;
+      animation-fill-mode: backwards; }
 
 .card {
   perspective: 150rem;
