@@ -27,6 +27,11 @@ class TestimonialForm extends Component {
         e.preventDefault();
         if(this.state.step === 0){this.setState({ step: 1})}
         if(this.state.step === 1){
+            let formData = new FormData()
+            formData.append('file', this.state.file)
+            formData.append('name', this.state.name)
+            formData.append('testimonial', this.state.testimonial)
+            formData.append('url', this.state.url)
             const add = await aws.addTestimonial(this.state)
             console.log(add)
         }
@@ -85,7 +90,7 @@ class TestimonialForm extends Component {
                                         <label htmlFor="heading">Heading</label>
                                     </div>    
                                     <textarea type="text" name="content" placeholder="Testimonial" value={this.state.content} onChange={this.handleChange} autoComplete="off" required/>
-                                    <label htmlFor="name">Testimonial</label>                                   
+                                    <label htmlFor="content">Testimonial</label>                                   
                                 </div>
                                 <div className="form-group">
                                     <input type="file" id="song-upload" name="file" onChange={this.handleFile} autoComplete="off" required/>

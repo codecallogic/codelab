@@ -10,10 +10,16 @@ function getSongs(){
 }
 
 function addTestimonial(content){
+    console.log(content)
+    const formData  = new FormData();
+
+    for(const name in content) {
+        formData.append(name, content[name]);
+    }
+    console.log(formData)
     return fetch('/api/testimonial/add', {
         method: 'POST',
-        headers: new Headers({'content-type': 'application/json'}),
-        body: JSON.stringify(content)
+        body: formData
     })
     .then( res => {
         if (res.ok) return res.json()
