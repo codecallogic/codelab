@@ -6,7 +6,8 @@ const slugify = require('slugify')
 const fs = require('fs')
 
 module.exports = {
-    add
+    add,
+    all
 }
 
 const s3 = new AWS.S3({ 
@@ -54,5 +55,16 @@ async function add(req, res){
         })
     })
 
+    })
+}
+
+async function all(req, res){
+    Testimonial.find({}, function(err, all){
+        if(err){
+            console.log(err)
+            return res.json({ error: "Could not get testimonials from db"})
+        }else{
+            return res.json(all)
+        }
     })
 }

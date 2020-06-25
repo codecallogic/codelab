@@ -43,7 +43,7 @@ function songList(req, res){
   Production.find({}, function(err, songs){
     if(err){
       return res.status(400).json({
-        error: "Songs could not load"
+        error: "Could not get songs"
       })
     }
     res.json(songs)

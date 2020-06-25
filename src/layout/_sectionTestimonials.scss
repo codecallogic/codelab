@@ -70,6 +70,7 @@
 .testimonial {
 
     &-box {
+        display: flex;
         background-color: rgba($color-white, .8);
         font-size: 1.5rem;
         padding: 2.5rem;
@@ -85,8 +86,8 @@
 
     &-box-icon {
         font-size: 3rem;
-        margin-bottom: .5rem;
-        
+        margin: 0 .5rem 0 .5rem;
+        float: left;
     }
 
     &-box:hover {
@@ -95,7 +96,7 @@
 
     &-shape-box {
         transform: skewX(-12deg);
-        padding: 5rem 0 0 6rem;
+        padding: 2rem 0 0 6rem;
     }
     
     &-menu {
