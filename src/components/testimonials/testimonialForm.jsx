@@ -76,6 +76,7 @@ class TestimonialForm extends Component {
 
         return (
             <div className="section-testimonial">
+                {this.state.step !== 3 && 
                 <div className="row">
                     <div className="col-1-of-2">
                         <div className="u-center-text section-testimonial-form-left">
@@ -143,6 +144,20 @@ class TestimonialForm extends Component {
                         </div>
                     </div>
                 </div>
+                }
+                {this.state.step === 3 &&
+                <div className="row">
+                    <div className="col-1-of-1">
+                    <div className="u-center-text u-padding-big-vert section-testimonial-form-message">
+
+                    <span className="form-message form-message-animated"><i className="fas fa-paper-plane"></i> {this.state.message}</span>
+
+                    <Link to="/" className="btn btn--white btn--animated u-center-text" onClick={this.reset}>Home</Link>
+
+                    </div>
+                    </div>
+                </div>
+                }
             </div>
         )
     }
