@@ -1,21 +1,54 @@
-.section-testimonial-form {
-    padding: 2rem 5rem;
-    height: 50rem;
+.section-testimonial {
+    background-color: $color-grey-light;
+    padding: 5rem 1rem;
+    height: 60rem;
 
-    &-left {
+    &-form {
+        padding: 2rem 5rem;
+        height: 50rem;
+    }
+
+    &-form-left {
         position: relative;
         height: 50rem;
         background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
         box-shadow: 0 2rem 4rem rgba($color-black, .4);
     }
 
-    &-right {
+    &-form-right {
         padding: 2rem 3rem;
         
     }
 
-    &-message {
-        // @include center-hoz-ver;
-        
+    &-progress {
+        position: relative;
+    }
+
+    &-progress-bar {
+        @include center-hoz-ver;
+        position: relative;
+        margin-top: 20rem;
+        width: 80%;
+        height: 3rem;
+        background-color: $color-primary-dark;
+        border-radius: 1.5rem;
+        color: white;
+    }
+
+    &-progress-bar::before {
+        content: attr(data-label);
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: .3rem;
+        left: .3rem;
+        bottom: .3rem;
+        font-size: 1.2rem;
+        width: calc(var(--width, 0) * 1%);
+        min-width: 2rem;
+        max-width: calc(100% - 1rem);
+        background-color: $color-primary;
+        border-radius: 1rem;
+        padding: 1.2rem .5rem;
     }
 }

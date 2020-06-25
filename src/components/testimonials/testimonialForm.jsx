@@ -15,7 +15,8 @@ class TestimonialForm extends Component {
            file: '',
            songUploadText: 'Upload Image', 
            step: 0,
-           message: ' Your testimonail was uploaded. Thank You!'
+           message: ' Your testimonail was uploaded. Thank You!',
+           percentage: 0,
         }
     }
 
@@ -29,10 +30,21 @@ class TestimonialForm extends Component {
         e.preventDefault();
         if(this.state.step === 0){this.setState({ step: 1})}
         if(this.state.step === 1){
-            const add = await aws.addTestimonial(this.state)
-            console.log(add)
-            if(add.errmsg){this.resetState()}
-            if(add.image){this.setState({step: 2})}
+                this.setState({ step: 2})
+                const progressBar = document.getElementsByClassName('section-testimonial-progress-bar')
+                const bar = setInterval(() => { 
+                    const computedStyle = window.getComputedStyle(progressBar[0])
+                    const width = parseFloat(computedStyle.getPropertyValue('--width')) || 0
+                    if(width < 75){progressBar[0].style.setProperty('--width', width + .1)}
+                }, 5)
+                const add = await aws.addTestimonial(this.state)
+                // console.log(add)
+                if(add.errmsg){this.resetState()}
+                if(add.image){
+                    clearInterval(bar);
+                    progressBar[0].style.setProperty('--width', 100)
+                    setTimeout( () => {this.setState({step: 3})}, 600)
+                }   
         }
     }
 
@@ -61,8 +73,9 @@ class TestimonialForm extends Component {
     }
     
     render () {
+
         return (
-            <div className="section-testimonial-form">
+            <div className="section-testimonial">
                 <div className="row">
                     <div className="col-1-of-2">
                         <div className="u-center-text section-testimonial-form-left">
@@ -102,15 +115,22 @@ class TestimonialForm extends Component {
                                     <label htmlFor="content">Testimonial</label>                                   
                                 </div>
                                 <div className="form-group">
-                                    <input type="file" id="song-upload" name="file" onChange={this.handleFile} autoComplete="off" required/>
-                                    <label htmlFor="song-upload" className="form-group-file"><i className="fas fa-upload"></i> {this.state.songUploadText.split('\\').slice(-1)[0].substring(0,15)}</label>
+                                    <input type="file" id="file-upload" name="file" onChange={this.handleFile} autoComplete="off" required/>
+                                    <label htmlFor="file-upload" className="form-group-file"><i className="fas fa-upload"></i> {this.state.songUploadText.split('\\').slice(-1)[0].substring(0,15)}</label>
                                     <small>Pleasa upload an image</small>
                                 </div>
                                 <button className="btn btn--previous btn--animated" onClick={this.stepBack}>Go Back</button>
                                 <button className="btn btn--primary btn--animated">Submit</button>
                             </div>
                             }
-                            {this.state.step === 2 && 
+                            {this.state.step === 2 &&
+                                <div className="section-testimonial-progress">
+                                    <div className="section-testimonial-progress-bar" data-label="loading..." style={{"--width": 5}}></div>
+                                    {/* <button className="btn btn--primary btn--animated" onClick={this.handleSubmit}>Submit</button> */}
+                                </div>
+                                
+                            }
+                            {this.state.step === 3 && 
                                 <div className="u-center-text u-padding-big-vert section-testimonial-form-message">
 
                                     <span className="form-message form-message-animated"><i className="fas fa-paper-plane"></i> {this.state.message}</span>

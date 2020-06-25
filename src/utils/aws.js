@@ -1,3 +1,5 @@
+import axios from "axios"
+
 export default {
     getSongs,
     addTestimonial      
@@ -10,23 +12,23 @@ function getSongs(){
 }
 
 function addTestimonial(content){
-    console.log(content)
+    // console.log(content)
     const formData  = new FormData();
 
     for(const name in content) {
         formData.append(name, content[name]);
     }
-    console.log(formData)
+    // console.log(formData)
     return fetch('/api/testimonial/add', {
         method: 'POST',
         body: formData
     })
     .then( res => {
+        // console.log(res)
         if (res.ok) return res.json()
-        res.status(400).json({error: 'Internal Error' })
     })
-    .then( data => data )
-    .catch(err => {
+    .then( data => data)
+    .catch( err => {
         console.log(err)
     })
 }
