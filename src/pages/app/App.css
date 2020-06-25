@@ -628,15 +628,15 @@ body {
       background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%), url(https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80);
       background-size: cover; } }
 
-.section-testimonial {
+.section-testimonial-form {
   padding: 2rem 5rem;
   height: 50rem; }
-  .section-testimonial-left {
+  .section-testimonial-form-left {
     position: relative;
     height: 50rem;
     background-image: linear-gradient(to right bottom, #c87a73, #34000f);
     box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.4); }
-  .section-testimonial-right {
+  .section-testimonial-form-right {
     padding: 2rem 3rem; }
 
 .footer {
@@ -977,6 +977,13 @@ body {
   .btn--primary::after {
     background-color: #AC0032; }
 
+.btn--light {
+  background-color: #c87a73;
+  color: #FDFFFC;
+  text-align: center; }
+  .btn--light::after {
+    background-color: #AC0032; }
+
 .btn--previous {
   background-color: #FDFFFC;
   color: #777;
@@ -1216,6 +1223,23 @@ body {
     text-align: center; }
   .form-search-group input:focus::-webkit-input-placeholder {
     color: transparent; }
+  .form-message {
+    display: block;
+    margin: 8rem 0 3rem 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 2rem 2rem;
+    color: #fff;
+    background-color: #c87a73;
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
+    border-radius: .5rem;
+    transition: all .2s; }
+    .form-message-animated {
+      animation: moveInBottom .2s ease-out .3s;
+      animation-fill-mode: backwards; }
 
 .book-form {
   width: 50%;
@@ -1354,6 +1378,9 @@ body {
     .book-form-message-animated {
       animation: moveInBottom .2s ease-out .3s;
       animation-fill-mode: backwards; }
+
+.fa-paper-plane {
+  margin: 0 1rem 0 0; }
 
 .card {
   perspective: 150rem;

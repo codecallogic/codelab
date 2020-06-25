@@ -1,4 +1,4 @@
-.section-testimonial {
+.section-testimonial-form {
     padding: 2rem 5rem;
     height: 50rem;
 
@@ -11,6 +11,11 @@
 
     &-right {
         padding: 2rem 3rem;
+        
+    }
+
+    &-message {
+        // @include center-hoz-ver;
         
     }
 }

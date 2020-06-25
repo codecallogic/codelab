@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import aws from '../../utils/aws'
 
 class TestimonialForm extends Component {
@@ -13,7 +14,8 @@ class TestimonialForm extends Component {
            content: '',
            file: '',
            songUploadText: 'Upload Image', 
-           step: 0, 
+           step: 0,
+           message: ' Your testimonail was uploaded. Thank You!'
         }
     }
 
@@ -27,13 +29,10 @@ class TestimonialForm extends Component {
         e.preventDefault();
         if(this.state.step === 0){this.setState({ step: 1})}
         if(this.state.step === 1){
-            let formData = new FormData()
-            formData.append('file', this.state.file)
-            formData.append('name', this.state.name)
-            formData.append('testimonial', this.state.testimonial)
-            formData.append('url', this.state.url)
             const add = await aws.addTestimonial(this.state)
             console.log(add)
+            if(add.errmsg){this.resetState()}
+            if(add.image){this.setState({step: 2})}
         }
     }
 
@@ -47,23 +46,33 @@ class TestimonialForm extends Component {
             songUploadText: e.target.value,
             file: e.target.files[0]
         })
-    }
-
+    }   
     
+    resetState = () => {
+        this.setState({
+            name: '',
+            company: '',
+            title: '',
+            heading: '',
+            content: '',
+            file: '',
+            step: 0, 
+        })
+    }
     
     render () {
         return (
-            <div className="section-testimonial">
+            <div className="section-testimonial-form">
                 <div className="row">
                     <div className="col-1-of-2">
-                        <div className="u-center-text section-testimonial-left">
+                        <div className="u-center-text section-testimonial-form-left">
                             <h2 className="heading-secondary-styled">
                                 Please Help Me Show Others They Can Believe In My Work
                             </h2>
                         </div>
                     </div>
                     <div className="col-1-of-2">
-                        <div className="u-center-text section-testimonial-right">
+                        <div className="u-center-text section-testimonial-form-right">
                         <form className="form" onSubmit={this.handleSubmit}>
                             {this.state.step === 0 && 
                             <div>
@@ -76,8 +85,8 @@ class TestimonialForm extends Component {
                                     <label htmlFor="company">Company</label>
                                 </div>
                                 <div className="form-group form-group-testimonial">
-                                    <input type="text" id="title" name="title" placeholder="Position/Web Address/Other" autoComplete="off" onChange={this.handleChange} value={this.state.title} required/>
-                                    <label htmlFor="title">Position/Web Address/Other</label>
+                                    <input type="text" id="title" name="title" placeholder="Position/Website/Other" autoComplete="off" onChange={this.handleChange} value={this.state.title} required/>
+                                    <label htmlFor="title">Position/Website/Other</label>
                                 </div> 
                                 <button className="btn btn--primary btn--animated">Continue</button>
                             </div>
@@ -100,6 +109,15 @@ class TestimonialForm extends Component {
                                 <button className="btn btn--previous btn--animated" onClick={this.stepBack}>Go Back</button>
                                 <button className="btn btn--primary btn--animated">Submit</button>
                             </div>
+                            }
+                            {this.state.step === 2 && 
+                                <div className="u-center-text u-padding-big-vert section-testimonial-form-message">
+
+                                    <span className="form-message form-message-animated"><i className="fas fa-paper-plane"></i> {this.state.message}</span>
+
+                                    <Link to="/" className="btn btn--white btn--animated u-center-text" onClick={this.reset}>Home</Link>
+
+                                </div>
                             }
                         </form>
                         </div>

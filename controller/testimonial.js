@@ -48,7 +48,7 @@ async function add(req, res){
         testimonial.save((err, success) => {
         if(err) {
             console.log(err)
-            res.status(400).json({error: 'Error saving song to db' })
+            res.json(err)
         }
         return res.json(success)
         })

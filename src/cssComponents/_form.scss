@@ -148,6 +148,28 @@
     &-search-group input:focus::-webkit-input-placeholder {
         color: transparent;
     }
+
+    &-message {
+        display: block;
+        margin: 8rem 0 3rem 0;
+        width: 100%;
+        text-align: center;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        padding: 2rem 2rem;
+        color: $color-white;
+        background-color: $color-primary-light;
+        box-shadow: 0 2rem 4rem rgba($color-black, .2);
+        border-radius: .5rem;
+        transition: all .2s;
+
+        &-animated {
+            animation: moveInBottom .2s ease-out .3s;
+            animation-fill-mode: backwards;
+        }
+        
+    }
     
 }
 
@@ -336,4 +358,8 @@
         
     }
 
+}
+
+.fa-paper-plane {
+    margin: 0 1rem 0 0;
 }

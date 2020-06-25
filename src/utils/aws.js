@@ -23,6 +23,7 @@ function addTestimonial(content){
     })
     .then( res => {
         if (res.ok) return res.json()
+        res.status(400).json({error: 'Internal Error' })
     })
     .then( data => data )
     .catch(err => {
