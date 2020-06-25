@@ -38,6 +38,10 @@ const testimonialSchema = new Schema(
     image: {
         url: String,
         key: String
+    },
+    status: {
+        type: Boolean,
+        default: false,
     }
 },
 {
