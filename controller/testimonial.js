@@ -32,6 +32,7 @@ async function add(req, res){
     const {file} = files
     const slug = slugify(name)
     let testimonial = new Testimonial({name, company, title, heading, content, slug, file})
+    console.log(testimonial)
     const params = {
         Bucket: 'codecallogiclab',
         Key: `testimonial/${uuidv4()}`,

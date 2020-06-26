@@ -727,11 +727,11 @@ body {
   shape-outside: circle(50% at 50% 50%);
   -webkit-clip-path: circle(50% at 50% 50%);
   clip-path: circle(50% at 50% 50%);
-  transform: translateX(-3rem) skewX(12deg); }
+  transform: translateX(-3rem) skewX(12deg);
+  position: relative; }
 
 .testimonial-image {
   width: 100%;
-  transform: translateY(2rem) scale(1.4);
   transition: all .5s; }
 
 .footer {
@@ -1076,8 +1076,6 @@ body {
   background-color: #c87a73;
   color: #FDFFFC;
   text-align: center; }
-  .btn--light::after {
-    background-color: #AC0032; }
 
 .btn--previous {
   background-color: #FDFFFC;

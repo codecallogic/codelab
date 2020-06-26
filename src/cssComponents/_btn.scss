@@ -67,9 +67,9 @@
         color: $color-white-compliment;
         text-align: center;
 
-        &::after {
-            background-color: $color-primary;
-        }
+        // &::after {
+        //     background-color: $color-primary;
+        // }
     }
 
     &--previous {

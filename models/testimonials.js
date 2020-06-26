@@ -26,7 +26,7 @@ const testimonialSchema = new Schema(
         required: true,
         trim: true,
     },
-    testimonial: {
+    content: {
         type: {},
     },
     slug: {

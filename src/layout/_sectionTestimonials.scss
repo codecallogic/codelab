@@ -113,11 +113,11 @@
         -webkit-clip-path: circle(50% at 50% 50%);
         clip-path: circle(50% at 50% 50%);
         transform: translateX(-3rem) skewX(12deg);
+        position: relative;
     }
 
     &-image {
         width: 100%;
-        transform: translateY(2rem) scale(1.4);
         transition: all .5s;
     }
 }
