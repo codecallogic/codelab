@@ -71,6 +71,16 @@
         //     background-color: $color-primary;
         // }
     }
+    
+    &--red {
+        background-color: #D23B23;
+        color: $color-white-compliment;
+        text-align: center;
+
+        // &::after {
+        //     background-color: $color-primary;
+        // }
+    }
 
     &--previous {
         background-color: $color-white-compliment;

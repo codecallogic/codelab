@@ -7,7 +7,8 @@ const fs = require('fs')
 
 module.exports = {
     add,
-    all
+    all,
+    update
 }
 
 const s3 = new AWS.S3({ 
@@ -68,4 +69,29 @@ async function all(req, res){
             return res.json(all)
         }
     })
+}
+
+async function update(req, res){
+    console.log(req.body)
+    if(req.body.status !== 'delete'){
+    Testimonial.findByIdAndUpdate({_id: req.body.id}, req.body, function(err, success){
+        if(err){
+            console.log(err)
+            return res.json({ error: "Could not update testimonials"})
+        }else{
+            return res.json(success)
+        }
+    })
+    }
+
+    if(req.body.status === 'delete'){
+        Testimonial.deleteOne({_id: req.body.id}, function(err, success){
+            if(err){
+                console.log(err)
+                return res.json({ error: "Could not update testimonials"})
+            }else{
+                return res.json(success)
+            }
+        })
+    }
 }

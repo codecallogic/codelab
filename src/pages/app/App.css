@@ -699,6 +699,8 @@ body {
   border-radius: .3rem;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
   transition: all .3s; }
+  .testimonial-box-text {
+    padding-left: 1rem; }
 
 .testimonial-box svg * {
   fill: url(#rg); }
@@ -1074,6 +1076,11 @@ body {
 
 .btn--light {
   background-color: #c87a73;
+  color: #FDFFFC;
+  text-align: center; }
+
+.btn--red {
+  background-color: #D23B23;
   color: #FDFFFC;
   text-align: center; }
 

@@ -42,6 +42,12 @@ const testimonialSchema = new Schema(
     status: {
         type: Boolean,
         default: false,
+    },
+    Yaxis: {
+        type: String
+    },
+    scale: {
+        type: String
     }
 },
 {

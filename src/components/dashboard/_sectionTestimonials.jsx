@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ClientService from '../../utils/clientService'
 import clientService from '../../utils/clientService';
 
 class Testimonials extends Component {
@@ -7,21 +6,72 @@ class Testimonials extends Component {
     constructor() {
         super()
         this.state = {
-            testimonials: [],
+            testimonialsApproved: [],
+            testimonialsUnapproved: [],
             unapproved: false,
             approved: false,
+            status: null,
+            selected: '#AC0032',
+            Yaxis: -1,
+            scale: 1,
+            id: null,
+            none: false,
         }
     }
 
     getTestimonials = async (e) => {
         const status = e.target.name
         const allTestimonials = await clientService.getTestimonials()
-        if(status === 'unapproved'){this.setState({unapproved: true})}
-        if(status === 'approved'){this.setState({approved: true})}
+        this.setState(prevState => ({
+            [status]: !prevState[status], 
+        }))
+        console.log(allTestimonials)
+        if(allTestimonials !== undefined){
+            this.setState({
+                testimonialsApproved: allTestimonials.map( t => { if(t.status){ return t}}),
+                testimonialsUnapproved: allTestimonials.map( t => { if(t.status === false){ return t}}),
+                none: false,
+            })
+        }
+        if(allTestimonials === undefined){
+            this.setState({
+                none: true,
+            })
+        }
+    }
+
+    handleChange = (e) => {
         this.setState({
-            testimonials: allTestimonials
+            [e.target.name]: e.target.value
         })
-        console.log(this.state.testimonials)
+    }
+
+    handleStatus = (e) => {
+        e.preventDefault()
+        const name = e.target.name
+        if(name === 'yes'){this.setState({ status: true, id: e.target.value })}
+        if(name === 'no'){this.setState({ status: false, id: e.target.value })}
+        if(name === 'delete'){this.setState({ status: 'delete', id: e.target.value })}
+        if(name === 'reset'){this.setState({ status: null, id: e.target.value })}
+    }
+
+    handleUpdate = async (e) => {
+        e.preventDefault()
+        const obj = {
+            status: this.state.status,
+            Yaxis: this.state.Yaxis,
+            scale: this.state.scale,
+            id: this.state.id
+        }
+        const update = await clientService.handleUpdate(obj)
+        if(update){
+            this.setState({
+                testimonialsApproved: [],
+                testimonialsUnapproved: [],
+                unapproved: false,
+                approved: false,
+            })
+        }
     }
     
     render () {
@@ -37,7 +87,71 @@ class Testimonials extends Component {
                     </div>
                 </div>
                 <div className="row">
-                    {this.state.testimonials.map( t => 
+                    {this.state.none === true && 
+                        <div>
+                            <h1 className="header-tertiary u-center-text u-margin-bottom-small">No Testimonials</h1>
+                        </div>  
+                    }
+                    {this.state.unapproved === true && this.state.testimonialsUnapproved[0] !== undefined && this.state.testimonialsUnapproved.map( t => 
+                    <div key={t._id} className="col-1-of-3">
+                        <h1 className="header-tertiary u-center-text u-margin-bottom-small">{t.heading}</h1>
+                        <div className="testimonial-box">
+                            <svg width="0" height="0">
+                            <radialGradient id="rg" r="150%" cx="30%" cy="107%">
+                                <stop stopColor="#c87a73" offset="0" />
+                                <stop stopColor="#c87a73" offset="0.05" />
+                                <stop stopColor="#AC0032" offset="0.45" />
+                                <stop stopColor="#AC0032" offset="0.6" />
+                                <stop stopColor="#34000f" offset="0.8" />
+                            </radialGradient>
+                            </svg>
+                            <i className="fas fa-quote-left testimonial-box-icon"></i>
+                            <p className="testimonial-box-text">
+                                {t.content}
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi laborum, sequi corporis labore mollitia aspernatur libero est optio beatae quas incidunt necessitatibus soluta earum magni natus nostrum ratione. Dicta, odit.
+                            </p>
+                            
+                        </div>
+                        <div className="testimonial-shape-box">
+                            <figure className="testimonial-shape">
+                                <img src={t.image.url} alt={t.name} className="testimonial-image" style={{transform: `translateY(${this.state.Yaxis}rem) scale(${this.state.scale})`}}/>
+                            </figure>
+                        </div>
+                        <h1 className="header-tertiary u-center-text ">{t.name}</h1>
+                        <h3 className="header-sub-title u-center-text">{t.title}{ t.company ? ' at ': null} {t.company}</h3>
+                        <a href="" className="u-center-text block">Link</a>
+                        <div className="testimonial button-box u-center-text">
+                            {this.state.status === null && 
+                            <div>
+                                <button className="btn btn--white" name="yes" onClick={this.handleStatus} value={t._id}>Yes</button>
+                                <button className="btn btn--white" name="no" onClick={this.handleStatus} value={t._id}>No</button>
+                                <button className="btn btn--white" name="delete" onClick={this.handleStatus} value={t._id}>Delete</button>
+                            </div>
+                            }
+                            {this.state.status === true && 
+                                <button className="btn btn--light" name="reset" onClick={this.handleStatus} style={{backgroundColor: this.state.selected, color: 'white'}}>Yes</button>
+                            }
+                            {this.state.status === false && 
+                                <button className="btn btn--light" name="reset" onClick={this.handleStatus} style={{backgroundColor: this.state.selected, color: 'white'}}>No</button>
+                            }
+                            {this.state.status === 'delete' && 
+                                <button className="btn btn--light" name="reset" onClick={this.handleStatus} style={{backgroundColor: this.state.selected, color: 'white'}}>Delete</button>
+                            }
+                        </div>
+                        <form className="form" onSubmit={this.handleUpdate}>
+                            <div className="form-group">
+                                <input type="text" type="text" name="Yaxis" placeholder="Y axis" value={this.state.Yaxis} onChange={this.handleChange} autoComplete="off"/>
+                                <label htmlFor="Yaxis">Y Axis</label>
+                            </div>
+                            <div className="form-group">
+                                <input type="text" type="text" name="scale" placeholder="Scale" value={this.state.scale} onChange={this.handleChange} autoComplete="off"/>
+                                <label htmlFor="scale">Scale</label>
+                            </div>
+                            <button className="btn btn--white">Update</button>
+                        </form>
+                    </div>                       
+                    )}
+                    {this.state.approved === true && this.state.testimonialsApproved[0] !== undefined && this.state.testimonialsApproved.map( t => 
                     <div key={t._id} className="col-1-of-3">
                         <h1 className="header-tertiary u-center-text u-margin-bottom-small">{t.heading}</h1>
                         <div className="testimonial-box">
@@ -58,18 +172,43 @@ class Testimonials extends Component {
                         </div>
                         <div className="testimonial-shape-box">
                             <figure className="testimonial-shape">
-                                    <img src={t.image.url} alt={t.name} className="testimonial-image" style={{transform: 'translateY(-1rem) scale(1)'}}/>
+                                <img src={t.image.url} alt={t.name} className="testimonial-image" style={{transform: `translateY(${this.state.Yaxis}rem) scale(${this.state.scale})`}}/>
                             </figure>
                         </div>
                         <h1 className="header-tertiary u-center-text ">{t.name}</h1>
                         <h3 className="header-sub-title u-center-text">{t.title}{ t.company ? ' at ': null} {t.company}</h3>
                         <a href="" className="u-center-text block">Link</a>
-                        <div className="testimonial button-box">
-                            <button className="btn btn--white">Approve</button>
-                            <button className="btn btn--light">Unapprove</button>
-                        </div>  
+                        <div className="testimonial button-box u-center-text">
+                            {this.state.status === null && 
+                            <div>
+                                <button className="btn btn--white" name="yes" onClick={this.handleStatus} value={t._id}>Yes</button>
+                                <button className="btn btn--white" name="no" onClick={this.handleStatus} value={t._id}>No</button>
+                                <button className="btn btn--white" name="delete" onClick={this.handleStatus} value={t._id}>Delete</button>
+                            </div>
+                            }
+                            {this.state.status === true && 
+                                <button className="btn btn--light" name="reset" onClick={this.handleStatus} style={{backgroundColor: this.state.selected, color: 'white'}}>Yes</button>
+                            }
+                            {this.state.status === false && 
+                                <button className="btn btn--light" name="reset" onClick={this.handleStatus} style={{backgroundColor: this.state.selected, color: 'white'}}>No</button>
+                            }
+                            {this.state.status === 'delete' && 
+                                <button className="btn btn--light" name="reset" onClick={this.handleStatus} style={{backgroundColor: this.state.selected, color: 'white'}}>Delete</button>
+                            }
+                        </div>
+                        <form className="form" onSubmit={this.handleUpdate}>
+                            <div className="form-group">
+                                <input type="text" type="text" name="Yaxis" placeholder="Y axis" value={this.state.Yaxis} onChange={this.handleChange} autoComplete="off"/>
+                                <label htmlFor="Yaxis">Y Axis</label>
+                            </div>
+                            <div className="form-group">
+                                <input type="text" type="text" name="scale" placeholder="Scale" value={this.state.scale} onChange={this.handleChange} autoComplete="off"/>
+                                <label htmlFor="scale">Scale</label>
+                            </div>
+                            <button className="btn btn--white">Update</button>
+                        </form>
                     </div>                       
-                    )}                                                           
+                    )}                                                             
                 </div>
             </div>
         )
