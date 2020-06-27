@@ -9,6 +9,7 @@ class TestimonialForm extends Component {
         this.state = {
            name: '',
            company: '',
+           website: '',
            title: '',
            heading: '',
            content: '',
@@ -81,7 +82,7 @@ class TestimonialForm extends Component {
                     <div className="col-1-of-2">
                         <div className="u-center-text section-testimonial-form-left">
                             <h2 className="heading-secondary-styled">
-                                Please Help Me Show Others They Can Believe In My Work
+                                Please Help My Work Reach Others With Your Help
                             </h2>
                         </div>
                     </div>
@@ -99,9 +100,13 @@ class TestimonialForm extends Component {
                                     <label htmlFor="company">Company</label>
                                 </div>
                                 <div className="form-group form-group-testimonial">
-                                    <input type="text" id="title" name="title" placeholder="Position/Website/Other" autoComplete="off" onChange={this.handleChange} value={this.state.title} required/>
-                                    <label htmlFor="title">Position/Website/Other</label>
-                                </div> 
+                                    <input type="text" id="title" name="title" placeholder="Position/Title/Other" autoComplete="off" onChange={this.handleChange} value={this.state.title} required/>
+                                    <label htmlFor="title">Position/Title/Other</label>
+                                </div>
+                                <div className="form-group form-group-testimonial">
+                                    <input type="url" id="website" name="website" placeholder="Website (optional)" autoComplete="off" onChange={this.handleChange} value={this.state.website}/>
+                                    <label htmlFor="website">Website URL</label>
+                                </div>  
                                 <button className="btn btn--primary btn--animated">Continue</button>
                             </div>
                             }
@@ -112,7 +117,7 @@ class TestimonialForm extends Component {
                                         <input type="text" id="heading" name="heading" placeholder="Heading" autoComplete="off" onChange={this.handleChange} value={this.state.heading} required/>
                                         <label htmlFor="heading">Heading</label>
                                     </div>    
-                                    <textarea type="text" name="content" placeholder="Testimonial" value={this.state.content} onChange={this.handleChange} autoComplete="off" required/>
+                                    <textarea type="text" name="content" placeholder="Testimonial" value={this.state.content} maxlength="250" onChange={this.handleChange} autoComplete="off" required/>
                                     <label htmlFor="content">Testimonial</label>                                   
                                 </div>
                                 <div className="form-group">

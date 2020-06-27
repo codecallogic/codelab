@@ -696,6 +696,7 @@ body {
 .testimonial-box {
   display: flex;
   background-color: transparent;
+  height: 20rem;
   font-size: 1.5rem;
   padding: 2.5rem;
   text-align: center;
@@ -711,9 +712,6 @@ body {
   font-size: 2rem;
   margin: 0 .2rem 0 .5rem;
   float: left; }
-
-.testimonial-box:hover {
-  transform: translateY(-1.5rem) scale(1.03); }
 
 .testimonial-shape-box {
   transform: skewX(-12deg);
@@ -737,6 +735,11 @@ body {
 .testimonial-image {
   width: 100%;
   transition: all .5s; }
+
+.testimonial-link {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #0E1B32; }
 
 .section-testimonial-display {
   background-color: #EEEEEE;

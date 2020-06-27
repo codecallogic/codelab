@@ -128,7 +128,7 @@ class Testimonials extends Component {
                         </div>
                         <h1 className="header-tertiary u-center-text ">{t.name}</h1>
                         <h3 className="header-sub-title u-center-text">{t.title}{ t.company ? ' at ': null} {t.company}</h3>
-                        <a href="" className="u-center-text block">Link</a>
+                        {t.website ? <a href={t.website} className="u-center-text block testimonial-link">Website</a> : null}
                         <div className="testimonial button-box u-center-text">
                             {this.state.status === null && 
                             <div>
@@ -153,7 +153,7 @@ class Testimonials extends Component {
                                 <label htmlFor="Yaxis">Y Axis</label>
                             </div>
                             <div className="form-group">
-                                <input type="text" type="text" name="scale" placeholder={t.scale} onChange={this.handleChange} value={this.state.scale}autoComplete="off"/>
+                                <input type="text" type="text" name="scale" placeholder={t.scale} onChange={this.handleChange} value={this.state.scale} autoComplete="off"/>
                                 <label htmlFor="scale">Scale</label>
                             </div>
                             <button className="btn btn--white">Update</button>

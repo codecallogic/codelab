@@ -16,6 +16,10 @@ const testimonialSchema = new Schema(
         trim: true,
         max: 32
     },
+    website: {
+        type: String,
+        trim: true,
+    },
     title: {
         type: String,
         required: true,
@@ -27,7 +31,9 @@ const testimonialSchema = new Schema(
         trim: true,
     },
     content: {
-        type: {},
+        type: String,
+        trim: true,
+        maxlength: 250
     },
     slug: {
         type: String,

@@ -29,10 +29,10 @@ async function add(req, res){
 
     console.table({err, fields, files})
     console.log(files)
-    const {name, company, title, heading, content} = fields 
+    const {name, company, website, title, heading, content} = fields 
     const {file} = files
     const slug = slugify(name)
-    let testimonial = new Testimonial({name, company, title, heading, content, slug, file})
+    let testimonial = new Testimonial({name, company, title, heading, content, slug, website, file})
     console.log(testimonial)
     const params = {
         Bucket: 'codecallogiclab',
