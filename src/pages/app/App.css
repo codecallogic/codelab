@@ -298,6 +298,18 @@ body {
     @media only screen and (max-width: 56.25em) {
       .row [class^="col-"] {
         width: 100% !important; } }
+  .row .one-of-three {
+    width: calc((100% - 3 * 3rem) / 2);
+    float: left; }
+    .row .one-of-three:not(:last-child) {
+      margin-right: 3rem; }
+      @media only screen and (max-width: 56.25em) {
+        .row .one-of-three:not(:last-child) {
+          margin-right: 0;
+          margin-bottom: 6rem; } }
+    @media only screen and (max-width: 56.25em) {
+      .row .one-of-three {
+        width: 100% !important; } }
   .row .col-1-of-1 {
     width: 100%; }
   .row .col-1-of-2 {
@@ -695,6 +707,7 @@ body {
 
 .testimonial-box {
   display: flex;
+  justify-content: center;
   background-color: transparent;
   height: 20rem;
   font-size: 1.5rem;

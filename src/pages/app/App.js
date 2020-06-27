@@ -47,18 +47,12 @@ class App extends Component {
               handleSignUporLogin={this.handleSignUporLogin}
             />
           }/>
-          <Route exact path={"/signup"} render={({history}) => 
-            <SignUpPage 
-              history={history}
-              user={this.state.user}
-              handleLogOut={this.handleLogOut}
-              handleSignUporLogin={this.handleSignUporLogin}
-            />
-          }/>
+          
           <Route exact path="/admin" render={({history}) => 
             <DashboardPage 
-              user={this.props.state}
+              user={this.state.user}
               history={history}
+              handleLogOut={this.handleLogOut}
             />
           }/>
 

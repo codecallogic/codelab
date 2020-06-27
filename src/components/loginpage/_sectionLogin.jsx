@@ -21,7 +21,7 @@ class sectionLogin extends Component {
         try {
             await userService.login(this.state)
             this.props.handleSignUporLogin()
-            this.props.history.push('/')
+            this.props.history.push('/admin')
         } catch (err) {
             this.setState({alert: err.message})
         }
@@ -34,7 +34,7 @@ class sectionLogin extends Component {
                 {this.props.user ? 
                     <Link to='' className='' onClick={this.props.handleLogOut}>Log Out</Link>
                     :
-                    <Link to='/login' className=''>Log In</Link>
+                    null
                 }
                 <div className="row section-login-row">
                     <div className="col-1-of-1">

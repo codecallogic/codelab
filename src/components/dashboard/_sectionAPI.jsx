@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import spotify from '../../utils/spotify'
 import queryString from 'query-string'
+import { Link } from 'react-router-dom'
 
 class SectionAPI extends Component {
 
@@ -45,6 +46,12 @@ class SectionAPI extends Component {
         return (
            
             <div>
+                <Link to='/' className=''>Home </Link>
+                {this.props.user ? 
+                    <Link to='' className='' onClick={this.props.handleLogOut}>Log Out</Link>
+                    :
+                    <Link to='/login' className=''>Log In</Link>
+                }
                 <div className="section-api">
                     <h1 className="heading-section-title">API'S</h1>
                     <div className="u-width-3">

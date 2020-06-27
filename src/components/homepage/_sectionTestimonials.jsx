@@ -44,7 +44,7 @@ class Testimonials extends Component {
                 }
                 <div className="row">
                 {this.state.none === false && this.state.testimonialsApproved.map( t =>
-                        <div key={t._id} className="col-1-of-3">
+                        <div key={t._id} className="one-of-three">
                             <h1 className="header-tertiary u-center-text u-margin-top-medium">{t.heading}</h1>
                             <div className="testimonial-box">
                                 <svg width="0" height="0">

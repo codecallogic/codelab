@@ -6,19 +6,19 @@ class Homepage extends Component {
             <section id="section-about" className="section-about">
                 <div className="u-center-text u-margin-bottom-big">
                 <h2 className="heading-secondary">
-                    My Favorite Projects
+                    Why I Enjoy Coding
                 </h2>
                 </div>
 
                 <div className="row">
                     <div className="col-1-of-2">
                         <h3 className="heading-tertiary u-margin-small">
-                            You're going to fall in love with mloop
+                            API's Are Awesome, You Get To Access Data From Some of Your Favorite Apps
                         </h3>
                         <p className="paragraph">mLoops allows access to Spotify's millions of songs and curated playlists. Users can create posts related to their music search using tags to categorize their posts. They can also provide comments on other posts created by other users. </p>
 
                         <h3 className="heading-tertiary u-margin-small">
-                            Get yourself a prechecked online with Recovery
+                            Get An Assessment For Your Symptoms with Recovery
                         </h3>
                         <p className="paragraph">mLoops allows access to Spotify's millions of songs and curated playlists. Users can create posts related to their music search using tags to categorize their posts. They can also provide comments on other posts created by other users. </p>
 
@@ -27,7 +27,7 @@ class Homepage extends Component {
                         </h3>
                         <p className="paragraph">mLoops allows access to Spotify's millions of songs and curated playlists. Users can create posts related to their music search using tags to categorize their posts. They can also provide comments on other posts created by other users. </p>
 
-                        <a href="/#" className="btn-text">Learn More &rarr; </a>
+                        <a href="https://github.com/codecallogic" className="btn-text" target="_blank">Learn More &rarr;  <i class="fab fa-github"></i></a>
 
                     </div>
                     <div className="col-1-of-2">

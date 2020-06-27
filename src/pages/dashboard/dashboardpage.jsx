@@ -4,12 +4,19 @@ import SectionUpload from '../../components/dashboard/_sectionUpload'
 import SectionTestimonials from '../../components/dashboard/_sectionTestimonials'
 
 class Dashboard extends Component {
+    
     render () {
         return (
             <div>
-                <SectionAPI {...this.props} />
-                <SectionUpload />
-                <SectionTestimonials />
+                { this.props.user ? 
+                <div>
+                    <SectionAPI {...this.props} />
+                    <SectionUpload />
+                    <SectionTestimonials />
+                </div>
+                :
+                this.props.history.push('/login')
+                }
             </div>
         )
     }

@@ -11,18 +11,17 @@ class Footer extends Component {
                     <div className="col-1-of-2">
                         <div className="footer-navigation">
                         <ul className="footer-list">
-                            <li className="footer-item"><a href="/#" className="footer-link">Projects</a></li>
-                            <li className="footer-item"><a href="/#" className="footer-link">Projects</a></li>
-                            <li className="footer-item"><a href="/#" className="footer-link">Projects</a></li>
-                            <li className="footer-item"><a href="/#" className="footer-link">Projects</a></li>
-                            <li className="footer-item"><a href="/#" className="footer-link">Projects</a></li>
-                            <li className="footer-item"><a href="/#" className="footer-link">Projects</a></li>
+                            <li className="footer-item"><a href="/" className="footer-link"><i class="fas fa-home"></i> Home</a></li>
+                            <li className="footer-item"><a href="https://github.com/codecallogic" className="footer-link" target="_blank"><i class="fab fa-github"></i> Github</a></li>
+                            <li className="footer-item"><a href="https://www.linkedin.com/in/fabricio-guardia/" className="footer-link" target="_blank"><i class="fab fa-linkedin"></i> Linkedin</a></li>
+                            <li className="footer-item"><a href="/testimonials" className="footer-link"><i class="fas fa-comment" target="_blank"></i> Add Testimonial</a></li>
+                            {/* <li className="footer-item"><a href="/admin" className="footer-link"><i class="fas fa-users-cog"></i> Admin</a></li> */}
                         </ul>
                         </div>
                     </div>
                     <div className="col-1-of-2">
                         <p className="footer-copyright">
-                            Built by <a href="/#" className="footer-link">Fabricio Guardia </a> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, consequuntur vel? Obcaecati soluta excepturi id aspernatur, perspiciatis consectetur alias eum quas asperiores accusamus amet error iure, pariatur, ratione nulla cupiditate?
+                            Built by <a href="/" className="footer-link">Jose Fabricio Guardia </a> &copy; Copyright 2020. Created in part with lastest technologies, integrated with modern security practices, and designed for the future.
                         </p>
                     </div>
                 </div>

@@ -5,7 +5,11 @@ class LoginPage extends Component {
     render () {
         return (
             <div>
-                <SectionLogin {...this.props}/>
+                {this.props.user ? 
+                    this.props.history.push('/admin')
+                    :
+                    <SectionLogin {...this.props}/>
+                }
             </div>
         )
     }

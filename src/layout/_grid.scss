@@ -35,6 +35,25 @@
 
     }
 
+    .one-of-three {
+        width: calc((100% - 3 * #{$gutter-horizontal}) / 2);
+        float: left;
+
+        &:not(:last-child){
+            margin-right: $gutter-horizontal;
+
+            @include respond(tab-port){ 
+                margin-right: 0;
+                margin-bottom: $gutter-vertical-small;
+            }
+            
+        }
+
+        @include respond(tab-port){ 
+            width: 100%!important;
+        }
+    }
+
     .col-1-of-1 {
         width: 100%;
     }

@@ -78,7 +78,7 @@ class Book extends Component {
                             <form className="book-form" onSubmit={this.handleSubmit}>
                                 <div className="u-center-text">
                                 <h2 className="heading-secondary u-margin-bottom-medium">
-                                    Start Booking Now
+                                    Contact Fabricio
                                 </h2>
                                 </div>
                                 {this.state.step === 0 &&
