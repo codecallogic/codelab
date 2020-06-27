@@ -1,4 +1,5 @@
 const User = require('../models/user')
+const Email = require('../models/emails')
 const jwt = require('jsonwebtoken')
 const nodemailer = require('nodemailer')
 const mailgun = require('nodemailer-mailgun-transport')
@@ -67,9 +68,10 @@ async function email(req, res){
         'v:date': req.body.date
     }
 
-    transporter.sendMail(mailOptions, function(err, data){
+    transporter.sendMail(mailOptions, async function(err, data){
         try {
-            res.json({"success": true, "message": "Message was sent"})
+            const email = await Email.create(req.body)
+            res.json({"success": true, "data": email})
         }catch(err){
             res.status(400).json(err)
         }

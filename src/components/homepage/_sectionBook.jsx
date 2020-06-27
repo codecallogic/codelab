@@ -38,6 +38,7 @@ class Book extends Component {
         )}
         if(this.state.step === 1){
             const email = await emailService.client(this.state)
+            // console.log(email)
             if(email.success){
                 this.setState({
                     name: '',
