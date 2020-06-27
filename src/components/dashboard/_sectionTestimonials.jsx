@@ -12,8 +12,8 @@ class Testimonials extends Component {
             approved: false,
             status: null,
             selected: '#AC0032',
-            Yaxis: -1,
-            scale: 1,
+            Yaxis: '',
+            scale: '',
             id: null,
             none: false,
         }
@@ -26,10 +26,20 @@ class Testimonials extends Component {
             [status]: !prevState[status], 
         }))
         console.log(allTestimonials)
+        const approved = []
+        const unapproved = []
         if(allTestimonials !== undefined){
+            allTestimonials.map( t => {
+                if(t.status){
+                    approved.push(t)
+                }
+                if(t.status === false){
+                    unapproved.push(t)
+                }
+            })
             this.setState({
-                testimonialsApproved: allTestimonials.map( t => { if(t.status){ return t}}),
-                testimonialsUnapproved: allTestimonials.map( t => { if(t.status === false){ return t}}),
+                testimonialsApproved: approved,
+                testimonialsUnapproved: unapproved,
                 none: false,
             })
         }
@@ -108,7 +118,6 @@ class Testimonials extends Component {
                             <i className="fas fa-quote-left testimonial-box-icon"></i>
                             <p className="testimonial-box-text">
                                 {t.content}
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi laborum, sequi corporis labore mollitia aspernatur libero est optio beatae quas incidunt necessitatibus soluta earum magni natus nostrum ratione. Dicta, odit.
                             </p>
                             
                         </div>
@@ -140,11 +149,11 @@ class Testimonials extends Component {
                         </div>
                         <form className="form" onSubmit={this.handleUpdate}>
                             <div className="form-group">
-                                <input type="text" type="text" name="Yaxis" placeholder="Y axis" value={this.state.Yaxis} onChange={this.handleChange} autoComplete="off"/>
+                                <input type="text" type="text" name="Yaxis" placeholder={t.Yaxis} onChange={this.handleChange} value={this.state.Yaxis} autoComplete="off"/>
                                 <label htmlFor="Yaxis">Y Axis</label>
                             </div>
                             <div className="form-group">
-                                <input type="text" type="text" name="scale" placeholder="Scale" value={this.state.scale} onChange={this.handleChange} autoComplete="off"/>
+                                <input type="text" type="text" name="scale" placeholder={t.scale} onChange={this.handleChange} value={this.state.scale}autoComplete="off"/>
                                 <label htmlFor="scale">Scale</label>
                             </div>
                             <button className="btn btn--white">Update</button>
@@ -198,11 +207,11 @@ class Testimonials extends Component {
                         </div>
                         <form className="form" onSubmit={this.handleUpdate}>
                             <div className="form-group">
-                                <input type="text" type="text" name="Yaxis" placeholder="Y axis" value={this.state.Yaxis} onChange={this.handleChange} autoComplete="off"/>
+                                <input type="text" type="text" name="Yaxis" placeholder={t.Yaxis} value={this.state.Yaxis} onChange={this.handleChange} autoComplete="off"/>
                                 <label htmlFor="Yaxis">Y Axis</label>
                             </div>
                             <div className="form-group">
-                                <input type="text" type="text" name="scale" placeholder="Scale" value={this.state.scale} onChange={this.handleChange} autoComplete="off"/>
+                                <input type="text" type="text" name="scale" placeholder={t.scale} value={this.state.scale} onChange={this.handleChange} autoComplete="off"/>
                                 <label htmlFor="scale">Scale</label>
                             </div>
                             <button className="btn btn--white">Update</button>

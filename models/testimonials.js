@@ -44,10 +44,12 @@ const testimonialSchema = new Schema(
         default: false,
     },
     Yaxis: {
-        type: String
+        type: String,
+        default: -1,
     },
     scale: {
-        type: String
+        type: String,
+        default: 1,
     }
 },
 {

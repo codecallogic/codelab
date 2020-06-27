@@ -222,6 +222,9 @@ body {
 .u-margin-top-huge {
   margin-top: 10rem; }
 
+.u-margin-top-medium {
+  margin-top: 4rem; }
+
 .u-margin-top-small {
   margin-top: 2rem; }
 
@@ -692,12 +695,11 @@ body {
 
 .testimonial-box {
   display: flex;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: transparent;
   font-size: 1.5rem;
   padding: 2.5rem;
   text-align: center;
   border-radius: .3rem;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
   transition: all .3s; }
   .testimonial-box-text {
     padding-left: 1rem; }
@@ -706,8 +708,8 @@ body {
   fill: url(#rg); }
 
 .testimonial-box-icon {
-  font-size: 3rem;
-  margin: 0 .5rem 0 .5rem;
+  font-size: 2rem;
+  margin: 0 .2rem 0 .5rem;
   float: left; }
 
 .testimonial-box:hover {
@@ -735,6 +737,11 @@ body {
 .testimonial-image {
   width: 100%;
   transition: all .5s; }
+
+.section-testimonial-display {
+  background-color: #EEEEEE;
+  padding: 10rem 0 5rem 0;
+  margin-top: -8rem; }
 
 .footer {
   background-color: #343434;

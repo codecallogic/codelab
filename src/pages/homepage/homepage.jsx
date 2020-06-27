@@ -4,6 +4,7 @@ import SectionAbout from '../../components/homepage/_sectionAbout'
 import SectionMusic from '../../components/homepage/_sectionMusic'
 import SectionFeatures from '../../components/homepage/_sectionFeatures'
 import SectionProjects from '../../components/homepage/_sectionProjects'
+import SectionTestimonials from '../../components/homepage/_sectionTestimonials'
 import SectionExperience from '../../components/homepage/_sectionExperience'
 import SectionBook from'../../components/homepage/_sectionBook'
 import Footer from'../../components/homepage/_footer'
@@ -20,6 +21,7 @@ class Homepage extends Component {
                 <SectionMusic />
                 <SectionFeatures />
                 <SectionProjects />
+                <SectionTestimonials />
                 <SectionExperience />
                 <SectionBook />
                 <Footer />
