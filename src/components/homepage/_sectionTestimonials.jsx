@@ -36,9 +36,9 @@ class Testimonials extends Component {
     
     render () {
         return (
-            
+            <div className="section-testimonials">
             <div className="section-testimonial-display">
-                {this.state.none === false && <div className="u-center-text">
+                {this.state.testimonialsApproved.length !== 0 && <div className="u-center-text">
                     <h1 className="heading-secondary u-center-text">Testimonials</h1>
                 </div>
                 }
@@ -74,7 +74,7 @@ class Testimonials extends Component {
                     )}
                 </div>
             </div>
-            
+            </div>
         )
     }
 }
