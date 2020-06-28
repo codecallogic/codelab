@@ -6,28 +6,28 @@ class Homepage extends Component {
             <section id="section-about" className="section-about">
                 <div className="u-center-text u-margin-bottom-big">
                 <h2 className="heading-secondary">
-                    Why I Enjoy Coding
+                    My Favorite Technologies
                 </h2>
                 </div>
 
                 <div className="row">
                     <div className="col-1-of-2">
                         <h3 className="heading-tertiary u-margin-small">
-                            API's Are Awesome, You Get To Access Data From Some of Your Favorite Apps
+                            Some of my favorite apps are built on a MERN stack framework
                         </h3>
-                        <p className="paragraph">mLoops allows access to Spotify's millions of songs and curated playlists. Users can create posts related to their music search using tags to categorize their posts. They can also provide comments on other posts created by other users. </p>
+                        <p className="paragraph">MERN stacks means using Mongoose, Express, React JS, and Node JS programming languages to build an application. React JS is known for its compononent structure and its fast rendering performance, instagram is based entirely on React. Its one of my top programming languages to build websites, in fact this site is built entirely a MERN framework.</p>
 
                         <h3 className="heading-tertiary u-margin-small">
-                            Get An Assessment For Your Symptoms with Recovery
+                            Django Framework For Python
                         </h3>
-                        <p className="paragraph">mLoops allows access to Spotify's millions of songs and curated playlists. Users can create posts related to their music search using tags to categorize their posts. They can also provide comments on other posts created by other users. </p>
+                        <p className="paragraph">Django is my go to framework for a python based application. Although there is a lot to learn form Djangos huge fully-featured library its model-view-template architeture makes it designing applications pragmatic and internal admin interface automatic.</p>
 
                         <h3 className="heading-tertiary u-margin-small">
-                            Make music together in real-time with Instatone
+                            MEN Stack Apps with future MEAN stack development
                         </h3>
-                        <p className="paragraph">mLoops allows access to Spotify's millions of songs and curated playlists. Users can create posts related to their music search using tags to categorize their posts. They can also provide comments on other posts created by other users. </p>
+                        <p className="paragraph">MEN is known for using Mongoose, Express, and Node JS with no front-end framework. Its a good way to build an application without strict rules and guidelines to follow making it more flexible but a little harder to maintain organized. </p>
 
-                        <a href="https://github.com/codecallogic" className="btn-text" target="_blank">Learn More &rarr;  <i class="fab fa-github"></i></a>
+                        <a href="https://github.com/codecallogic" className="btn-text" target="_blank">Git Hub &rarr;  <i class="fab fa-github"></i></a>
 
                     </div>
                     <div className="col-1-of-2">
