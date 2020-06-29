@@ -14,7 +14,7 @@ class TestimonialForm extends Component {
            heading: '',
            content: '',
            file: '',
-           songUploadText: 'Upload Image', 
+           songUploadText: 'Portrait Image', 
            step: 0,
            message: ' Your testimonail was uploaded. Thank You!',
            percentage: 0,
@@ -123,7 +123,7 @@ class TestimonialForm extends Component {
                                 <div className="form-group">
                                     <input type="file" id="file-upload" name="file" onChange={this.handleFile} autoComplete="off" required/>
                                     <label htmlFor="file-upload" className="form-group-file"><i className="fas fa-upload"></i> {this.state.songUploadText.split('\\').slice(-1)[0].substring(0,15)}</label>
-                                    <small>Pleasa upload an image</small>
+                                    <small>Pleasa upload a portrait image</small>
                                 </div>
                                 <button className="btn btn--previous btn--animated" onClick={this.stepBack}>Go Back</button>
                                 <button className="btn btn--primary btn--animated">Submit</button>

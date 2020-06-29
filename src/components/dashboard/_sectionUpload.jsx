@@ -36,7 +36,7 @@ class Productions extends Component {
                     Authorization: `Bearer ${token}`
                 },
             })
-            console.log('SONG CREATE RESPONSE', response);
+            // console.log('SONG CREATE RESPONSE', response);
             this.setState({
                 name: '',
                 content: '',
@@ -47,7 +47,7 @@ class Productions extends Component {
                 songUploadText: 'Choose File',
             })
         } catch (error) {
-            console.log('SONG CREATE ERROR', error);
+            // console.log('SONG CREATE ERROR', error);
             this.setState({
                 error: error.response.data.error,
             })
