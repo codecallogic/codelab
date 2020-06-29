@@ -51,7 +51,7 @@ async function email(req, res){
     const auth = {
         auth: {
             api_key: process.env.MAILGUN_API_KEY,
-            domain: 'www.codecallogic.com'
+            domain: 'www.fabricioguardia.com'
         }
     }
 

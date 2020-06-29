@@ -15,15 +15,15 @@ class Homepage extends Component {
                         <h3 className="heading-tertiary u-margin-small">
                             Some of my favorite apps are built on a MERN stack framework
                         </h3>
-                        <p className="paragraph">MERN stacks means using Mongoose, Express, React JS, and Node JS programming languages to build an application. React JS is known for its compononent structure and its fast rendering performance, instagram is based entirely on React. Its one of my top programming languages to build websites, in fact this site is built entirely a MERN framework.</p>
+                        <p className="paragraph">MERN stacks means using Mongoose, Express, React JS, and Node JS programming languages to build an application. React JS is known for its compononent structure and its fast rendering performance, instagram is based entirely on React. Its one of my top programming languages to build websites, in fact this site is built entirely on a MERN framework.</p>
 
                         <h3 className="heading-tertiary u-margin-small">
                             Django Framework For Python
                         </h3>
-                        <p className="paragraph">Django is my go to framework for a python based application. Although there is a lot to learn form Djangos huge fully-featured library its model-view-template architeture makes it designing applications pragmatic and internal admin interface automatic.</p>
+                        <p className="paragraph">Django is my go to framework for a python based application. Djangos fully-featured library and its model-view-template architeture makes it designing applications pragmatic and efficient. Django's framework immense library makes the process with lots to discover.</p>
 
                         <h3 className="heading-tertiary u-margin-small">
-                            MEN Stack Apps with future MEAN stack development
+                            MEN Stack Apps Working Towards MEAN Stack
                         </h3>
                         <p className="paragraph">MEN is known for using Mongoose, Express, and Node JS with no front-end framework. Its a good way to build an application without strict rules and guidelines to follow making it more flexible but a little harder to maintain organized. </p>
 
