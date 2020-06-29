@@ -21,11 +21,11 @@ class Projects extends Component {
                                 </h4>
                                 <div className="card-details">
                                     <ul>
-                                        <li>afasdfasfds</li>
-                                        <li>afasdfasfds</li>
-                                        <li>afasdfasfds</li>
-                                        <li>afasdfasfds</li>
-                                        <li>afasdfasfds</li>
+                                        <li>Desktop Version Only</li>
+                                        <li>Uses Spotify API</li>
+                                        <li>Integrated Rich Text Editor</li>
+                                        <li>OAuth Security</li>
+                                        <li>Dashboard for Posts</li>
                                     </ul>
                                 </div>
                             </div>
@@ -33,7 +33,7 @@ class Projects extends Component {
                                 <div className="card-cta">
                                     <div className="card-details-box">
                                         <p className="card-details-title">Search</p>
-                                        <p className="card-details-sub-title">The Best Music on Spotify</p>
+                                        <p className="card-details-sub-title">Popular Music and Blog About Your Favorite Topics</p>
                                         <a href="#popup-mloops" className="btn btn--white">Details</a>
                                     </div>
                                 </div>
@@ -51,11 +51,11 @@ class Projects extends Component {
                                 </h4>
                                 <div className="card-details">
                                     <ul>
-                                        <li>afasdfasfds</li>
-                                        <li>afasdfasfds</li>
-                                        <li>afasdfasfds</li>
-                                        <li>afasdfasfds</li>
-                                        <li>afasdfasfds</li>
+                                        <li>Desktop Version Only</li>
+                                        <li>Uses Infermedica AI API</li>
+                                        <li>Implements Chart JS</li>
+                                        <li>Django and Python Framework</li>
+                                        <li>Tracking Functionality</li>
                                     </ul>
                                 </div>
                             </div>
@@ -76,16 +76,16 @@ class Projects extends Component {
                                 <div className="card-picture card-picture-3"></div>
                                 <h4 className="card-heading">
                                     <span className="card-heading-span card-heading-span-3">
-                                        Music In Real Time
+                                        Instatone
                                     </span>
                                 </h4>
                                 <div className="card-details">
                                     <ul>
-                                        <li>afasdfasfds</li>
-                                        <li>afasdfasfds</li>
-                                        <li>afasdfasfds</li>
-                                        <li>afasdfasfds</li>
-                                        <li>afasdfasfds</li>
+                                        <li>Desktop Version Only</li>
+                                        <li>React Piano Library</li>
+                                        <li>Socket.io Real Time Technology</li>
+                                        <li>Implements JWT's</li>
+                                        <li>Utilizes Tone.js for Music</li>
                                     </ul>
                                 </div>
                             </div>
@@ -101,8 +101,9 @@ class Projects extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="u-center-text u-margin-top-big">
-                    <a href="/#" className="btn-text u-margin-bottom-medium">See More</a>
+                <div className="u-center-text u-margin-top-big section-projects-links">
+                    {/* <a href="/#" className="btn-text u-margin-bottom-medium">See More</a> */}
+                    <a href="https://github.com/codecallogic" className="btn-text" target="_blank">Git Hub &rarr;  <i className="fab fa-github"></i></a>
                 </div>
             </section>
         )

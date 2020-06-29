@@ -25,6 +25,24 @@
         transform: skewX(0);
     }
 
+    &-link {
+        &:link,
+        &:visited {
+            color: #3374EC;
+            text-decoration: none;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: all .2s;
+        }
+
+        &:hover,
+        &:active {
+            color: $color-primary-light;
+            box-shadow: 0 1rem 2rem rgba($color-black, .4);
+            transform: rotate(5deg);
+        }
+    }
+
     &-shape {
         width: 15rem;
         height: 15rem;

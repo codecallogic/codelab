@@ -27,7 +27,7 @@ class Homepage extends Component {
                         </h3>
                         <p className="paragraph">MEN is known for using Mongoose, Express, and Node JS with no front-end framework. Its a good way to build an application without strict rules and guidelines to follow making it more flexible but a little harder to maintain organized. </p>
 
-                        <a href="https://github.com/codecallogic" className="btn-text" target="_blank">Git Hub &rarr;  <i class="fab fa-github"></i></a>
+                        <a href="https://github.com/codecallogic" className="btn-text" target="_blank">Git Hub &rarr;  <i className="fab fa-github"></i></a>
 
                     </div>
                     <div className="col-1-of-2">

@@ -110,6 +110,16 @@ body {
         }
     }
 
+    &-fourth {
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        font-weight: 500;
+
+        @include respond(tab-port){ 
+            font-size: 1rem;
+        }
+    }
+
     &-side {
         font-size: 3.5rem;
         text-transform: uppercase;

@@ -23,13 +23,17 @@
 
 .feature-box {
     background-color: rgba($color-white, .8);
-    height: 40rem;
+    height: 49rem;
     font-size: 1.5rem;
     padding: 2.5rem;
     text-align: center;
     border-radius: .3rem;
     box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
     transition: all .3s;
+
+    @include respond(tab-port){
+        height: 35rem;
+    }
 
     &-icon {
         font-size: 6rem;
