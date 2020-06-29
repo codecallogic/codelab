@@ -9,10 +9,10 @@ module.exports = {
 
 const localSpotifyCallback = 'http://localhost:3001/api/search/callback'
 const deployedSpotifyCallback = 'https://codecallogic.herokuapp.com/api/search/callback'
-const domainSpotifyCallback = 'https://www.codecallogic.com/api/search/callback'
+const domainSpotifyCallback = 'https://www.fabricioguardia.com/api/search/callback'
 const localhostHome = 'http://localhost:3000/'
 const herokuHome = 'https://codecallogic.herokuapp.com/'
-const domainHome = 'https://www.codecallogic.com/'
+const domainHome = 'https://www.fabricioguardia.com/'
 
 const generateRandomString = function(length) {
     var text = '';
