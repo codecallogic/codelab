@@ -51,7 +51,7 @@ async function email(req, res){
     const auth = {
         auth: {
             api_key: process.env.MAILGUN_API_KEY,
-            domain: 'www.fabricioguardia.com'
+            domain: 'www.codecallogic.com'
         }
     }
 
@@ -71,7 +71,7 @@ async function email(req, res){
     transporter.sendMail(mailOptions, async function(err, data){
         try {
             const email = await Email.create(req.body)
-            res.json({"success": true, "data": email})
+            res.json({"success": true, "data": data, "email": email})
         }catch(err){
             res.status(400).json(err)
         }

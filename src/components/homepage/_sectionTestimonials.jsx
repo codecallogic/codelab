@@ -69,7 +69,7 @@ class Testimonials extends Component {
                             </div>
                             <h1 className="header-tertiary u-center-text ">{t.name}</h1>
                             <h3 className="header-sub-title u-center-text">{t.title}{ t.company ? ' at ': null} {t.company}</h3>
-                            {t.website ? <a href={t.website} className="u-center-text block testimonial-link">Website</a> : null}
+                            {t.website ? <a href={t.website} target="_blank" className="u-center-text block testimonial-link">Website</a> : null}
                         </div>         
                     )}
                 </div>
