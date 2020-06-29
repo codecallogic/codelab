@@ -61,7 +61,7 @@ async function email(req, res){
         from: req.body.email,
         to: 'contact@fabricioguardia.com',
         subject: req.body.name + ' has a project for you',
-        template: 'testing',
+        template: 'homepage',
         'v:name': req.body.name,
         'v:content': req.body.content,
         'v:project': req.body.project,
