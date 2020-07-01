@@ -12,7 +12,7 @@ class Header extends Component {
             <div>
             <div className="header">
                 <div className="header__logo-box">
-                    <img src="https://i.imgur.com/atAeqzS.png" alt="Logo" className="header__logo"/>
+                    <img src="https://i.imgur.com/OZx2M1O.png" alt="Logo" className="header__logo"/>
                 </div>
                 <div className="header__text-box">
                     <h1 className="heading-primary">

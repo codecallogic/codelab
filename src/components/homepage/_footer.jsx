@@ -5,7 +5,7 @@ class Footer extends Component {
         return (
             <footer className="footer">
                 <div className="footer-logo-box">
-                    <img src="https://i.imgur.com/atAeqzS.png" alt="Footer Logo" className="footer-logo"/>
+                    <img src="https://i.imgur.com/OZx2M1O.png" alt="Footer Logo" className="footer-logo"/>
                 </div>
                 <div className="row">
                     <div className="col-1-of-2">
