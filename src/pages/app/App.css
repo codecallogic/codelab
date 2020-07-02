@@ -1414,6 +1414,7 @@ body {
 
 .book-form {
   width: 50%;
+  height: 55rem;
   padding: 6rem; }
   @media only screen and (max-width: 75em) {
     .book-form {

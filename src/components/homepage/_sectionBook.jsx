@@ -44,7 +44,7 @@ class Book extends Component {
                     name: '',
                     email: '',
                     content: '',
-                    step: 3,
+                    step: 2,
                     project: null,
                     message: 'Message was sent!',
                 })
@@ -121,7 +121,7 @@ class Book extends Component {
                                 {/* <span className="book-form-index">{this.state.step + 1} / 2</span> */}
                                 </div>
                                 }
-                                {this.state.step === 3 && this.state.message.length !== 0 &&
+                                {this.state.step === 2 && this.state.message.length !== 0 &&
                                     <div className="u-center-text u-padding-big-vert">
 
                                     <span className="book-form-message book-form-message-animated"><i className="fas fa-paper-plane"></i> {this.state.message}</span>
