@@ -31,7 +31,7 @@ class Experience extends Component {
                                 <h3 className="heading-fourth u-margin-bottom-small">
                                     April 2020
                                 </h3>
-                                <p>Won the hackaton with team of UX Designers and Developers to showcase our solution to a civic challenge. The case involved making app that contributes to civic engagement which essentially means promoting the quality of life in a community, through both political and non-political processes. This was entirely remote during the covid-19 crisis.</p>
+                                <p> Awarded the Best Scrum Team for Design and Implementation of a Concept App. Worked with a team of UX Designers and Developers to showcase our solution to a civic challenge. The case involved making an app that contributes to civic engagement. Worked in an environment that was entirely remote using applications such as Zoom, Slack, Trello, ect. for communication.</p>
                             </div>
                         </div>                    
                     </div>
@@ -48,9 +48,9 @@ class Experience extends Component {
                                     Fulltime - Software Engineering Immersive Program                                    
                                 </h3>
                                 <h3 className="heading-fourth u-margin-bottom-small">
-                                    Feb 2020 - April 2020
+                                    JAN 2020 - April 2020
                                 </h3>
-                                <p>Over a period three months I went through a rigorous course of software web development. It's giving me the foundational knowledge and confidence to build web apps and pursue ideas in a pragmatic approach that before I would only imagine. I learned the lastest technologies and practices required in tech industry.</p>
+                                <p>Engaged in a three month-long full-time coding bootcamp with over 10,000 lines of code uploaded on servers and stored on GIT. Strong workflow under pressure and a persistant work ethic to meet modern web application standards. Gained foundational knowledge and the confidence to build fast and current in demand applications that before I would only imagine. I learned the lastest technologies and practices required in the tech industry.</p>
                             </div>
                         </div>                    
                     </div>
@@ -67,10 +67,10 @@ class Experience extends Component {
                                     Fulltime - Startup All Clean 4 You
                                 </h3>
                                 <h3 className="heading-fourth">
-                                    Dec 2018 - November 2019
+                                    Dec 2018 - September 2019
                                 </h3>
                                 <a className="experience-link u-margin-bottom-small" href="https://housecleaning4you.com/" target="_blank">All Clean 4 You</a>
-                                <p>All Clean 4 You is company focused on digital solutions to home cleaning. Joined as a developer and creative problem solver, later on it sometimes involved taking care of aspects of the business, such as logo design, outsourcing, familiarizing with CMS systems like Wordpress. Integrated paypal and stripe payment gateways, and apointment booking system Cleanto. Played many cards at the time, the company had a heavy focus on PHP and MySQL.</p>                                
+                                <p>An eco-friendly company focused on creating healthier homes with a cleaning staff with 10+ of experience. Developed a custom web app, led front and backend integrations, and managed the design for customer engagement on the platform. Built the platform on a PHP and MySQL language. Familiar with CMS systems like WordPress. Integrated PayPal and stripe payment gateways, and appointment booking system Cleanto.</p>                                
                             </div>
                         </div>                    
                     </div>
