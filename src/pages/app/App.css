@@ -256,9 +256,9 @@ body {
 
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(200, 122, 115, 0.7), rgba(200, 122, 115, 0.9)), url(https://i.imgur.com/Oz7V4nb.jpg);
+  background-image: linear-gradient(to right bottom, rgba(200, 122, 115, 0.5), rgba(200, 122, 115, 0.7)), url(https://i.imgur.com/3r3WkJC.jpg);
   background-size: cover;
-  background-position: top;
+  background-position: 50% 50%;
   position: relative;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
