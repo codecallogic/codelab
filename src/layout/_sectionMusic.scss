@@ -163,7 +163,9 @@
     }
 
     &-login small {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
+        padding: 0 3rem;
+        cursor: pointer;
     }
 
     &-login button > .svg-inline--fa {

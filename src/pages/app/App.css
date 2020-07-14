@@ -509,7 +509,9 @@ body {
     color: #57B560;
     background: transparent; }
   .section-search-login small {
-    font-size: 1.5rem; }
+    font-size: 1.6rem;
+    padding: 0 3rem;
+    cursor: pointer; }
   .section-search-login button > .svg-inline--fa {
     background: transparent;
     border-radius: 15rem;

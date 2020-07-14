@@ -195,7 +195,7 @@ class Music extends Component {
                                 </h3>
                                 <div className="section-search-login">
                                     <button onClick={this.spotifyLogin}><i className="fab fa-spotify"></i></button>
-                                    <small>Search Tracks</small>
+                                    <small onClick={this.spotifyLogin}>Please Add a Song To My Playlist, I Will Listen To It</small>
                                 </div>
                             </div>      
                             }
