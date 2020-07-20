@@ -7,6 +7,7 @@ import DashboardPage from '../dashboard/dashboardpage'
 import Testimonials from '../testimonials/testimonials'
 import { Route, Switch} from 'react-router-dom'
 import userService from '../../utils/userService'
+import ReactGA from 'react-ga';
 
 class App extends Component {
   constructor() {
@@ -26,6 +27,10 @@ class App extends Component {
   }
 
   render() {
+
+    ReactGA.initialize('UA-173144004-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+    
     return (
       <div>
         <Switch>
