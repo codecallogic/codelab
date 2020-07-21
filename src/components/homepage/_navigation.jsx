@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import { Link } from 'react-scroll'
 import clientService from '../../utils/clientService';
+import ReactGA from 'react-ga';
 
 class Navigation extends Component {
 
@@ -41,12 +42,20 @@ class Navigation extends Component {
             })
         }
     }
+
+    pageView = () => {
+        ReactGA.event({
+            category: 'Menu',
+            action: 'Menu clicked',
+            label: 'Navigatioin'
+        })
+    }
     
     render () {
         return (
             <div className="navigation">
                 <input type="checkbox" id="navi-toggle" className="navigation-checkbox"/>
-                <label htmlFor="navi-toggle" className="navigation-button">
+                <label htmlFor="navi-toggle" className="navigation-button" onClick={this.pageView}>
                     <span className="navigation-icon"></span>
                 </label>
                 <div className="navigation-background"></div>

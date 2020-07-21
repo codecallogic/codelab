@@ -27,7 +27,10 @@ function addTestimonial(content){
         // console.log(res)
         if (res.ok) return res.json()
     })
-    .then( data => data)
+    .then( data => {
+        console.log(data)
+        return data
+    })
     .catch( err => {
         console.log(err)
     })

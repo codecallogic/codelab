@@ -82,7 +82,7 @@ class TestimonialForm extends Component {
                     <div className="col-1-of-2">
                         <div className="u-center-text section-testimonial-form-left">
                             <h2 className="heading-secondary-styled">
-                                Please Help My Work Reach Others With Your Help
+                                Interested in sharing a testimonial, please share your thoughs
                             </h2>
                         </div>
                     </div>
@@ -117,7 +117,7 @@ class TestimonialForm extends Component {
                                         <input type="text" id="heading" name="heading" placeholder="Heading" autoComplete="off" onChange={this.handleChange} value={this.state.heading} required/>
                                         <label htmlFor="heading">Heading</label>
                                     </div>    
-                                    <textarea type="text" name="content" placeholder="Testimonial" value={this.state.content} maxlength="250" onChange={this.handleChange} autoComplete="off" required/>
+                                    <textarea type="text" name="content" placeholder="Testimonial" value={this.state.content} maxLength="250" onChange={this.handleChange} autoComplete="off" required/>
                                     <label htmlFor="content">Testimonial</label>                                   
                                 </div>
                                 <div className="form-group">
