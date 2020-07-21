@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-scroll'
+import ReactGA from 'react-ga';
 
 class Header extends Component {
 
     preventDefault = (e) => {
         e.preventDefault()
+        ReactGA.event({
+            category: 'Landing Page',
+            action: 'Get Started',
+            label: 'Header'
+        })
     }
     
     render () {
