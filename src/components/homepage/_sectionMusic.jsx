@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import spotify from '../../utils/spotify';
 import aws from '../../utils/aws';
 import queryString from 'query-string'
+import ReactGA from 'react-ga';
 
 class Music extends Component {
     constructor() {
@@ -29,6 +30,11 @@ class Music extends Component {
         const locahostSearch = 'http://localhost:3001/api/search/login'
         const herokuSearch = 'https://codecallogic.herokuapp.com/api/search/login'
         const domainSearch = 'https://www.fabricioguardia.com/api/search/login'
+        ReactGA.event({
+            category: 'Landing Page',
+            action: 'Spotify Login',
+            label: 'Music'
+        })
         window.location=domainSearch
     }
     
