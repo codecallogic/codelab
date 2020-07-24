@@ -63,7 +63,7 @@ class Music extends Component {
             let trackID = tracks.map( t => 
                 t.track.id
             )
-            console.log(tracks)
+            // console.log(tracks)
             // console.log(trackID)
             this.setState({
                 recommendedTracks: trackID
