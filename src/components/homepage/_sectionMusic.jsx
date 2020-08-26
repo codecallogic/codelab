@@ -224,8 +224,8 @@ class Music extends Component {
                                                 <img src={t.album.images[0].url} alt=""/>
                                                 <span><small>{t.artists[0].name}</small>{t.name.substring(0,25)}</span>
                                                 {this.state.recommendedTracks !== null && this.state.recommendedTracks.indexOf(t.id) === -1 && 
-                                                    <div onClick={() => this.addToPlaylist(t.uri)}>
-                                                    &#43; h</div>
+                                                    <span onClick={() => this.addToPlaylist(t.uri)}>
+                                                    &#43; h</span>
                                                 }
                                             
                                                 {this.state.recommendedTracks !== null && this.state.recommendedTracks.indexOf(t.id) !== -1 && 
