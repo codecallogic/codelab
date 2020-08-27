@@ -225,7 +225,7 @@ class Music extends Component {
                                                 <span><small>{t.artists[0].name}</small>{t.name.substring(0,25)}</span>
                                                 {this.state.recommendedTracks !== null && this.state.recommendedTracks.indexOf(t.id) === -1 && 
                                                     <div onClick={() => this.addToPlaylist(t.uri)}>
-                                                    <i className="fas fa-plus"></i></div>
+                                                    <i className="fas fa-check"></i></div>
                                                 }
                                             
                                                 {this.state.recommendedTracks !== null && this.state.recommendedTracks.indexOf(t.id) !== -1 && 
